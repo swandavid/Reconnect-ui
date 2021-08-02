@@ -1,12 +1,12 @@
 import React from "react";
-import AnimationRevealPage from "helpers/AnimationRevealPage.js";
-import { Container as ContainerBase } from "components/misc/Layouts";
+import AnimationRevealPage from "../helpers/AnimationRevealPage.js";
+import { Container as ContainerBase } from "../components/misc/Layouts";
 import tw from "twin.macro";
 import styled from "styled-components";
-import illustration from "images/reconnect-logo.jpg";
-import logo from "images/reconnect-r-logo.jpg";
-import googleIconImageSrc from "images/google-icon.png";
-import twitterIconImageSrc from "images/twitter-icon.png";
+import illustration from "../images/reconnect-logo.jpg";
+import logo from "../images/reconnect-r-logo.jpg";
+import googleIconImageSrc from "../images/google-icon.png";
+import twitterIconImageSrc from "../images/twitter-icon.png";
 import { ReactComponent as LoginIcon } from "feather-icons/dist/icons/log-in.svg";
 
 const Container = tw(ContainerBase)`min-h-screen bg-green-800 text-white font-medium flex justify-center -m-8`;
