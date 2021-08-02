@@ -102,12 +102,12 @@ import Hero from 'pages/Hero.js';
 // import TermsOfServicePage from "pages/TermsOfService.js";
 // import PrivacyPolicyPage from "pages/PrivacyPolicy.js";
 
-import ComponentRenderer from "ComponentRenderer.js";
-import MainLandingPage from "MainLandingPage.js";
-import ThankYouPage from "ThankYouPage.js";
+//import ComponentRenderer from "ComponentRenderer.js";
+//import MainLandingPage from "MainLandingPage.js";
+//import ThankYouPage from "ThankYouPage.js";
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Login from "pages/Login.js";
+//import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+//import Login from "pages/Login.js";
 
 function App() {
   const [user, setUser] = useState('');

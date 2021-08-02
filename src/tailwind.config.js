@@ -263,7 +263,8 @@ module.exports = {
       DEFAULT: '1',
     },
     fontFamily: {
-      display: ['Inter', 'system-ui'],
+      display: ['Poppins', 'system-ui', 'sans-serif'],
+      body: ['Poppins', 'system-ui', 'sans-serif'],
       sans: [
         'system-ui',
         '-apple-system',
