@@ -15,13 +15,6 @@ function App() {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [hasAccount, setHasAccount] = useState(false);
-  const [companionName, setCompanionName] = useState('Joe');
-  const [hasName, setHasName] = useState(false);
-
-  // Game mechanics
-  const [currentXP, setCurrentXP] = useState(0);
-  const [levelXP, setLevelXP] = useState(1000);
-  const [currentLevel, setCurrentLevel] = useState(1);
 
   var providerGoogle = new firebase.auth.GoogleAuthProvider();
   var providerTwitter = new firebase.auth.TwitterAuthProvider();
@@ -146,41 +139,10 @@ function App() {
     authListener();
   }, [])
 
-  const handleCompanionNameChange = () => {
-    setCompanionName(companionName);
-  }
-
-  // Game mechanics
-  const increaseXP = () => {
-    if (currentLevel<10){
-      setCurrentXP(currentXP+200);
-      // Check for level up
-      if(currentXP>=levelXP){
-        // Increase level
-        setCurrentLevel(currentLevel+1);
-        // Check for XP overflow
-        setCurrentXP(currentXP-levelXP);
-        // Set next levelXP
-        setLevelXP(levelXP+1000);
-      }
-    }
-  }
-
   return (
     <div className="App">
       {user ? (
-        <Hero 
-          handleLogout={handleLogout}
-          setCompanionName={setCompanionName}
-          companionName={companionName}
-          hasName={hasName}
-          setHasName={setHasName}
-          handleCompanionNameChange={handleCompanionNameChange}
-          increaseXP={increaseXP}
-          currentXP={currentXP}
-          currentLevel={currentLevel}
-          levelXP={levelXP}
-        />
+        <Hero handleLogout={handleLogout}/>
       ) : (
         <LoginPage
           email={email}
