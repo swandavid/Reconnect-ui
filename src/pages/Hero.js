@@ -75,11 +75,9 @@ const Hero = (props) => {
     const {
         handleLogout, 
         companionName,
-        handleCompanionNameChange,
         setCompanionName,
         hasName,
         setHasName,
-        increaseXP,
         currentXP,
         currentLevel,
         levelXP,
@@ -88,12 +86,11 @@ const Hero = (props) => {
         hasRating,
         setHasRating,
         handleIncreaseXP,
+        chatbot,
     } = props;
 
-    let widthPercentage = 6/12;
-
     return(
-        <MainContainer>
+        <MainContainer onLoad={chatbot}>
             <TopContainer>
                 <LogoContainer>
                     <TopLogo src={rLogo}></TopLogo>

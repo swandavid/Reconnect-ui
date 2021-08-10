@@ -20,6 +20,9 @@ function App() {
   const [hasRating, setHasRating] = useState(true);
   const [rating, setRating] = useState(0);
 
+  // Added from Reconnect
+  const http = require("https");
+
   // Game mechanics
   const [currentXP, setCurrentXP] = useState(0);
   const [levelXP, setLevelXP] = useState(500);
@@ -27,6 +30,71 @@ function App() {
 
   var providerGoogle = new firebase.auth.GoogleAuthProvider();
   var providerTwitter = new firebase.auth.TwitterAuthProvider();
+
+  const chatbot = () => {
+    let responses = [];
+    console.log("in chatbot");
+    window.watsonAssistantChatOptions = {
+      integrationID: "0bca7870-6bd7-4d80-8a56-6635dcf3b431", // The ID of this integration.
+      region: "us-south", // The region your integration is hosted in.
+      serviceInstanceID: "ca70ca9a-7e6e-40bd-a663-c3bed2f8d8db", // The ID of your service instance.
+      onLoad: function(instance) { 
+          function handler(event) {
+          let response = event.data.history.label;
+          console.log(event.data); // You can also manipulate context here.
+          if(event.data.history.hasOwnProperty("label")){  
+            console.log(`ADDED: ${response}`); // You can also manipulate context here.
+            responses.push(response);
+          }
+          if(response === "Yes" || response === "No"){
+            console.log(`all responses: ${responses}`);
+          }
+        }function handlerReceive(event) {
+          if(event.data.output.generic[0].text==="Alright here's some ideas!"){
+            console.log("here are your ideas lol");
+            connectDB2();
+            }
+        }
+      instance.on({ type: "receive", handler: handlerReceive });
+      instance.on({ type: "pre:send", handler: handler });
+      instance.render(); }
+    };
+    setTimeout(function(){
+      const t=document.createElement('script');
+      t.src="https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
+      document.head.appendChild(t);
+    });
+  };
+  
+  function connectDB2(){
+    let options = {
+      "method": "POST",
+      "hostname": "bpe61bfd0365e9u4psdglite.db2.cloud.ibm.com",
+      "port": null,
+      "path": "/dbapi/v4/auth/token",
+      "headers": {
+          "content-type": "application/json",
+          "x-deployment-id": "crn:v1:bluemix:public:dashdb-for-transactions:us-south:a/4df53a8e9e324c78916a8dc776accad3:90465ff2-ef4f-4e7f-a9ac-29a931cb761e::"
+      }};
+
+    let req = http.request(options, function (res) {
+        let chunks = [];
+        console.log("hi");
+        res.on("data", function (chunk) {
+            chunks.push(chunk);
+        });
+
+      res.on("end", function () {
+          let body = Buffer.concat(chunks);
+          let dbToken = JSON.parse(body).token;
+          console.log(body.toString());
+      });
+    });
+
+    req.write(JSON.stringify({ userid: 'gdk29717', password: '3FmH6NLemN561Utr'}));
+    //req.write(JSON.stringify({ command: 'select' }));
+    req.end(); 
+  };
 
   const clearInputs = () => {
     setEmail('');
@@ -148,14 +216,7 @@ function App() {
     authListener();
   }, [])
 
-  const handleCompanionNameChange = () => {
-    setCompanionName(companionName);
-  }
-
   // Game mechanics
-  const increaseXP = () => {
-  }
-
   const handleIncreaseXP = () => {
     // Need to improve for it to just be yes, but it works so far
     console.log('checking for answer');
@@ -186,8 +247,6 @@ function App() {
           companionName={companionName}
           hasName={hasName}
           setHasName={setHasName}
-          handleCompanionNameChange={handleCompanionNameChange}
-          increaseXP={increaseXP}
           currentXP={currentXP}
           currentLevel={currentLevel}
           levelXP={levelXP}
@@ -196,6 +255,9 @@ function App() {
           rating={rating}
           setRating={setRating}
           handleIncreaseXP={handleIncreaseXP}
+
+          // Chat bot
+          chatbot={chatbot}
         />
       ) : (
         <LoginPage
