@@ -17,8 +17,8 @@ module.exports = {
       white: '#fff',
 
       primary: {
-        100: '#a273ff',
-        200: '#935bff',
+        100: '#AAD5D1',
+        200: '#a1d1cc',
         300: '#8344ff',
         400: '#742cff',
         500: '#6415FF',
@@ -233,6 +233,13 @@ module.exports = {
       raised: '0 20px 50px rgba(0,0,0, 0.075)',
       none: 'none',
     },
+    customForms: theme => ({
+      default: {
+        radio: {
+          icon: '<svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>',
+        },
+      },
+    }),
     container: {},
     cursor: {
       auto: 'auto',
@@ -698,7 +705,7 @@ module.exports = {
     boxSizing: ['responsive'],
     cursor: ['responsive'],
     display: ['responsive'],
-    fill: ['responsive'],
+    fill: ['responsive', 'hover', 'focus'],
     flex: ['responsive'],
     flexDirection: ['responsive'],
     flexGrow: ['responsive'],
@@ -719,7 +726,7 @@ module.exports = {
     listStylePosition: ['responsive'],
     listStyleType: ['responsive'],
     margin: ['responsive'],
-    maxHeight: ['responsive'],
+    maxHeight: ['responsive', 'focus'],
     maxWidth: ['responsive'],
     minHeight: ['responsive'],
     minWidth: ['responsive'],
@@ -734,7 +741,8 @@ module.exports = {
     pointerEvents: ['responsive'],
     position: ['responsive'],
     resize: ['responsive'],
-    stroke: ['responsive'],
+    ringWidth: ['hover', 'focus'],
+    stroke: ['responsive', 'hover', 'focus'],
     strokeWidth: ['responsive'],
     tableLayout: ['responsive'],
     textAlign: ['responsive'],
@@ -769,5 +777,7 @@ module.exports = {
     transitionDuration: ['responsive'],
   },
   corePlugins: {},
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/custom-forms'),
+  ],
 }

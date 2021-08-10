@@ -15,12 +15,14 @@ function App() {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [hasAccount, setHasAccount] = useState(false);
-  const [companionName, setCompanionName] = useState('Joe');
+  const [companionName, setCompanionName] = useState('Edit Name');
   const [hasName, setHasName] = useState(false);
+  const [hasRating, setHasRating] = useState(true);
+  const [rating, setRating] = useState(0);
 
   // Game mechanics
   const [currentXP, setCurrentXP] = useState(0);
-  const [levelXP, setLevelXP] = useState(1000);
+  const [levelXP, setLevelXP] = useState(500);
   const [currentLevel, setCurrentLevel] = useState(1);
 
   var providerGoogle = new firebase.auth.GoogleAuthProvider();
@@ -152,18 +154,27 @@ function App() {
 
   // Game mechanics
   const increaseXP = () => {
-    if (currentLevel<10){
-      setCurrentXP(currentXP+200);
-      // Check for level up
-      if(currentXP>=levelXP){
-        // Increase level
-        setCurrentLevel(currentLevel+1);
-        // Check for XP overflow
-        setCurrentXP(currentXP-levelXP);
-        // Set next levelXP
-        setLevelXP(levelXP+1000);
-      }
+  }
+
+  const handleIncreaseXP = () => {
+    // Need to improve for it to just be yes, but it works so far
+    console.log('checking for answer');
+    var answer = document.getElementsByName('answerType').value;
+    console.log(answer);
+      console.log('answer was yes');
+      if (currentLevel<10){
+        setCurrentXP(currentXP+100);
+        // Check for level up
+        if(currentXP>=levelXP){
+          // Increase level
+          setCurrentLevel(currentLevel+1);
+          // Check for XP overflow
+          setCurrentXP(currentXP-levelXP);
+          // Set next levelXP
+          setLevelXP(levelXP+(500*(currentLevel+1)));
+        }
     }
+    setHasRating(!hasRating);
   }
 
   return (
@@ -180,6 +191,11 @@ function App() {
           currentXP={currentXP}
           currentLevel={currentLevel}
           levelXP={levelXP}
+          hasRating={hasRating}
+          setHasRating={setHasRating}
+          rating={rating}
+          setRating={setRating}
+          handleIncreaseXP={handleIncreaseXP}
         />
       ) : (
         <LoginPage
