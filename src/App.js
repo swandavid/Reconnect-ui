@@ -48,14 +48,14 @@ function App() {
           }
           if(response === "Yes" || response === "No"){
             console.log(`all responses: ${responses}`);
+            setRating(0);
+            setHasRating(true);
           }
         }function handlerReceive(event) {
           if(event.data.output.generic[0].text==="Alright here's some ideas!"){
             console.log("here are your ideas lol");
             connectDB2();
             }
-            setRating(0);
-            setHasRating(true);
         }
       instance.on({ type: "receive", handler: handlerReceive });
       instance.on({ type: "pre:send", handler: handler });
