@@ -84,7 +84,6 @@ const Hero = (props) => {
         rating,
         setRating,
         hasRating,
-        setHasRating,
         handleIncreaseXP,
         chatbot,
     } = props;
@@ -125,11 +124,11 @@ const Hero = (props) => {
                         <QuestionText>Did you finish the activity?</QuestionText>
                         <div tw="m-4">
                         <label tw="inline-flex items-center">
-                            <input type="radio" tw="text-green-500" name="answerType" value="yes" id="1"/>
+                            <input type="radio" tw="text-green-500" name="answerType" value="yes" required/>
                             <span tw="ml-2 font-display font-semibold text-green-600 text-lg">Yes!!</span>
                         </label>
                         <label tw="inline-flex items-center ml-6">
-                            <input type="radio" tw="text-green-500" name="answerType" value="no"/>
+                            <input type="radio" tw="text-green-500" name="answerType" value="no" required/>
                             <span tw="ml-2 font-display font-semibold text-green-600 text-lg">Not Today :(</span>
                         </label>
                         </div>

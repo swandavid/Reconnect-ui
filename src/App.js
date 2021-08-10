@@ -17,7 +17,7 @@ function App() {
   const [hasAccount, setHasAccount] = useState(false);
   const [companionName, setCompanionName] = useState('Edit Name');
   const [hasName, setHasName] = useState(false);
-  const [hasRating, setHasRating] = useState(true);
+  const [hasRating, setHasRating] = useState(false);
   const [rating, setRating] = useState(0);
 
   // Added from Reconnect
@@ -54,6 +54,8 @@ function App() {
             console.log("here are your ideas lol");
             connectDB2();
             }
+            setRating(0);
+            setHasRating(true);
         }
       instance.on({ type: "receive", handler: handlerReceive });
       instance.on({ type: "pre:send", handler: handler });
@@ -251,7 +253,6 @@ function App() {
           currentLevel={currentLevel}
           levelXP={levelXP}
           hasRating={hasRating}
-          setHasRating={setHasRating}
           rating={rating}
           setRating={setRating}
           handleIncreaseXP={handleIncreaseXP}
