@@ -8,6 +8,7 @@ import firebase from "firebase/app";
 import LoginPage from "./pages/Login.js";
 import Hero from './pages/Hero.js';
 import Landing from './pages/Landing.js';
+import Team from './pages/Team.js';
 
 function App() {
   const [user, setUser] = useState('');
@@ -243,7 +244,7 @@ function App() {
 
   return (
     <div className="App">
-      <Landing/>
+      <Team/>
       {/*
       {user ? (
         <Hero 
