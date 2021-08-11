@@ -3,6 +3,17 @@ import tw from "twin.macro";
 
 import { ReactComponent as ReconnectLpRight } from '../images/reconnect-lp-right.svg'; //ImportingSVG
 
+/*
+Links:
+illustrations link: https://themeisle.com/illustrations/
+headless ui components: https://headlessui.dev/react/dialog
+hero patterns: https://www.heropatterns.com/
+team page idea (grid w/ large round images): https://tailwindui.com/components/marketing/sections/team-sections
+
+TODO: 
+    -> Get the svg of the leaf pattern to cover the background
+*/
+
 const Landing = (props) => {
 
     const {
