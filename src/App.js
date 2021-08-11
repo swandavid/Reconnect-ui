@@ -7,6 +7,7 @@ import firebase from "firebase/app";
 /* Inner Pages */
 import LoginPage from "./pages/Login.js";
 import Hero from './pages/Hero.js';
+import Landing from './pages/Landing.js';
 
 function App() {
   const [user, setUser] = useState('');
@@ -242,6 +243,8 @@ function App() {
 
   return (
     <div className="App">
+      <Landing/>
+      {/*
       {user ? (
         <Hero 
           handleLogout={handleLogout}
@@ -276,6 +279,7 @@ function App() {
           passwordError={passwordError}
         />
       )}
+      */}
     </div>
   );
 }

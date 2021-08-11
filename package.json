@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@headlessui/react": "^1.4.0",
     "@heroicons/react": "^1.0.3",
     "@owaiswiz/use-in-view": "^1.0.16",
     "@testing-library/jest-dom": "^5.11.10",

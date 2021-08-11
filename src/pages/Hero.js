@@ -1,17 +1,17 @@
 import React from 'react';
 import tw from "twin.macro";
 import styled from "styled-components";
-import cartoonGoat from '../images/cartoon-goat.svg';
 import rLogo from "../images/reconnect-r-logo.jpg";
 import { LocationMarkerIcon, EmojiHappyIcon, EmojiSadIcon, UserCircleIcon, PencilAltIcon, CheckCircleIcon, StarIcon } from '@heroicons/react/outline'
-import rLogoSVG from "../images/reconnect-r-logo.svg";
+import { ReactComponent as ReconnectLpRight } from '../images/reconnect-lp-right.svg'; //ImportingSVG
 
 // Need a container for the whole screen
-const MainContainer = tw.div`select-none min-h-screen bg-gradient-to-b from-green-200 to-green-800 flex flex-col`;
+const MainContainer = tw.div`select-none min-h-screen bg-white flex flex-col justify-items-center items-center`;
 
+const Content = tw.div`bg-gradient-to-b from-green-200 to-green-800 w-6/12 mt-10 rounded-xl`;
 // Need a container for the entire top bar
 const TopContainer = tw.div`mt-5 grid grid-cols-3 justify-items-center`;
-const LogoContainer = tw.div`flex items-start justify-self-start pl-5`;
+const LogoContainer = tw.div`flex items-start justify-self-start rounded-lg overflow-hidden`;
 const TopLogo = tw.img`w-20 h-20`;
 const TaskContainer = tw.div`flex flex-row items-center`;
 const LocationContainer = tw.div``;
@@ -117,6 +117,7 @@ const Hero = (props) => {
                     </LogoutContainer>
                 </LogoutAndProfile>
             </TopContainer>
+            <Content>
             <MiddleContainer>
                 <div tw="grid grid-cols-3 justify-items-center">
                     {hasRating ? 
@@ -196,7 +197,7 @@ const Hero = (props) => {
                         <SubmitRatingButton onClick={handleIncreaseXP}>Submit Rating</SubmitRatingButton>
                     </ActivityContainer>
                     : null}
-                    <Companion src={cartoonGoat}></Companion>
+                    <ReconnectLpRight/>
                 </div>
                 <div tw="grid justify-items-center">
                 <NameContainer>
@@ -227,6 +228,7 @@ const Hero = (props) => {
                 </HealthBarContainer>
                 </div>
             </MiddleContainer>
+            </Content>
             <WelcomeContainer>
                 <WelcomeText>Welcome Back!</WelcomeText>
             </WelcomeContainer>

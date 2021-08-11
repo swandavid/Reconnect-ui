@@ -136,7 +136,7 @@ const Login = (props) => {
                           </a>
                         </p>
                         <p tw="mt-8 text-sm text-gray-600 text-center select-none">
-                          Dont have an account?{" "}
+                          Dont have an account ?
                           <a onClick={() => setHasAccount(!hasAccount)} tw="select-none border-b border-gray-500 border-dotted cursor-pointer">
                             Sign Up
                           </a>
