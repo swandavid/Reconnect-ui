@@ -33,7 +33,11 @@ const Landing = (props) => {
             <div tw="flex flex-row lg:w-1/2 xl:w-5/12 my-10 rounded-lg overflow-hidden">
                <div tw="xl:w-1/2 lg:w-1/2 sm:w-full flex flex-col items-center">
                     <h2 tw="font-bold text-5xl lg:text-3xl xl:text-4xl mt-20 text-green-800 font-display">Description</h2>
-                    <p tw="mx-20 my-10">Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah</p>
+                    <p tw="mx-20 my-10">Our app leverages AI, machine learning, and screen time data to interject a counterbalance 
+                        between users and their phones in the form of a virtual companion. Virtual companions invite users to participate in 
+                        fulfilling real-world activities to foster a healthy life-tech balance. Nobody should snap back to reality alone; 
+                        that’s where our technology comes in and other screen time apps fall short.
+                    </p>
                     <div tw="select-none flex flex-row">
                     <button tw="m-2 bg-transparent font-bold text-black hover:bg-gray-600 hover:bg-opacity-25 py-2 px-4 rounded-xl">Team</button>
                     <button tw="m-2 bg-transparent font-bold text-black hover:bg-gray-600 hover:bg-opacity-25 py-2 px-4 rounded-xl">About</button>

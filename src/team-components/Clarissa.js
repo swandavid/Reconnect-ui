@@ -12,7 +12,7 @@ const Clarissa = () => {
                     <img src={ClarissaPunImg} tw=""/>
                 </div>
                 <h1 tw="font-display font-semibold text-lg">Clarissa Pun</h1>
-                <h1 tw="font-display font-semibold text-lg text-green-600">Front End Dev</h1>
+                <h1 tw="font-display font-semibold text-lg text-green-600">Frontend Developer</h1>
                 <div tw="my-2 flex flex-row">
                     <a tw="w-6 h-6 mx-2" href={"https://www.linkedin.com/in/clarissapun/"} target="_blank">
                         <Linkedin tw="fill-current text-blue-500"/>

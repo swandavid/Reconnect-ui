@@ -34,7 +34,7 @@ const Team = (props) => {
             </div>
             <div tw="flex flex-col justify-items-center items-center w-11/12 mt-8">
                 <h1 tw="font-display font-black text-4xl">Meet our team</h1>
-                <h2>Short description will go here</h2>
+                <h2 tw="font-display text-base italic text-green-600">"Building a healthy relationship with technology"</h2>
                 <Elyse/>
                 <div tw="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 my-10 w-full overflow-hidden">
                     <Bailey/>

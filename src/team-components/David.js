@@ -12,7 +12,7 @@ const David = () => {
                     <img src={DavidSwanImg} tw=""/>
                 </div>
                 <h1 tw="font-display font-semibold text-lg">David Swan</h1>
-                <h1 tw="font-display font-semibold text-lg text-green-600">Front End Tech Lead</h1>
+                <h1 tw="font-display font-semibold text-lg text-green-600">Frontend Tech Lead</h1>
                 <div tw="my-2 flex flex-row">
                     <a tw="w-6 h-6 mx-2" href={"https://www.linkedin.com/in/davidswan-/"} target="_blank">
                         <Linkedin tw="fill-current text-blue-500"/>
