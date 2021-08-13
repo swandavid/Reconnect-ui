@@ -17,7 +17,7 @@ const Cayla = () => {
                     <a tw="w-6 h-6 mx-2" href={"https://www.linkedin.com/in/cayla-pun-992b3275/"} target="_blank">
                         <Linkedin tw="fill-current text-blue-500"/>
                     </a>
-                    <a tw="w-6 h-6 mx-2" href={"mailto:"}>
+                    <a tw="w-6 h-6 mx-2" href={"mailto:caylapun@gmail.com"}>
                         <MailIcon tw="stroke-current text-black"/>
                     </a>
                 </div>

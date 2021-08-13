@@ -243,7 +243,9 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div>
+      <Landing/>
+      {/*
       {user ? (
         <Hero 
           handleLogout={handleLogout}
@@ -278,6 +280,7 @@ function App() {
           passwordError={passwordError}
         />
       )}
+      */}
     </div>
   );
 }

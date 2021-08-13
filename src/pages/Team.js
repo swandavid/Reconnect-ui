@@ -39,13 +39,13 @@ const Team = (props) => {
                 <div tw="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 my-10 w-full overflow-hidden">
                     <Bailey/>
                     <Cayla/>
-                    <Clarissa/>
+                    <Shruti/>
                     <David/>
+                    <Clarissa/>
+                    <Taylor/>
                     <Julia/>
                     <Rachel/>
-                    <Shruti/>
                     <Tammy/>
-                    <Taylor/>
                 </div>
             </div>
         </div>
