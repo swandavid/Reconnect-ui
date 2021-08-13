@@ -2,8 +2,8 @@ import React from 'react';
 import tw from "twin.macro";
 import styled from "styled-components";
 import rLogo from "../images/reconnect-r-logo.jpg";
-import { LocationMarkerIcon, EmojiHappyIcon, EmojiSadIcon, UserCircleIcon, PencilAltIcon, CheckCircleIcon, StarIcon } from '@heroicons/react/outline'
-
+import { LocationMarkerIcon, EmojiHappyIcon, EmojiSadIcon, UserCircleIcon, PencilAltIcon, CheckCircleIcon, StarIcon, ClipboardCheckIcon, ClipboardListIcon, LogoutIcon } from '@heroicons/react/outline'
+import { ReactComponent as Leaf } from "../images/leaf-logo.svg";
 // Need a container for the whole screen
 const MainContainer = tw.div`select-none min-h-screen bg-white flex flex-col justify-items-center items-center`;
 
@@ -11,7 +11,7 @@ const Content = tw.div`bg-gray-200 w-full mt-10 grid grid-cols-3 justify-items-c
 // Need a container for the entire top bar
 const TopContainer = tw.div`w-full mt-5 grid grid-cols-3 justify-items-center bg-gray-200`;
 const LogoContainer = tw.div`col-start-1`;
-const TopLogo = tw.img`w-20 h-20`;
+const TopLogo = tw.img``;
 const LocationContainer = tw.div`flex items-center`;
 const Location = tw.text`font-display font-semibold text-base pl-2 col-start-2`;
 
@@ -87,9 +87,7 @@ const Hero = (props) => {
     return(
         <MainContainer onLoad={chatbot}>
             <TopContainer>
-                <LogoContainer>
-                    <TopLogo src={rLogo}></TopLogo>
-                </LogoContainer>
+                <h1 tw="font-display font-bold text-2xl sm:text-2xl md:text-3xl text-green-800">Reconnect</h1>
                 <LocationContainer>
                     <LocationMarkerIcon tw="h-6 w-6 text-red-600"></LocationMarkerIcon>
                     <Location>State College, PA</Location>
@@ -99,19 +97,31 @@ const Hero = (props) => {
                 <WelcomeText>Welcome Back!</WelcomeText>
             </WelcomeContainer>
             <Content>
-                <div className="nav-list" tw="">
-                    <LogoutAndProfile>
-                        <div tw="h-full w-full flex flex-row">
-                            <UserCircleIcon tw=""/>
-                            Profile
+                <div className="nav-list" tw="grid justify-items-center w-full bg-green-100 my-10">
+                    <div tw="bg-white w-1/3">
+                        <button tw="hover:border-l-4 hover:border-green-400 hover:bg-gray-300 flex flex-row items-center w-full h-2/12">
+                            <ClipboardListIcon tw="w-6 ml-4"/>
+                            <h1 tw="font-display font-semibold ml-2 text-lg">Get Activity</h1>
+                        </button>
+                        <button tw="hover:border-l-4 hover:border-green-400 hover:bg-gray-300 flex flex-row items-center w-full h-2/12">
+                            <ClipboardCheckIcon tw="w-6 ml-4"/>
+                            <h1 tw="font-display font-semibold ml-2 text-lg">Activity Log</h1>
+                        </button>
+                        <button tw="hover:border-l-4 hover:border-green-400 hover:bg-gray-300 flex flex-row items-center w-full h-2/12">
+                            <UserCircleIcon tw="w-6 ml-4"/>
+                            <h1 tw="font-display font-semibold ml-2 text-lg">Profile</h1>
+                        </button>
+                        <button tw="hover:border-l-4 hover:border-green-400 hover:bg-gray-300 flex flex-row items-center w-full h-2/12" onClick={handleLogout}>
+                            <LogoutIcon tw="w-6 ml-4"/>
+                            <h1 tw="font-display font-semibold ml-2 text-lg">Logout</h1>
+                        </button>
+                        <div tw="grid place-items-center h-4/12">
+                        <Leaf tw=""/>
                         </div>
-                        <LogoutContainer>
-                            <Logout onClick={handleLogout}>Logout</Logout>
-                        </LogoutContainer>
-                    </LogoutAndProfile>
+                    </div>
                 </div>
                 <MiddleContainer>
-                    <div tw="h-144 w-full bg-green-600 rounded-lg grid justify-items-center items-center">
+                    <div tw="h-144 w-full bg-gradient-to-br from-blue-200 via-green-200 to-green-600 rounded-lg grid justify-items-center items-center">
                         <div tw="h-128 w-1/2 bg-gray-400 rounded-lg flex flex-col justify-items-center">
                             <div tw="w-full border-b border-gray-600 h-1/12 bg-white grid items-center">
                                 <h1 tw="font-display font-semibold pl-4">Watson Assistant</h1>

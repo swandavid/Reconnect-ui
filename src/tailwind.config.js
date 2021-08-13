@@ -272,6 +272,7 @@ module.exports = {
     fontFamily: {
       display: ['Poppins', 'system-ui', 'sans-serif'],
       body: ['Poppins', 'system-ui', 'sans-serif'],
+      yeseva: ['Yeseva One', 'cursive'],
       sans: [
         'system-ui',
         '-apple-system',
