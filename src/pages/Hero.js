@@ -4,10 +4,12 @@ import styled from "styled-components";
 import rLogo from "../images/reconnect-r-logo.jpg";
 import { LocationMarkerIcon, EmojiHappyIcon, EmojiSadIcon, UserCircleIcon, PencilAltIcon, CheckCircleIcon, StarIcon, ClipboardCheckIcon, ClipboardListIcon, LogoutIcon } from '@heroicons/react/outline'
 import { ReactComponent as Leaf } from "../images/leaf-logo.svg";
+import monkeyPNG from "../images/monkey-cartoon.png";
+
 // Need a container for the whole screen
 const MainContainer = tw.div`select-none min-h-screen bg-white flex flex-col justify-items-center items-center`;
 
-const Content = tw.div`bg-gray-200 w-full mt-10 grid grid-cols-3 justify-items-center`;
+const Content = tw.div`bg-white w-full mt-10 grid grid-cols-3 justify-items-center`;
 // Need a container for the entire top bar
 const TopContainer = tw.div`w-full mt-5 grid grid-cols-3 justify-items-center bg-gray-200`;
 const LogoContainer = tw.div`col-start-1`;
@@ -19,7 +21,7 @@ const Location = tw.text`font-display font-semibold text-base pl-2 col-start-2`;
 const LevelContainer = tw.div`flex flex-row place-items-center`;
 const LevelLabel = tw.text`flex-none font-display font-semibold text-lg pr-3`;
 const XPProgress = tw.text`tracking-wide text-sm font-display font-semibold text-white select-none`;
-const XPBar = tw.div`bg-gray-200 border-black border rounded-xl w-72 justify-items-center overflow-hidden`;
+const XPBar = tw.div`bg-gray-200 border-black border rounded-xl w-3/4 justify-items-center overflow-hidden`;
 const XPBarInside = tw.div`bg-green-600 rounded-l-xl grid justify-items-center`;
 
 // Logout
@@ -49,11 +51,10 @@ const SubmitButton = styled.button`
 
 const SubmitContainer = tw.div`pl-4`;
 const EditContainer = tw.div`pl-4`;
-const NameContainer = tw.div`flex flex-row items-center`;
-const CompanionInput = tw.input`flex-none w-full px-8 py-4 rounded-lg font-medium bg-transparent border-2 border-blue-300 placeholder-white text-base focus:outline-none focus:border-blue-600 focus:bg-transparent mt-5 first:mt-0`;
-const CompanionName = tw.label`font-display font-semibold text-base placeholder-black`;
-const HealthBarContainer = tw.div`flex place-items-center`;
-const ProgressBar = tw.div`flex-grow bg-gradient-to-l from-green-600 to-red-600 border-black border-2 rounded-xl w-64 h-6`;
+const NameContainer = tw.div`flex flex-row h-10 w-1/2 my-5`;
+const CompanionInput = tw.input`w-full h-full px-8 py-4 rounded-lg font-medium bg-transparent border-2 border-blue-300 placeholder-white text-base focus:outline-none focus:border-blue-600`;
+const CompanionName = tw.label``;
+const ProgressBar = tw.div`flex-grow bg-gradient-to-l from-green-600 to-red-600 border-black border h-6 rounded-xl`;
 
 // Did you finish the activity component
 const ActivityContainer = tw.div`col-start-1 grid w-8/12 self-center bg-white rounded-lg justify-items-center`;
@@ -97,21 +98,21 @@ const Hero = (props) => {
                 <WelcomeText>Welcome Back!</WelcomeText>
             </WelcomeContainer>
             <Content>
-                <div className="nav-list" tw="grid justify-items-center w-full bg-green-100 my-10">
-                    <div tw="bg-white w-1/3">
-                        <button tw="hover:border-l-4 hover:border-green-400 hover:bg-gray-300 flex flex-row items-center w-full h-2/12">
+                <div className="nav-list" tw="grid justify-items-start w-full bg-white my-10">
+                    <div tw="bg-green-100 w-1/3">
+                        <button tw="hover:border-r-4 hover:border-green-400 hover:bg-green-200 flex flex-row items-center w-full h-2/12">
                             <ClipboardListIcon tw="w-6 ml-4"/>
                             <h1 tw="font-display font-semibold ml-2 text-lg">Get Activity</h1>
                         </button>
-                        <button tw="hover:border-l-4 hover:border-green-400 hover:bg-gray-300 flex flex-row items-center w-full h-2/12">
+                        <button tw="hover:border-r-4 hover:border-green-400 hover:bg-green-200 flex flex-row items-center w-full h-2/12">
                             <ClipboardCheckIcon tw="w-6 ml-4"/>
                             <h1 tw="font-display font-semibold ml-2 text-lg">Activity Log</h1>
                         </button>
-                        <button tw="hover:border-l-4 hover:border-green-400 hover:bg-gray-300 flex flex-row items-center w-full h-2/12">
+                        <button tw="hover:border-r-4 hover:border-green-400 hover:bg-green-200 flex flex-row items-center w-full h-2/12">
                             <UserCircleIcon tw="w-6 ml-4"/>
                             <h1 tw="font-display font-semibold ml-2 text-lg">Profile</h1>
                         </button>
-                        <button tw="hover:border-l-4 hover:border-green-400 hover:bg-gray-300 flex flex-row items-center w-full h-2/12" onClick={handleLogout}>
+                        <button tw="hover:border-r-4 hover:border-green-400 hover:bg-green-200 flex flex-row items-center w-full h-2/12" onClick={handleLogout}>
                             <LogoutIcon tw="w-6 ml-4"/>
                             <h1 tw="font-display font-semibold ml-2 text-lg">Logout</h1>
                         </button>
@@ -212,42 +213,47 @@ const Hero = (props) => {
                         : null}
                     </div>
                 </MiddleContainer>
-                <div tw="flex items-end">
-                    <div className="companion-container" tw="flex flex-col justify-items-center items-center">
-                        <NameContainer>
+                <div tw="flex items-end bg-white w-full">
+                    <div className="companion-container" tw="flex flex-col w-full items-center">
+                        <img src={monkeyPNG} tw="w-4/12"></img>
                             {hasName ? (
-                                <>
-                                    <CompanionInput value={companionName} onChange={(e) => setCompanionName(e.target.value)} placeholder="Enter name here"></CompanionInput>
-                                    <SubmitContainer>
+                                <div tw="flex flex-row h-10 w-1/2 my-5">
+                                    <input tw="w-9/12 h-full rounded-lg text-center font-display font-semibold bg-transparent border-2 border-blue-300 placeholder-white text-base focus:outline-none focus:border-blue-600" 
+                                    value={companionName} onChange={(e) => setCompanionName(e.target.value)} placeholder="Enter name here"></input>
+                                    <div tw="pl-4 w-3/12">
                                         <SubmitButton type="submit" onClick={() => setHasName(!hasName)}>
                                             <CheckCircleIcon className="icon" />
                                         </SubmitButton>
-                                    </SubmitContainer>
-                                </> 
+                                    </div>
+                                </div> 
                             ) : (
-                                <>
-                                    <CompanionName>{companionName}</CompanionName>
-                                    <EditContainer>
+                                <div tw="flex flex-row place-items-center h-10 w-1/2 my-5">
+                                    <div tw="w-9/12 text-center">
+                                        <h1 tw="font-display w-full font-semibold text-base">{companionName}</h1>
+                                    </div>
+                                    <div tw="pl-4 w-3/12">
                                         <EditButton type="submit" onClick={() => setHasName(!hasName)}>
                                             <PencilAltIcon className="icon" />
                                         </EditButton>
-                                    </EditContainer>
-                                </>
+                                    </div>
+                                </div>
                             )}
-                        </NameContainer>
-                        <HealthBarContainer>
-                            <EmojiSadIcon tw="p-4 h-20 w-20"/>
-                            <ProgressBar/>
-                            <EmojiHappyIcon tw="p-4 h-20 w-20"/>
-                        </HealthBarContainer>
-                        <LevelContainer>
-                            <LevelLabel>Level {currentLevel}</LevelLabel>
-                            <XPBar>
-                                <XPBarInside>
-                                    <XPProgress>{currentXP} / {levelXP} XP</XPProgress>
-                                </XPBarInside>
-                            </XPBar>
-                        </LevelContainer>
+                        <div tw="flex flex-col w-8/12 h-20">
+                            <div tw="w-10/12 flex flex-row place-items-center h-1/2">
+                                <EmojiHappyIcon tw="h-3/4 w-2/12 mr-2"/>
+                                <div tw="bg-gradient-to-l from-green-600 to-red-600 border-black border h-5 rounded-xl w-10/12"/>
+                            </div>
+                            <div tw="w-10/12 flex flex-row h-1/2 place-items-center">
+                                <div tw="grid justify-items-center items-center h-full w-2/12 mr-2">
+                                    <h1 tw="font-display font-semibold text-lg">Level {currentLevel}</h1>
+                                </div>
+                                <div tw="border-black border rounded-xl h-1/2 w-10/12 justify-items-center items-center overflow-hidden">
+                                    <div tw="bg-green-600 rounded-l-xl grid justify-items-center items-center h-full">
+                                        <h1 tw="tracking-wide text-sm font-display font-semibold text-white select-none">{currentXP} / {levelXP} XP</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </Content>
