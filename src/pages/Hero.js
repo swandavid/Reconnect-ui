@@ -11,7 +11,7 @@ const MainContainer = tw.div`select-none min-h-screen bg-white flex flex-col jus
 
 const Content = tw.div`bg-white w-full mt-10 grid grid-cols-3 justify-items-center`;
 // Need a container for the entire top bar
-const TopContainer = tw.div`w-full mt-5 grid grid-cols-3 justify-items-center bg-gray-200`;
+const TopContainer = tw.div`w-full mt-5 grid grid-cols-3 justify-items-center`;
 const LogoContainer = tw.div`col-start-1`;
 const TopLogo = tw.img``;
 const LocationContainer = tw.div`flex items-center`;
@@ -98,7 +98,7 @@ const Hero = (props) => {
                 <WelcomeText>Welcome Back!</WelcomeText>
             </WelcomeContainer>
             <Content>
-                <div className="nav-list" tw="grid justify-items-start w-full bg-white my-10">
+                <div className="nav-list" tw="grid justify-items-start w-full h-full">
                     <div tw="bg-green-100 w-1/3">
                         <button tw="hover:border-r-4 hover:border-green-400 hover:bg-green-200 flex flex-row items-center w-full h-2/12">
                             <ClipboardListIcon tw="w-6 ml-4"/>
@@ -112,12 +112,16 @@ const Hero = (props) => {
                             <UserCircleIcon tw="w-6 ml-4"/>
                             <h1 tw="font-display font-semibold ml-2 text-lg">Profile</h1>
                         </button>
+                        <button tw="hover:border-r-4 hover:border-green-400 hover:bg-green-200 flex flex-row items-center w-full h-2/12">
+                            <UserCircleIcon tw="w-6 ml-4"/>
+                            <h1 tw="font-display font-semibold ml-2 text-lg">About Us</h1>
+                        </button>
                         <button tw="hover:border-r-4 hover:border-green-400 hover:bg-green-200 flex flex-row items-center w-full h-2/12" onClick={handleLogout}>
                             <LogoutIcon tw="w-6 ml-4"/>
                             <h1 tw="font-display font-semibold ml-2 text-lg">Logout</h1>
                         </button>
-                        <div tw="grid place-items-center h-4/12">
-                        <Leaf tw=""/>
+                        <div tw="bg-gray-400 h-2/12">
+                            <Leaf tw="h-144 w-144"/>
                         </div>
                     </div>
                 </div>
