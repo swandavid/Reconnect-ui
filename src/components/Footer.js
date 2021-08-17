@@ -1,10 +1,7 @@
 import React from 'react';
 import tw from "twin.macro";
 
-const Footer = (props) => {
-
-    const {
-    } = props;
+export default function Footer() {
 
     return(
         <div tw="h-96 w-full grid place-items-center">
@@ -36,8 +33,5 @@ const Footer = (props) => {
                 </div>
             </div>
         </div>
-        );
-    };
-    
-export default Footer;
-    
+    );
+};
