@@ -3,12 +3,14 @@ import "./styles/globalStyles.css";
 import React, { useState, useEffect } from 'react';
 import fire from './Fire';
 import firebase from "firebase/app";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 /* Inner Pages */
 import LoginPage from "./pages/Login.js";
 import Hero from './pages/Hero.js';
-import Landing from './pages/Landing.js';
-import Team from './pages/Team.js';
+import Landing from "./pages/Landing.js";
+import Team from "./pages/Team.js";
+import Error from "pages/Error";
 
 function App() {
   const [user, setUser] = useState('');
@@ -243,8 +245,14 @@ function App() {
   }
 
   return (
-    <div>
-      <Landing/>
+    <main>
+      <Switch>
+        <Route path="/" component={Landing} exact/>
+        <Route path="/about" component={Team}/>
+        <Route path="/auth" component={LoginPage} />
+        <Route path="/home" component={Hero} />
+        <Route component={Error} />
+      </Switch>
       {/*
       {user ? (
         <Hero 
@@ -281,7 +289,7 @@ function App() {
         />
       )}
       */}
-    </div>
+    </main>
   );
 }
 

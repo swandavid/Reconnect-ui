@@ -11,10 +11,10 @@ const MainContainer = tw.div`select-none min-h-screen bg-white flex flex-col jus
 
 const Content = tw.div`bg-white w-full mt-10 grid grid-cols-3 justify-items-center`;
 // Need a container for the entire top bar
-const TopContainer = tw.div`w-full mt-5 grid grid-cols-3 justify-items-center`;
+const TopContainer = tw.div`w-full mt-5 grid grid-cols-3`;
 const LogoContainer = tw.div`col-start-1`;
 const TopLogo = tw.img``;
-const LocationContainer = tw.div`flex items-center`;
+const LocationContainer = tw.div`flex flex-row place-self-center`;
 const Location = tw.text`font-display font-semibold text-base pl-2 col-start-2`;
 
 // Leveling Layout
@@ -82,13 +82,12 @@ const Hero = (props) => {
         setRating,
         hasRating,
         handleIncreaseXP,
-        chatbot,
     } = props;
 
     return(
-        <MainContainer onLoad={chatbot}>
+        <MainContainer>
             <TopContainer>
-                <h1 tw="font-display font-bold text-2xl sm:text-2xl md:text-3xl text-green-800">Reconnect</h1>
+                <h1 tw="font-display font-bold text-2xl sm:text-2xl md:text-3xl text-green-800 ml-5">Reconnect</h1>
                 <LocationContainer>
                     <LocationMarkerIcon tw="h-6 w-6 text-red-600"></LocationMarkerIcon>
                     <Location>State College, PA</Location>
@@ -99,30 +98,27 @@ const Hero = (props) => {
             </WelcomeContainer>
             <Content>
                 <div className="nav-list" tw="grid justify-items-start w-full h-full">
-                    <div tw="bg-green-100 w-1/3">
-                        <button tw="hover:border-r-4 hover:border-green-400 hover:bg-green-200 flex flex-row items-center w-full h-2/12">
+                    <div tw="bg-green-100 w-1/3 h-full grid">
+                        <button tw="hover:border-r-4 hover:border-green-400 hover:bg-green-200 flex flex-row items-center w-full">
                             <ClipboardListIcon tw="w-6 ml-4"/>
                             <h1 tw="font-display font-semibold ml-2 text-lg">Get Activity</h1>
                         </button>
-                        <button tw="hover:border-r-4 hover:border-green-400 hover:bg-green-200 flex flex-row items-center w-full h-2/12">
+                        <button tw="hover:border-r-4 hover:border-green-400 hover:bg-green-200 flex flex-row items-center w-full">
                             <ClipboardCheckIcon tw="w-6 ml-4"/>
                             <h1 tw="font-display font-semibold ml-2 text-lg">Activity Log</h1>
                         </button>
-                        <button tw="hover:border-r-4 hover:border-green-400 hover:bg-green-200 flex flex-row items-center w-full h-2/12">
+                        <button tw="hover:border-r-4 hover:border-green-400 hover:bg-green-200 flex flex-row items-center w-full">
                             <UserCircleIcon tw="w-6 ml-4"/>
                             <h1 tw="font-display font-semibold ml-2 text-lg">Profile</h1>
                         </button>
-                        <button tw="hover:border-r-4 hover:border-green-400 hover:bg-green-200 flex flex-row items-center w-full h-2/12">
+                        <button tw="hover:border-r-4 hover:border-green-400 hover:bg-green-200 flex flex-row items-center w-full">
                             <UserCircleIcon tw="w-6 ml-4"/>
                             <h1 tw="font-display font-semibold ml-2 text-lg">About Us</h1>
                         </button>
-                        <button tw="hover:border-r-4 hover:border-green-400 hover:bg-green-200 flex flex-row items-center w-full h-2/12" onClick={handleLogout}>
+                        <button tw="hover:border-r-4 hover:border-green-400 hover:bg-green-200 flex flex-row items-center w-full" onClick={handleLogout}>
                             <LogoutIcon tw="w-6 ml-4"/>
                             <h1 tw="font-display font-semibold ml-2 text-lg">Logout</h1>
                         </button>
-                        <div tw="bg-gray-400 h-2/12">
-                            <Leaf tw="h-144 w-144"/>
-                        </div>
                     </div>
                 </div>
                 <MiddleContainer>
