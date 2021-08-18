@@ -113,18 +113,24 @@ export default function Hero() {
                             <ClipboardListIcon tw="w-6 ml-4"/>
                             <h1 tw="font-display font-semibold ml-2 text-lg">Get Activity</h1>
                         </button>
-                        <button tw="hover:border-r-4 hover:border-green-400 hover:bg-green-200 flex flex-row items-center w-full">
+                        <Link to="/activity-log">
+                        <button tw="hover:border-r-4 hover:border-green-400 hover:bg-green-200 flex flex-row items-center w-full h-full">
                             <ClipboardCheckIcon tw="w-6 ml-4"/>
                             <h1 tw="font-display font-semibold ml-2 text-lg">Activity Log</h1>
                         </button>
-                        <button tw="hover:border-r-4 hover:border-green-400 hover:bg-green-200 flex flex-row items-center w-full">
+                        </Link>
+                        <Link to="/profile">
+                        <button tw="hover:border-r-4 hover:border-green-400 hover:bg-green-200 flex flex-row items-center w-full h-full">
                             <UserCircleIcon tw="w-6 ml-4"/>
                             <h1 tw="font-display font-semibold ml-2 text-lg">Profile</h1>
                         </button>
-                        <button tw="hover:border-r-4 hover:border-green-400 hover:bg-green-200 flex flex-row items-center w-full">
-                            <UserCircleIcon tw="w-6 ml-4"/>
-                            <h1 tw="font-display font-semibold ml-2 text-lg">About Us</h1>
-                        </button>
+                        </Link>
+                        <Link to="/about">
+                            <button tw="hover:border-r-4 hover:border-green-400 hover:bg-green-200 flex flex-row items-center w-full h-full">
+                                <UserCircleIcon tw="w-6 ml-4"/>
+                                <h1 tw="font-display font-semibold ml-2 text-lg">About Us</h1>
+                            </button>
+                        </Link>
                         <button tw="hover:border-r-4 hover:border-green-400 hover:bg-green-200 flex flex-row items-center w-full" onClick={handleLogout}>
                             <LogoutIcon tw="w-6 ml-4"/>
                             <h1 tw="font-display font-semibold ml-2 text-lg">Logout</h1>

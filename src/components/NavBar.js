@@ -20,7 +20,7 @@ export default function NavBar() {
     }
 
     return(
-        <div tw="fixed grid grid-cols-2 md:grid-cols-3 h-20 bg-green-900 w-full items-center">
+        <div tw="fixed grid grid-cols-2 md:grid-cols-3 h-20 bg-green-900 w-full items-center z-50">
             <Link to="/">
                 <h1 tw="font-display font-bold text-2xl text-white ml-5" onClick={toggleHome}>Reconnect</h1>
             </Link>
