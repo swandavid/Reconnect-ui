@@ -22,7 +22,7 @@ export default function NavBar({ toggleOpen }) {
     return(
         <div tw="fixed grid grid-cols-2 md:grid-cols-3 h-20 bg-green-900 w-full items-center z-40">
             <Link to="/">
-                <h1 tw="font-display font-bold text-2xl text-white ml-5" onClick={toggleHome}>Reconnect</h1>
+                <h1 tw="font-display font-bold text-2xl text-white ml-5 select-none" onClick={toggleHome}>Reconnect</h1>
             </Link>
             <div tw="col-start-2 grid grid-cols-4 place-items-center invisible lg:visible">
                 <NavLinks to="home" spy={true} smooth={true} duration={500} offset={-80} tw="cursor-pointer font-display font-semibold text-white">Home</NavLinks>
