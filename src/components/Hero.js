@@ -87,7 +87,7 @@ export default function Hero() {
   
       try {
         await logout()
-        history.push("/login")
+        history.push("/")
       } catch {
         setError("Failed to log out")
       }
@@ -104,8 +104,8 @@ export default function Hero() {
             </TopContainer>
             <WelcomeContainer>
                 <WelcomeText>Welcome Back!</WelcomeText>
-                <strong>User ID:</strong> {currentUser.uid}
             </WelcomeContainer>
+            <strong>User ID:</strong> {currentUser.uid}
             <Content>
                 <div className="nav-list" tw="grid justify-items-start w-full h-full">
                     <div tw="bg-green-100 w-1/3 h-full grid">
