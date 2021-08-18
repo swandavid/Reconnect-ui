@@ -13,14 +13,14 @@ const NavLinks = styled(LinkScroll)`
   }
 `;
 
-export default function NavBar() {
+export default function NavBar({ toggleOpen }) {
 
     const toggleHome = () => {
         scroll.scrollToTop();
     }
 
     return(
-        <div tw="fixed grid grid-cols-2 md:grid-cols-3 h-20 bg-green-900 w-full items-center z-50">
+        <div tw="fixed grid grid-cols-2 md:grid-cols-3 h-20 bg-green-900 w-full items-center z-40">
             <Link to="/">
                 <h1 tw="font-display font-bold text-2xl text-white ml-5" onClick={toggleHome}>Reconnect</h1>
             </Link>
@@ -31,7 +31,7 @@ export default function NavBar() {
                 <NavLinks to="team" spy={true} smooth={true} duration={500} offset={-80} tw="cursor-pointer font-display font-semibold text-white">Our Team</NavLinks>
             </div>
             <div tw="col-start-3 flex flex-row-reverse mr-5">
-                <div tw="grid place-items-center lg:hidden">
+                <div tw="grid place-items-center lg:hidden cursor-pointer" onClick={toggleOpen}>
                     <MenuIcon tw="w-8 h-8"/>
                 </div>
                 <div tw="invisible lg:visible">

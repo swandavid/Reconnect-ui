@@ -1,7 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import tw from "twin.macro";
-import { MenuIcon } from '@heroicons/react/outline'
-import { ReactComponent as ReconnectLpRight } from '../images/reconnect-lp-right.svg'; //ImportingSVG
 import { Element } from 'react-scroll';
 
 import NavBar from './NavBar';
@@ -10,12 +8,20 @@ import HowToPlay from './HowToPlay';
 import Mission from './Mission';
 import TeamLanding from './TeamLanding';
 import Footer from './Footer';
+import Sidebar from './Sidebar';
 
 export default function Landing() {
 
+    const [isOpen, setIsOpen] = useState(false)
+
+    const toggleOpen = () => {
+        setIsOpen(!isOpen)
+    }
+
     return(
         <div tw="flex flex-col justify-items-center items-center">
-            <NavBar/>
+            <Sidebar isOpen={isOpen} toggleOpen={toggleOpen}/>
+            <NavBar toggleOpen={toggleOpen}/>
             <Element name="home" tw="w-full">
                 <MainLanding/>
             </Element>
