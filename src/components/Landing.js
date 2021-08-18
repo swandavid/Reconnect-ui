@@ -20,6 +20,7 @@ export default function Landing() {
 
     return(
         <div tw="flex flex-col justify-items-center items-center">
+            <Sidebar isOpen={isOpen} toggleOpen={toggleOpen}/>
             <NavBar toggleOpen={toggleOpen}/>
             <Element name="home" tw="w-full">
                 <MainLanding/>

@@ -14,7 +14,7 @@ const NavLinks = styled(LinkScroll)`
 
 export default function Sidebar({ isOpen, toggleOpen }) {
     return (
-        <div tw='z-50 fixed flex flex-col min-h-screen w-full bg-green-400 opacity-0' className={`${({isOpen}) => (isOpen ? "opacity-100" : "opacity-0")}`} isOpen={isOpen} onClick={toggleOpen, console.log(isOpen)}>
+        <div tw='z-50 fixed flex flex-col min-h-screen w-full bg-green-400 invisible' className={`${({isOpen}) => (isOpen ? "opacity-100" : "opacity-0")}`} isOpen={isOpen} onClick={toggleOpen, console.log(isOpen)}>
             <div tw="flex flex-row-reverse h-10 cursor-pointer" onClick={toggleOpen}>
                 <XIcon tw="w-10 h-10 m-4"/>
             </div>
