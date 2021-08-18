@@ -10,8 +10,8 @@ export default function Footer() {
     }
 
     return(
-        <div tw="h-96 w-full grid place-items-center">
-            <div tw="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 bg-gray-600 rounded-lg w-11/12">
+        <div tw="h-full w-full grid place-items-center bg-gray-400">
+            <div tw="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 rounded-lg w-11/12">
                 <div tw="p-4 ml-4 my-4 border-r border-gray-400">
                     <Link tw="font-display font-bold xl:text-4xl text-2xl text-green-600" onClick={toggleHome}>Reconnect</Link>
                     <h1 tw="font-display font-medium">315 S. Allen Street</h1>

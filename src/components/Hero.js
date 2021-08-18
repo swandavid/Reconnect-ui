@@ -12,9 +12,9 @@ import monkeyPNG from "../images/monkey-cartoon.png";
 // Need a container for the whole screen
 const MainContainer = tw.div`select-none min-h-screen bg-white flex flex-col justify-items-center items-center`;
 
-const Content = tw.div`bg-white w-full mt-10 grid grid-cols-3 justify-items-center`;
+const Content = tw.div`bg-white w-full mt-10 grid lg:grid-cols-3 justify-items-center`;
 // Need a container for the entire top bar
-const TopContainer = tw.div`w-full mt-5 grid grid-cols-3`;
+const TopContainer = tw.div`w-full mt-5 grid grid-cols-2 md:grid-cols-3`;
 const LogoContainer = tw.div`col-start-1`;
 const TopLogo = tw.img``;
 const LocationContainer = tw.div`flex flex-row place-self-center`;
