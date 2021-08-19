@@ -13,6 +13,8 @@ const NavLinks = styled(LinkScroll)`
   }
 `;
 
+const MainContainer = tw.div`fixed grid grid-cols-2 md:grid-cols-3 h-20 bg-green-900 w-full items-center z-40`;
+
 export default function NavBar({ toggleOpen }) {
 
     const toggleHome = () => {
@@ -20,7 +22,7 @@ export default function NavBar({ toggleOpen }) {
     }
 
     return(
-        <div tw="fixed grid grid-cols-2 md:grid-cols-3 h-20 bg-green-900 w-full items-center z-40">
+        <MainContainer>
             <Link to="/">
                 <h1 tw="font-display font-bold text-2xl text-white ml-5 select-none" onClick={toggleHome}>Reconnect</h1>
             </Link>
@@ -43,7 +45,7 @@ export default function NavBar({ toggleOpen }) {
                     </Link>                    
                 </div>
             </div>
-        </div>
+        </MainContainer>
     );
 };
 

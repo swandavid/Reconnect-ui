@@ -10,6 +10,8 @@ import TeamLanding from './TeamLanding';
 import Footer from './Footer';
 import Sidebar from './Sidebar';
 
+const MainContainer = tw.div`flex flex-col justify-items-center items-center`;
+
 export default function Landing() {
 
     const [isOpen, setIsOpen] = useState(false)
@@ -19,7 +21,7 @@ export default function Landing() {
     }
 
     return(
-        <div tw="flex flex-col justify-items-center items-center">
+        <MainContainer>
             <Sidebar isOpen={isOpen} toggleOpen={toggleOpen}/>
             <NavBar toggleOpen={toggleOpen}/>
             <Element name="home" tw="w-full">
@@ -35,7 +37,7 @@ export default function Landing() {
                 <TeamLanding/>
             </Element>
             <Footer/>
-        </div>
+        </MainContainer>
     );
 };
     

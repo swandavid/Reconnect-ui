@@ -15,10 +15,12 @@ import Shruti from './team-components/Shruti';
 import Tammy from './team-components/Tammy';
 import Taylor from './team-components/Taylor';
 
+const MainContainer = tw.div`max-h-screen flex flex-col justify-items-center items-center mx-10`;
+
 export default function Team() {
 
     return(
-        <div tw="max-h-screen flex flex-col justify-items-center items-center mx-10">
+        <MainContainer>
             <div tw="grid grid-cols-3 w-full p-4 border-b-4 border-gray-300">
                 <div tw="flex flex-row items-baseline mt-2">
                 <Link to="/home">
@@ -49,7 +51,7 @@ export default function Team() {
                     <Tammy/>
                 </div>
             </div>
-        </div>
+        </MainContainer>
     );
 };
 

@@ -4,9 +4,7 @@ import { Link, useHistory } from "react-router-dom"
 import tw from "twin.macro";
 import styled from "styled-components";
 
-import rLogo from "../images/reconnect-r-logo.jpg";
-import { LocationMarkerIcon, EmojiHappyIcon, EmojiSadIcon, UserCircleIcon, PencilAltIcon, CheckCircleIcon, StarIcon, ClipboardCheckIcon, ClipboardListIcon, LogoutIcon } from '@heroicons/react/outline'
-import { ReactComponent as Leaf } from "../images/leaf-logo.svg";
+import { LocationMarkerIcon, EmojiHappyIcon, EmojiSadIcon, UserCircleIcon, PencilAltIcon, CheckCircleIcon, ClipboardCheckIcon, ClipboardListIcon, LogoutIcon } from '@heroicons/react/outline'
 import monkeyPNG from "../images/monkey-cartoon.png";
 
 // Need a container for the whole screen
@@ -15,26 +13,11 @@ const MainContainer = tw.div`select-none min-h-screen bg-white flex flex-col jus
 const Content = tw.div`bg-white w-full mt-10 grid lg:grid-cols-3 justify-items-center`;
 // Need a container for the entire top bar
 const TopContainer = tw.div`w-full mt-5 grid grid-cols-2 md:grid-cols-3`;
-const LogoContainer = tw.div`col-start-1`;
-const TopLogo = tw.img``;
 const LocationContainer = tw.div`flex flex-row place-self-center`;
 const Location = tw.text`font-display font-semibold text-base pl-2 col-start-2`;
 
-// Leveling Layout
-const LevelContainer = tw.div`flex flex-row place-items-center`;
-const LevelLabel = tw.text`flex-none font-display font-semibold text-lg pr-3`;
-const XPProgress = tw.text`tracking-wide text-sm font-display font-semibold text-white select-none`;
-const XPBar = tw.div`bg-gray-200 border-black border rounded-xl w-3/4 justify-items-center overflow-hidden`;
-const XPBarInside = tw.div`bg-green-600 rounded-l-xl grid justify-items-center`;
-
-// Logout
-const LogoutAndProfile = tw.div`flex flex-col`;
-const LogoutContainer = tw.div`justify-self-center`;
-const Logout = tw.button`text-lg bg-transparent hover:bg-green-700 text-black font-semibold font-display hover:text-white py-2 px-4 border border-black hover:border-transparent rounded`;
-
 // Need a container for the companion and emotion scale
 const MiddleContainer = tw.div`w-full`;
-const Companion = tw.img`col-start-2 w-96 h-96 mt-20 mb-5 justify-self-center `;
 
 // Editing name
 const EditButton = styled.button`
@@ -52,20 +35,6 @@ const SubmitButton = styled.button`
   }
 `;
 
-const SubmitContainer = tw.div`pl-4`;
-const EditContainer = tw.div`pl-4`;
-const NameContainer = tw.div`flex flex-row h-10 w-1/2 my-5`;
-const CompanionInput = tw.input`w-full h-full px-8 py-4 rounded-lg font-medium bg-transparent border-2 border-blue-300 placeholder-white text-base focus:outline-none focus:border-blue-600`;
-const CompanionName = tw.label``;
-const ProgressBar = tw.div`flex-grow bg-gradient-to-l from-green-600 to-red-600 border-black border h-6 rounded-xl`;
-
-// Did you finish the activity component
-const ActivityContainer = tw.div`col-start-1 grid w-8/12 self-center bg-white rounded-lg justify-items-center`;
-const QuestionText = tw.h1`font-display font-bold text-xl text-green-600 mt-2`;
-const RatingContainer = tw.div`flex flex-row h-10`;
-const RatingNumberButton = tw.button`text-base bg-white hover:bg-gray-200 text-green-600 font-semibold font-display rounded py-2 px-4 mt-1 mb-2`;
-const SubmitRatingButton = tw.button`text-base bg-transparent border-t border-black hover:bg-green-600 text-black font-semibold font-display rounded-b-lg py-2 px-4 mt-2 w-full`;
-
 // Welcome Back Greeting
 const WelcomeContainer = tw.div`pt-5`;
 const WelcomeText = tw.h2`font-display font-bold text-2xl`;
@@ -76,11 +45,6 @@ export default function Hero() {
     const history = useHistory()
     const [companionName, setCompanionName] = useState("")
     const [hasName, setHasName] = useState(false);
-    
-    // Game mechanics
-    const [currentXP, setCurrentXP] = useState(0);
-    const [levelXP, setLevelXP] = useState(500);
-    const [currentLevel, setCurrentLevel] = useState(1);
 
     async function handleLogout() {
       setError("")
@@ -134,6 +98,7 @@ export default function Hero() {
                         <button tw="hover:border-r-4 hover:border-green-400 hover:bg-green-200 flex flex-row items-center w-full" onClick={handleLogout}>
                             <LogoutIcon tw="w-6 ml-4"/>
                             <h1 tw="font-display font-semibold ml-2 text-lg">Logout</h1>
+                            <strong>Error:</strong> {error}
                         </button>
                     </div>
                 </div>
@@ -152,7 +117,7 @@ export default function Hero() {
                 </MiddleContainer>
                 <div tw="flex items-end bg-white w-full">
                     <div className="companion-container" tw="flex flex-col w-full items-center">
-                        <img src={monkeyPNG} tw="w-4/12"></img>
+                        <img src={monkeyPNG} tw="w-4/12" alt="companion-monkey"></img>
                             {hasName ? (
                                 <div tw="flex flex-row h-10 w-1/2 my-5">
                                     <input tw="w-9/12 h-full rounded-lg text-center font-display font-semibold bg-transparent border-2 border-blue-300 placeholder-white text-base focus:outline-none focus:border-blue-600" 
@@ -178,15 +143,16 @@ export default function Hero() {
                         <div tw="flex flex-col w-8/12 h-20">
                             <div tw="w-10/12 flex flex-row place-items-center h-1/2">
                                 <EmojiHappyIcon tw="h-3/4 w-2/12 mr-2"/>
+                                <EmojiSadIcon tw="invisible"/>
                                 <div tw="bg-gradient-to-l from-green-600 to-red-600 border-black border h-5 rounded-xl w-10/12"/>
                             </div>
                             <div tw="w-10/12 flex flex-row h-1/2 place-items-center">
                                 <div tw="grid justify-items-center items-center h-full w-2/12 mr-2">
-                                    <h1 tw="font-display font-semibold text-lg">Level {currentLevel}</h1>
+                                    <h1 tw="font-display font-semibold text-lg">Level 1</h1>
                                 </div>
                                 <div tw="border-black border rounded-xl h-1/2 w-10/12 justify-items-center items-center overflow-hidden">
                                     <div tw="bg-green-600 rounded-l-xl grid justify-items-center items-center h-full">
-                                        <h1 tw="tracking-wide text-sm font-display font-semibold text-white select-none">{currentXP} / {levelXP} XP</h1>
+                                        <h1 tw="tracking-wide text-sm font-display font-semibold text-white select-none">0 / 500 XP</h1>
                                     </div>
                                 </div>
                             </div>

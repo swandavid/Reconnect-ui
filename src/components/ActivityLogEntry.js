@@ -2,9 +2,11 @@ import React from 'react';
 import tw from "twin.macro";
 import { StarIcon } from '@heroicons/react/outline';
 
+const MainContainer = tw.div`w-full h-20 bg-gray-300 grid grid-cols-3`;
+
 export default function ActivityLogEntry() {
     return (
-        <div tw="w-full h-20 bg-gray-300 grid grid-cols-3">
+        <MainContainer>
             <div tw="grid place-items-center w-full">
                 <h1 tw="font-display font-semibold text-black">8/12/2021</h1>
             </div>
@@ -18,6 +20,6 @@ export default function ActivityLogEntry() {
                 <StarIcon tw="stroke-current text-gray-500 h-1/2"/>
                 <StarIcon tw="stroke-current text-gray-500 h-1/2"/>
             </div>
-        </div>
+        </MainContainer>
     )
 }

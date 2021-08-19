@@ -12,12 +12,14 @@ const NavLinks = styled(LinkScroll)`
   }
 `;
 
+const MainContainer = tw.div`z-50 fixed flex flex-col min-h-screen w-full bg-green-400`;
+
 export default function Sidebar({ isOpen, toggleOpen }) {
     return (
         <>
         {isOpen ? 
         
-        <div tw='z-50 fixed flex flex-col min-h-screen w-full bg-green-400' onClick={ toggleOpen }>
+        <MainContainer onClick={ toggleOpen }>
             <div tw="flex flex-row-reverse h-10 cursor-pointer" onClick={ toggleOpen }>
                 <XIcon tw="w-10 h-10 m-4"/>
             </div>
@@ -43,7 +45,7 @@ export default function Sidebar({ isOpen, toggleOpen }) {
                     <Link to="/login">Login</Link>
                 </button>
             </div>
-        </div>
+        </MainContainer>
         : null}
         </>
     )

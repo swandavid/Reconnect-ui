@@ -4,6 +4,8 @@ import { useAuth } from "../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
 import tw from "twin.macro";
 
+const MainContainer = tw.div``;
+
 export default function Profile() {
   const emailRef = useRef()
   const passwordRef = useRef()
@@ -43,7 +45,7 @@ export default function Profile() {
   }
 
   return (
-    <>
+    <MainContainer>
       <Card>
         <Card.Body>
           <h2 tw="text-center mb-4">Update Profile</h2>
@@ -83,6 +85,6 @@ export default function Profile() {
       <div tw="w-144 text-center mt-2">
         <Link to="/home">Cancel</Link>
       </div>
-    </>
+    </MainContainer>
   )
 }

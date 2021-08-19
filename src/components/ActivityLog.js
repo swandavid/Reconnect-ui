@@ -2,9 +2,11 @@ import React from 'react'
 import tw from "twin.macro";
 import ActivityLogEntry from './ActivityLogEntry';
 
+const MainContainer = tw.div`w-full h-screen flex flex-col place-items-center`;
+
 export default function ActivityLog() {
     return (
-        <div tw="w-full h-screen flex flex-col place-items-center">
+        <MainContainer>
             <div tw="w-3/4 h-20 bg-gray-300 grid grid-cols-3">
                 <div tw="grid place-items-center">
                     <h1 tw="font-display font-semibold text-xl text-black">Date</h1>
@@ -25,6 +27,6 @@ export default function ActivityLog() {
                 <ActivityLogEntry/>
                 <ActivityLogEntry/>
             </div>
-        </div>
+        </MainContainer>
     )
 }
