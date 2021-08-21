@@ -2,6 +2,7 @@ import React from 'react';
 import tw from "twin.macro";
 import { animateScroll as scroll, Link as LinkScroll } from 'react-scroll';
 import styled from "styled-components";
+import logo from "../images/reconnect-r-logo.jpg";
 
 import { MenuIcon } from '@heroicons/react/outline'
 import { Link } from 'react-router-dom';
@@ -24,7 +25,10 @@ export default function NavBar({ toggleOpen }) {
     return(
         <MainContainer>
             <Link to="/">
+            <div tw="flex flex-row place-items-center ml-2">
+                <img tw="select-none h-12 border-2 border-white" src={logo} />
                 <h1 tw="font-display font-bold text-2xl text-white ml-5 select-none" onClick={toggleHome}>Reconnect</h1>
+            </div>
             </Link>
             <div tw="col-start-2 grid grid-cols-4 place-items-center invisible lg:visible">
                 <NavLinks to="home" spy={true} smooth={true} duration={500} offset={-80} tw="cursor-pointer font-display font-semibold text-white">Home</NavLinks>

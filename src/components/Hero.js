@@ -98,7 +98,6 @@ export default function Hero() {
                         <button tw="hover:border-r-4 hover:border-green-400 hover:bg-green-200 flex flex-row items-center w-full" onClick={handleLogout}>
                             <LogoutIcon tw="w-6 ml-4"/>
                             <h1 tw="font-display font-semibold ml-2 text-lg">Logout</h1>
-                            <strong>Error:</strong> {error}
                         </button>
                     </div>
                 </div>
