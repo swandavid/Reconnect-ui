@@ -4,9 +4,9 @@ import { Link, useHistory } from "react-router-dom"
 import tw from "twin.macro";
 import styled from "styled-components";
 
-import { LocationMarkerIcon, EmojiHappyIcon, EmojiSadIcon, UserCircleIcon, PencilAltIcon, CheckCircleIcon, ClipboardCheckIcon, ClipboardListIcon, LogoutIcon } from '@heroicons/react/outline'
+import { LocationMarkerIcon, EmojiHappyIcon, EmojiSadIcon, UserCircleIcon, PencilAltIcon, CheckCircleIcon, ClipboardCheckIcon, ClipboardListIcon, LogoutIcon, UserGroupIcon } from '@heroicons/react/outline'
 import monkeyPNG from "../images/monkey-cartoon.png";
-
+import Rating from "./Rating";
 // Need a container for the whole screen
 const MainContainer = tw.div`select-none min-h-screen bg-white flex flex-col justify-items-center items-center`;
 
@@ -43,7 +43,7 @@ export default function Hero() {
     const [error, setError] = useState("")
     const { currentUser, logout } = useAuth()
     const history = useHistory()
-    const [companionName, setCompanionName] = useState("")
+    const [companionName, setCompanionName] = useState("PLEASE NAME ME")
     const [hasName, setHasName] = useState(false);
 
     async function handleLogout() {
@@ -91,7 +91,7 @@ export default function Hero() {
                         </Link>
                         <Link to="/about">
                             <button tw="hover:border-r-4 hover:border-green-400 hover:bg-green-200 flex flex-row items-center w-full h-full">
-                                <UserCircleIcon tw="w-6 ml-4"/>
+                                <UserGroupIcon tw="w-6 ml-4"/>
                                 <h1 tw="font-display font-semibold ml-2 text-lg">About Us</h1>
                             </button>
                         </Link>
