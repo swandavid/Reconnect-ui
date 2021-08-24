@@ -7,7 +7,7 @@ export default function Rating() {
     const [rating, setRating] = useState(0);
 
     return (
-        <div>
+        <div tw="h-144 w-144">
             <h1>Did you finish the activity?</h1>
             <div tw="m-4">
             <label tw="inline-flex items-center">
@@ -22,7 +22,7 @@ export default function Rating() {
             <div> 
                 {
                     (() => {
-                        if (rating==1)
+                        if (rating===1)
                             return  <>
                                     <StarIcon tw="stroke-current text-yellow-500"/>
                                     <StarIcon tw="stroke-current text-gray-500"/>
@@ -30,7 +30,7 @@ export default function Rating() {
                                     <StarIcon tw="stroke-current text-gray-500"/>
                                     <StarIcon tw="stroke-current text-gray-500"/>
                                     </>
-                        if (rating==2)
+                        if (rating===2)
                             return  <>
                                     <StarIcon tw="stroke-current text-yellow-500"/>
                                     <StarIcon tw="stroke-current text-yellow-500"/>
@@ -38,7 +38,7 @@ export default function Rating() {
                                     <StarIcon tw="stroke-current text-gray-500"/>
                                     <StarIcon tw="stroke-current text-gray-500"/>
                                     </>
-                        if (rating==3)
+                        if (rating===3)
                             return  <>
                                     <StarIcon tw="stroke-current text-yellow-500"/>
                                     <StarIcon tw="stroke-current text-yellow-500"/>
@@ -46,7 +46,7 @@ export default function Rating() {
                                     <StarIcon tw="stroke-current text-gray-500"/>
                                     <StarIcon tw="stroke-current text-gray-500"/>
                                     </>
-                        if (rating==4)
+                        if (rating===4)
                             return  <>
                                     <StarIcon tw="stroke-current text-yellow-500"/>
                                     <StarIcon tw="stroke-current text-yellow-500"/>
@@ -54,7 +54,7 @@ export default function Rating() {
                                     <StarIcon tw="stroke-current text-yellow-500"/>
                                     <StarIcon tw="stroke-current text-gray-500"/>
                                     </>
-                        if (rating==5)
+                        if (rating===5)
                             return  <>
                                     <StarIcon tw="stroke-current text-yellow-500"/>
                                     <StarIcon tw="stroke-current text-yellow-500"/>
@@ -82,5 +82,5 @@ export default function Rating() {
             </div>
             <button>Submit Rating</button>
         </div>
-    )
-}
+    );
+};
