@@ -15,6 +15,7 @@ import ForgotPassword from "./ForgotPassword";
 import Error from "./Error";
 import Profile from "./Profile";
 import ActivityLog from "./ActivityLog";
+import Rating from "./Rating";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <PrivateRoute exact path="/home" component={Hero}/>
           <PrivateRoute exact path="/profile" component={Profile}/>
           <PrivateRoute exact path="/activity-log" component={ActivityLog}/>
+          <PrivateRoute exact path="/rating" component={Rating}/>
           <Route path="/" component={Landing} exact/>
           <Route path="/about" component={Team}/>
           <Route path="/signup" component={Signup} />

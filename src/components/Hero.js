@@ -17,9 +17,6 @@ const TopContainer = tw.div`w-full mt-5 grid grid-cols-2 md:grid-cols-3`;
 const LocationContainer = tw.div`flex flex-row place-self-center`;
 const Location = tw.text`font-display font-semibold text-base text-white pl-2 col-start-2`;
 
-// Need a container for the companion and emotion scale
-const MiddleContainer = tw.div`w-full`;
-
 // Editing name
 const EditButton = styled.button`
   ${tw`tracking-wide font-semibold bg-white text-green-800 w-full p-2 rounded-lg hover:bg-gray-200 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none`}
@@ -104,19 +101,20 @@ export default function Hero() {
                         </button>
                     </div>
                 </div>
-                <MiddleContainer>
-                    <div tw="h-144 w-full bg-gradient-to-br from-blue-200 via-green-200 to-green-600 rounded-lg grid justify-items-center items-center">
-                        <div tw="h-128 w-1/2 bg-gray-400 rounded-lg flex flex-col justify-items-center">
-                            <div tw="w-full border-b border-gray-600 h-1/12 bg-white grid items-center">
-                                <h1 tw="font-display font-semibold pl-4">Watson Assistant</h1>
-                            </div>
-                            <div tw="h-10/12 bg-transparent"/>
-                            <div tw="w-full border-t border-gray-600 h-1/12 bg-white grid items-center">
-                                <h1 tw="font-display pl-4 text-gray-400">Type something...</h1>
-                            </div>
+                <div tw="h-144 w-full bg-gradient-to-br from-blue-200 via-green-200 to-green-600 rounded-lg grid justify-items-center items-center">
+                    <Link to="/rating">
+                        <button tw="bg-gray-300 hover:bg-gray-500 text-white font-display font-semibold rounded-xl px-4 py-2">Show Activity Log</button>
+                    </Link>
+                    <div tw="h-128 w-3/4 md:w-1/2 sm:w-1/2 lg:w-full xl:w-2/3 bg-gray-400 rounded-lg flex flex-col justify-items-center">
+                        <div tw="w-full border-b border-gray-600 h-1/12 bg-white grid items-center">
+                            <h1 tw="font-display font-semibold pl-4">Watson Assistant</h1>
+                        </div>
+                        <div tw="h-10/12 bg-transparent"/>
+                        <div tw="w-full border-t border-gray-600 h-1/12 bg-white grid items-center">
+                            <h1 tw="font-display pl-4 text-gray-400">Type something...</h1>
                         </div>
                     </div>
-                </MiddleContainer>
+                </div>
                 <div tw="flex items-end bg-green-800 w-full">
                     <div className="companion-container" tw="flex flex-col w-full items-center">
                         <img src={monkeyPNG} tw="w-4/12" alt="companion-monkey"></img>
