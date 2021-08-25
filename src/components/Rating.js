@@ -7,9 +7,73 @@ export default function Rating() {
     const [rating, setRating] = useState(0);
     const [activity, setActivity] = useState("Current activity");
     const [finished, setFinished] = useState(false);
+    let ratingDiv;
 
-    function handleRating(){
-        setRating(rating);
+    if (rating === 0) {
+        ratingDiv = 
+            <>
+                <StarIcon tw="stroke-current text-gray-200" onClick={()=>(setRating(1))}/>
+                <StarIcon tw="stroke-current text-gray-200" onClick={()=>(setRating(2))}/>
+                <StarIcon tw="stroke-current text-gray-200" onClick={()=>(setRating(3))}/>
+                <StarIcon tw="stroke-current text-gray-200" onClick={()=>(setRating(4))}/>
+                <StarIcon tw="stroke-current text-gray-200" onClick={()=>(setRating(5))}/>
+            </>
+        ;
+    }
+    if (rating === 1) {
+        ratingDiv = 
+            <>
+                <StarIcon tw="stroke-current text-yellow-500" onClick={()=>(setRating(1))}/>
+                <StarIcon tw="stroke-current text-gray-200" onClick={()=>(setRating(2))}/>
+                <StarIcon tw="stroke-current text-gray-200" onClick={()=>(setRating(3))}/>
+                <StarIcon tw="stroke-current text-gray-200" onClick={()=>(setRating(4))}/>
+                <StarIcon tw="stroke-current text-gray-200" onClick={()=>(setRating(5))}/>
+            </>
+        ;
+      } 
+    if (rating === 2) {
+        ratingDiv = 
+            <>
+                <StarIcon tw="stroke-current text-yellow-500" onClick={()=>(setRating(1))}/>
+                <StarIcon tw="stroke-current text-yellow-500" onClick={()=>(setRating(2))}/>
+                <StarIcon tw="stroke-current text-gray-200" onClick={()=>(setRating(3))}/>
+                <StarIcon tw="stroke-current text-gray-200" onClick={()=>(setRating(4))}/>
+                <StarIcon tw="stroke-current text-gray-200" onClick={()=>(setRating(5))}/>
+            </>
+        ;
+    } 
+    if (rating === 3) {
+        ratingDiv =             
+            <>
+                <StarIcon tw="stroke-current text-yellow-500" onClick={()=>(setRating(1))}/>
+                <StarIcon tw="stroke-current text-yellow-500" onClick={()=>(setRating(2))}/>
+                <StarIcon tw="stroke-current text-yellow-500" onClick={()=>(setRating(3))}/>
+                <StarIcon tw="stroke-current text-gray-200" onClick={()=>(setRating(4))}/>
+                <StarIcon tw="stroke-current text-gray-200" onClick={()=>(setRating(5))}/>
+            </>
+        ;
+    }
+    if (rating === 4) {
+        ratingDiv =             
+            <>
+                <StarIcon tw="stroke-current text-yellow-500" onClick={()=>(setRating(1))}/>
+                <StarIcon tw="stroke-current text-yellow-500" onClick={()=>(setRating(2))}/>
+                <StarIcon tw="stroke-current text-yellow-500" onClick={()=>(setRating(3))}/>
+                <StarIcon tw="stroke-current text-yellow-500" onClick={()=>(setRating(4))}/>
+                <StarIcon tw="stroke-current text-gray-200"   onClick={()=>(setRating(5))}/>
+            </>
+        ;
+    }
+    if (rating === 5) {
+        ratingDiv =   
+            <>          
+                <StarIcon tw="stroke-current text-yellow-500" onClick={()=>(setRating(1))}/>
+                <StarIcon tw="stroke-current text-yellow-500" onClick={()=>(setRating(2))}/>
+                <StarIcon tw="stroke-current text-yellow-500" onClick={()=>(setRating(3))}/>
+                <StarIcon tw="stroke-current text-yellow-500" onClick={()=>(setRating(4))}/>
+                <StarIcon tw="stroke-current text-yellow-500" onClick={()=>(setRating(5))}/>
+            </>
+        ;
     }
 
     return (
@@ -26,33 +90,10 @@ export default function Rating() {
                     <span tw="ml-2 font-display font-semibold text-lg">Not Today :(</span>
                 </label>
             </div>
-            <div tw="grid grid-cols-5 w-3/4 place-items-center py-2">
-                <div tw="grid grid-cols-1 place-items-center">
-                    <button tw="text-gray-400 hover:text-yellow-600">
-                        <StarIcon tw="w-1/2"/>
-                    </button>
-                </div>
-                <div tw="grid grid-cols-1 place-items-center">
-                    <button tw="text-gray-400 hover:text-yellow-600">
-                        <StarIcon tw="w-1/2"/>
-                    </button>
-                </div>
-                <div tw="grid grid-cols-1 place-items-center">
-                    <button tw="text-gray-400 hover:text-yellow-600">
-                        <StarIcon tw="w-1/2"/>
-                    </button>
-                </div>
-                <div tw="grid grid-cols-1 place-items-center">
-                    <button tw="text-gray-400 hover:text-yellow-600">
-                        <StarIcon tw="w-1/2"/>
-                    </button>
-                </div>
-                <div tw="grid grid-cols-1 place-items-center">
-                    <button tw="text-gray-400 hover:text-yellow-600">
-                        <StarIcon tw="w-1/2"/>
-                    </button>
-                </div>
+            <div tw="grid grid-cols-5 w-2/3 py-4">
+                {ratingDiv}
             </div>
+            <h1>{rating}</h1>
             <button tw="w-full h-full hover:bg-green-900 hover:text-white py-4 bg-white text-green-800 font-semibold border-2 border-green-800 rounded-b-xl">Submit Rating</button>
         </div>
     );
