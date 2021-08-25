@@ -28,24 +28,29 @@ export default function Rating() {
             </div>
             <div tw="grid grid-cols-5 w-3/4 place-items-center py-2">
                 <div tw="grid grid-cols-1 place-items-center">
-                    <StarIcon tw="stroke-current text-gray-500 w-1/2"/>
-                    <button tw="hover:bg-gray-200 hover:bg-opacity-25 w-8 rounded-lg">1</button>
+                    <button tw="text-gray-400 hover:text-yellow-600">
+                        <StarIcon tw="w-1/2"/>
+                    </button>
                 </div>
                 <div tw="grid grid-cols-1 place-items-center">
-                    <StarIcon tw="stroke-current text-gray-500 w-1/2"/>
-                    <button tw="hover:bg-gray-200 hover:bg-opacity-25 w-8 rounded-lg">2</button>
+                    <button tw="text-gray-400 hover:text-yellow-600">
+                        <StarIcon tw="w-1/2"/>
+                    </button>
                 </div>
                 <div tw="grid grid-cols-1 place-items-center">
-                    <StarIcon tw="stroke-current text-gray-500 w-1/2"/>
-                    <button tw="hover:bg-gray-200 hover:bg-opacity-25 w-8 rounded-lg">3</button>
+                    <button tw="text-gray-400 hover:text-yellow-600">
+                        <StarIcon tw="w-1/2"/>
+                    </button>
                 </div>
                 <div tw="grid grid-cols-1 place-items-center">
-                    <StarIcon tw="stroke-current text-gray-500 w-1/2"/>
-                    <button tw="hover:bg-gray-200 hover:bg-opacity-25 w-8 rounded-lg">4</button>
+                    <button tw="text-gray-400 hover:text-yellow-600">
+                        <StarIcon tw="w-1/2"/>
+                    </button>
                 </div>
                 <div tw="grid grid-cols-1 place-items-center">
-                    <StarIcon tw="stroke-current text-gray-500 w-1/2"/>
-                    <button tw="hover:bg-gray-200 hover:bg-opacity-25 w-8 rounded-lg">5</button>
+                    <button tw="text-gray-400 hover:text-yellow-600">
+                        <StarIcon tw="w-1/2"/>
+                    </button>
                 </div>
             </div>
             <button tw="w-full h-full hover:bg-green-900 hover:text-white py-4 bg-white text-green-800 font-semibold border-2 border-green-800 rounded-b-xl">Submit Rating</button>

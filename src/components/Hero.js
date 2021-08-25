@@ -8,6 +8,7 @@ import { LocationMarkerIcon, EmojiHappyIcon, EmojiSadIcon, UserCircleIcon, Penci
 import monkeyPNG from "../images/monkey-cartoon.png";
 import Rating from "./Rating";
 import logo from "../images/reconnect-r-logo.jpg";
+
 // Need a container for the whole screen
 const MainContainer = tw.div`select-none min-h-screen bg-green-800 flex flex-col justify-items-center items-center`;
 
