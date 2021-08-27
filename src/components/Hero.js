@@ -3,6 +3,7 @@ import { useAuth } from "../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
 import tw from "twin.macro";
 import styled from "styled-components";
+import Confetti from 'react-confetti'
 
 import { LocationMarkerIcon, EmojiHappyIcon, EmojiSadIcon, UserCircleIcon, PencilAltIcon, CheckCircleIcon, ClipboardCheckIcon, ClipboardListIcon, LogoutIcon, UserGroupIcon } from '@heroicons/react/outline'
 import monkeyPNG from "../images/monkey-cartoon.png";
@@ -38,13 +39,16 @@ const SubmitButton = styled.button`
 const WelcomeContainer = tw.div`pt-5`;
 const WelcomeText = tw.h2`font-display font-bold text-2xl text-white`;
 
+// Confetti npm module
+// https://www.npmjs.com/package/canvas-confetti
+
 export default function Hero() {
     const [error, setError] = useState("")
     const { currentUser, logout } = useAuth()
     const history = useHistory()
     const [companionName, setCompanionName] = useState("PLEASE NAME ME")
     const [hasName, setHasName] = useState(false);
-
+    const [taskCompleted, setTaskCompleted] = useState(false);
     async function handleLogout() {
       setError("")
   
@@ -58,6 +62,9 @@ export default function Hero() {
 
     return(
         <MainContainer>
+            { taskCompleted ? (
+                <Confetti tw="w-full h-full" numberOfPieces="100" recycle="false" onConfettiComplete={() => {setTaskCompleted(false)}}/>
+            ) : (null)}
             <TopContainer>
                 <div tw="flex flex-row place-items-center ml-2">
                     <img tw="select-none h-12 border-2 border-white" src={logo}/>
@@ -103,9 +110,7 @@ export default function Hero() {
                     </div>
                 </div>
                 <div tw="h-144 w-full bg-gradient-to-br from-blue-200 via-green-200 to-green-600 rounded-lg grid justify-items-center items-center">
-                    <Link to="/rating">
-                        <button tw="bg-gray-300 hover:bg-gray-500 text-white font-display font-semibold rounded-xl px-4 py-2">Show Activity Log</button>
-                    </Link>
+                    <button tw="bg-gray-300 hover:bg-gray-500 text-white font-display font-semibold rounded-xl px-4 py-2" onClick={() => {setTaskCompleted(true)}}>Show Activity Log</button>
                     <div tw="h-128 w-3/4 md:w-1/2 sm:w-1/2 lg:w-full xl:w-2/3 bg-gray-400 rounded-lg flex flex-col justify-items-center">
                         <div tw="w-full border-b border-gray-600 h-1/12 bg-white grid items-center">
                             <h1 tw="font-display font-semibold pl-4">Watson Assistant</h1>
@@ -118,7 +123,7 @@ export default function Hero() {
                 </div>
                 <div tw="flex items-end bg-green-800 w-full">
                     <div className="companion-container" tw="flex flex-col w-full items-center">
-                        <img src={monkeyPNG} tw="w-4/12" alt="companion-monkey"></img>
+                        <img src={monkeyPNG} tw="w-4/12" alt="companion-monkey" onClick={() => {setTaskCompleted(false)}}></img>
                             {hasName ? (
                                 <div tw="flex flex-row place-items-center h-10 w-1/2 my-5">
                                     <div tw="w-9/12 text-center">
