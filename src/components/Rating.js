@@ -77,10 +77,10 @@ export default function Rating() {
     }
 
     return (
-        <div tw="bg-green-800 flex flex-col place-items-center rounded-xl text-white font-display font-semibold text-center overflow-hidden h-1/6 w-1/4">
-            <h1 tw="py-4 text-xl">Did you finish the activity?</h1>
-            <h1>Activity: {activity}</h1>
-            <div tw="">
+        <div tw="bg-green-800 flex flex-col place-items-center rounded-xl text-white font-display font-semibold text-center overflow-hidden w-full h-3/4">
+            <h1 tw="h-2/12 py-4 text-xl">Did you finish the activity?</h1>
+            <h1 tw="h-2/12">Activity: {activity}</h1>
+            <div tw="h-4/12">
                 <label tw="">
                     <input type="radio" tw="text-green-500" name="answerType" value="yes" required/>
                     <span tw="ml-2 font-display font-semibold text-lg">Yes!!</span>
@@ -90,11 +90,11 @@ export default function Rating() {
                     <span tw="ml-2 font-display font-semibold text-lg">Not Today :(</span>
                 </label>
             </div>
-            <div tw="grid grid-cols-5 w-2/3 py-4">
+            <div tw="grid grid-cols-5 w-2/3 h-2/12 py-4">
                 {ratingDiv}
             </div>
             <h1>{rating}</h1>
-            <button tw="w-full h-full hover:bg-green-900 hover:text-white py-4 bg-white text-green-800 font-semibold border-2 border-green-800 rounded-b-xl">Submit Rating</button>
+            <button tw="w-full h-2/12 hover:bg-green-900 hover:text-white py-4 bg-white text-green-800 font-semibold border-2 border-green-800 rounded-b-xl">Submit Rating</button>
         </div>
     );
 };
