@@ -84,7 +84,7 @@ export default function Hero() {
                             {hasName ? (
                                 <div tw="flex flex-row place-items-center h-10 w-1/2 my-5">
                                     <div tw="w-9/12 text-center">
-                                        <h1 tw="font-display w-full font-semibold text-base text-white">{companionName}</h1>
+                                        <h1 tw="font-display w-full font-semibold text-base text-green-800">{companionName}</h1>
                                     </div>
                                     <div tw="pl-4 w-3/12">
                                         <EditButton type="submit" onClick={() => setHasName(!hasName)}>
@@ -94,7 +94,7 @@ export default function Hero() {
                                 </div>
                             ) : (
                                 <div tw="flex flex-row h-10 w-1/2 my-5">
-                                    <input tw="w-9/12 h-full rounded-lg text-center text-gray-400 font-display font-semibold bg-transparent border-2 border-white placeholder-white text-base focus:outline-none focus:border-blue-600" 
+                                    <input tw="w-9/12 h-full rounded-lg text-center text-gray-800 font-display font-semibold bg-transparent border-2 border-white placeholder-white text-base focus:outline-none focus:border-blue-600" 
                                     value={companionName} onChange={(e) => setCompanionName(e.target.value)} placeholder="Enter name here"></input>
                                     <div tw="pl-4 w-3/12">
                                         <SubmitButton type="submit" onClick={() => setHasName(!hasName)}>
