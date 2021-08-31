@@ -55,18 +55,34 @@ const IllustrationImage = styled.div`
 export default function Signup () {
     const emailRef = useRef()
     const passwordRef = useRef()
-    const { signup } = useAuth()
+    const { currentUser, signup } = useAuth()
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
     const history = useHistory()
 
+    function addUserToDatabase(){
+      const request = new XMLHttpRequest();
+      var body = {
+        "userId" : currentUser.uid,
+        "email" : emailRef.current.value
+      }
+      request.open("POST", `http://127.0.0.1:5000/createaccount`);
+      request.onload = function () {
+          let res = JSON.parse(JSON.stringify(this.response));
+          if (request.status === 200) {
+              console.log(`response: ${res}`);
+          }
+      }
+      request.send(body);
+    };
     async function handleSubmit(e) {
         e.preventDefault()
-    
+
         try {
           setError("")
           setLoading(true)
           await signup(emailRef.current.value, passwordRef.current.value)
+          addUserToDatabase();
           history.push("/home")
         } catch {
           setError("Failed to create an account")
