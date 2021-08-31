@@ -1,8 +1,8 @@
-import React, { useRef, useState } from "react";
-import { useAuth } from "../contexts/AuthContext"
-import { Link, useHistory } from "react-router-dom"
+import React, { useRef, useState } from "react"
 import tw from "twin.macro";
 import styled from "styled-components";
+import { useAuth } from "../contexts/AuthContext"
+import { Link,useHistory } from "react-router-dom"
 
 import illustration from "../images/reconnect-logo.jpg";
 import logo from "../images/reconnect-r-logo.jpg";
@@ -52,31 +52,36 @@ const IllustrationImage = styled.div`
   ${tw`m-12 xl:m-16 w-full max-w-sm bg-contain bg-center bg-no-repeat`}
 `;
 
-export default function Login() {
-  const emailRef = useRef()
-  const passwordRef = useRef()
-  const { login } = useAuth()
-  const [error, setError] = useState("")
-  const [loading, setLoading] = useState(false)
-  const history = useHistory()
+export default function Signup () {
+    const emailRef = useRef()
+    const passwordRef = useRef()
+    const passwordConfirmRef = useRef()
+    const { signup } = useAuth()
+    const [error, setError] = useState("")
+    const [loading, setLoading] = useState(false)
+    const history = useHistory()
 
-  async function handleSubmit(e) {
-    e.preventDefault()
+    async function handleSubmit(e) {
+        e.preventDefault()
+        if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+          return setError("Passwords do not match")
+        }
 
-    try {
-      setError("")
-      setLoading(true)
-      await login(emailRef.current.value, passwordRef.current.value)
-      history.push("/home")
-    } catch {
-      setError("Failed to log in")
-    }
-
-    setLoading(false)
-  }
-  
-  let illustrationImageSrc = illustration;
-  let socialButtons = [
+        try {
+          setError("")
+          setLoading(true)
+          await signup(emailRef.current.value, passwordRef.current.value)
+          history.push("/home")
+        } catch {
+          setError("Failed to create an account")
+        }
+    
+        setLoading(false)
+      }
+      
+    let illustrationImageSrc = illustration;
+    let headingTextSU = "Sign Up To Reconnect";
+    let socialButtons = [
       {
         iconImageSrc: googleIconImageSrc,
         text: "Continue With Google",
@@ -88,6 +93,7 @@ export default function Login() {
         url: "https://twitter.com"
       }
     ];
+    let submitButtonTextSU = "Sign Up";
     let SubmitButtonIcon = LoginIcon;
 
     return (
@@ -98,30 +104,25 @@ export default function Login() {
                 <LogoImage src={logo} />
               </Link>
               <MainContent>
-                <Heading>Sign In To Reconnect</Heading>
+                <Heading>{headingTextSU}</Heading>
                 <FormContainer>
                         <>
-                          <Form onSubmit={handleSubmit}>
-                            <Input type="email" placeholder="Email" ref={emailRef} required/>
-                            <p tw="text-sm text-red-900 text-center font-display">{error}</p>
-                            <Input type="password" placeholder="Password" ref={passwordRef} required/>
-                            <p tw="text-sm text-red-900 text-center font-display">{error}</p>
-                            <SubmitButton disabled={loading} type="submit">
-                              <SubmitButtonIcon className="icon" />
-                              <span className="text">Sign In</span>
-                            </SubmitButton>
-                          </Form>
-                          <p tw="mt-6 text-xs text-gray-600 text-center">
-                            <Link to="/forgot-password" tw="select-none border-b border-gray-500 border-dotted">
-                              Forgot Password ?
-                            </Link>
-                          </p>
-                          <p tw="mt-8 text-sm text-gray-600 text-center select-none">
+                            <Form onSubmit={handleSubmit}>
+                                <Input placeholder="Email" type="email" ref={emailRef} required/>
+                                <Input type="password" placeholder="Password" ref={passwordRef} required/>
+                                <Input type="password" placeholder="Confirm Password" ref={passwordConfirmRef} required/>
+                                <p tw="text-sm text-red-900 text-center">{error}</p>
+                                <SubmitButton type="submit" disabled={loading}>
+                                    <SubmitButtonIcon className="icon"/>
+                                    <span className="text">{submitButtonTextSU}</span>
+                                </SubmitButton>
+                            </Form>
+                            <p tw="mt-8 text-sm text-gray-600 text-center select-none">
                             Dont have an account?{" "}
-                            <Link to="/signup" tw="select-none border-b border-gray-500 border-dotted cursor-pointer">
-                              Sign Up
+                            <Link to="/login" tw="select-none border-b border-gray-500 border-dotted cursor-pointer">
+                                Sign In
                             </Link>
-                          </p>
+                            </p>
                         </>
                 </FormContainer>
               </MainContent>
