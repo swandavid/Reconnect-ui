@@ -68,13 +68,22 @@ export default function Signup () {
       };
       console.log(body);
       request.open("POST", `http://127.0.0.1:5000/createaccount`);
-      request.onload = function () {
+     /* request.onload = function () {
           let res = JSON.parse(JSON.stringify(this.response));
           if (request.status === 200) {
               console.log(`response: ${res}`);
           }
+      } */
+      request.send(JSON.stringify(body));
+      request.onreadystatechange = function() {
+        /*4 means request is complete , if you don't call `Request.send(data)` like I have in the previous function, in the line above ,then it means you have not even started the request (which is 1), if 1 is not even reached in the ready state, how can you check for 4 or for status 200. You must send first , so that ready state changes and sendData is called*/
+        if (request.readyState === 4 && request.status === 200) {
+          alert('Data sent ...');
+          console.log(JSON.stringify(request.responseText));
+        } else {
+          console.log(request);
+        }
       }
-      request.send(body);
     };
     async function handleSubmit(e) {
         e.preventDefault()
