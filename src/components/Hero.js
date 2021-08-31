@@ -115,8 +115,7 @@ export default function Hero() {
                         <div tw="w-full border-b border-gray-600 h-1/12 bg-white grid items-center">
                             <h1 tw="font-display font-semibold pl-4">Watson Assistant</h1>
                         </div>
-                        <div tw="h-10/12 bg-transparent">
-                            
+                        <div tw="h-10/12 bg-transparent grid place-items-center">
                             <Rating/>
                         </div>
                         <div tw="w-full border-t border-gray-600 h-1/12 bg-white grid items-center">
