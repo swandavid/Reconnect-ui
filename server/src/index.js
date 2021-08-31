@@ -4,6 +4,7 @@ const app = express();
 const cors = require("cors");
 const http = require("https");
 const fetch = require('node-fetch');
+const bodyParser = require('body-parser');
 
 // apply packages/imports to this file
 app.use(cors());
@@ -84,18 +85,26 @@ function callAPI(path, param){
 app.listen(5000, () => {
     console.log("server listening on port 5000");
 });
-console.log("here we go again")
-app.post("/createaccount", async (req, res) => {
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json())
+app.use(express.json())
+
+console.log("here we go ")
+app.post("/createaccount", (req, res) => {
     console.log("SERVER SIDE : index.js/createaccount");
     console.log("request");
     console.log(req);
-    var param = {
-        userId: req.params.userId,
-        email: req.params.email
-    }
-    callAPI("createaccount", param);
-    res.send("added to database")
+    console.log(JSON.stringify(req.query));
+    console.log(JSON.stringify(req.params));
+    console.log(JSON.stringify(req.body));
+    /*var param = {
+        "userId": req.params.userId,
+        "email": req.params.email
+    }*/
+    //callAPI("createaccount", param);
+    res.send(`added to database ${JSON.stringify(req.body)}`)
 });
+
 app.get("/getactivities", async (req, res) => {
     const msg = getToken();
     res.send(msg);

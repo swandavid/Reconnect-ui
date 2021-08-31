@@ -62,10 +62,11 @@ export default function Signup () {
 
     function addUserToDatabase(){
       const request = new XMLHttpRequest();
-      var body = {
-        "userId" : currentUser.uid,
-        "email" : emailRef.current.value
-      }
+      const body = {
+        userId: "clarissapunAAAAAAAAAA",
+        email: "clarissapunAAAAAAAAAA"
+      };
+      console.log(body);
       request.open("POST", `http://127.0.0.1:5000/createaccount`);
       request.onload = function () {
           let res = JSON.parse(JSON.stringify(this.response));
