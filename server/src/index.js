@@ -68,7 +68,7 @@ function getToken(){
     req.end(); 
 }
 
-function callAPI(path){
+function callAPI(path, param){
     //add param into parameters
     //replace todo -> param
     let todo = {
@@ -76,18 +76,24 @@ function callAPI(path){
     };
     fetch(`https://6e2cdc0b.us-south.apigw.appdomain.cloud/reconnectapi/${path}`, {
         method: 'POST',
-        body: JSON.stringify(todo),
+        body: JSON.stringify(param),
         headers: { 'Content-Type': 'application/json' }
     }).then(res => res.json())
     .then(json => console.log(json));
-};
+}
 
 app.listen(5000, () => {
     console.log("server listening on port 5000");
 });
 app.post("/createaccount", async (req, res) => {
     console.log("SERVER SIDE : index.js/createaccount");
-    console.log(res.json);
+    console.log(req);
+    var param = {
+        userId: req.params.userId,
+        email: req.params.email
+    }
+    callAPI("createaccount", param);
+    res.send("added to database")
 });
 app.get("/getactivities", async (req, res) => {
     const msg = getToken();
@@ -102,7 +108,7 @@ app.post("/addfeedback", async (req, res) => {
         rating: 5,
         completing: 1
     };
-    callAPI('addfeedback');
+    callAPI('addfeedback', param);
 });
 app.get("/gethistory", async (req, res) => {
     var param = {

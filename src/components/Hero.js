@@ -49,6 +49,7 @@ export default function Hero() {
     const [companionName, setCompanionName] = useState("PLEASE NAME ME")
     const [hasName, setHasName] = useState(false);
     const [taskCompleted, setTaskCompleted] = useState(false);
+    
     async function handleLogout() {
       setError("")
   
