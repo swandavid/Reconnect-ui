@@ -62,7 +62,10 @@ export default function Signup () {
 
     function addUserToDatabase(){
       const request = new XMLHttpRequest();
-      var params = `userId=${currentUser.uid}&email=${emailRef.current.value}`;
+      var body = {
+        "userId" : currentUser.uid,
+        "email" : emailRef.current.value
+      }
       request.open("POST", `http://127.0.0.1:5000/createaccount`);
       request.onload = function () {
           let res = JSON.parse(JSON.stringify(this.response));
@@ -70,7 +73,7 @@ export default function Signup () {
               console.log(`response: ${res}`);
           }
       }
-      request.send(params);
+      request.send(body);
     };
     async function handleSubmit(e) {
         e.preventDefault()

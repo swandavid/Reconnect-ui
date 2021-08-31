@@ -2,7 +2,6 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const pool = require("./db");
 const http = require("https");
 const fetch = require('node-fetch');
 
@@ -85,8 +84,10 @@ function callAPI(path, param){
 app.listen(5000, () => {
     console.log("server listening on port 5000");
 });
+console.log("here we go again")
 app.post("/createaccount", async (req, res) => {
     console.log("SERVER SIDE : index.js/createaccount");
+    console.log("request");
     console.log(req);
     var param = {
         userId: req.params.userId,
