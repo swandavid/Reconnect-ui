@@ -34,7 +34,7 @@ const params = {
 };
 
 //IAM tokens only last an hour
-
+getToken();
 function getToken(){
     console.log("uhh");
 
@@ -90,19 +90,16 @@ app.use(bodyParser.json())
 app.use(express.json())
 
 console.log("here we go ")
-app.post("/createaccount", (req, res) => {
+app.post(`/createaccount/:uid/:email`, (req, res) => {
     console.log("SERVER SIDE : index.js/createaccount");
     console.log("request");
     console.log(req);
-    console.log(JSON.stringify(req.query));
-    console.log(JSON.stringify(req.params));
-    console.log(JSON.stringify(req.body));
-    /*var param = {
-        "userId": req.params.userId,
+    var param = {
+        "userId": req.params.uid,
         "email": req.params.email
-    }*/
-    //callAPI("createaccount", param);
-    res.send(`added to database ${JSON.stringify(req.body)}`)
+    }
+    callAPI("adduser", param);
+    res.send(`added to database ${param}`)
 });
 
 app.get("/getactivities", async (req, res) => {
