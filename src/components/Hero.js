@@ -39,6 +39,17 @@ const SubmitButton = styled.button`
 const WelcomeContainer = tw.div`pt-5`;
 const WelcomeText = tw.h2`font-display font-bold text-2xl`;
 
+// Important Links for Embedding Chatbot:
+/*
+https://cloud.ibm.com/docs/assistant?topic=assistant-deploy-web-chat
+https://cloud.ibm.com/docs/assistant?topic=assistant-deploy-web-chat#deploy-web-chat-snippet
+https://cloud.ibm.com/docs/assistant?topic=assistant-web-chat-config
+https://web-chat.global.assistant.watson.cloud.ibm.com/docs.html?to=tutorials-launcher
+https://web-chat.global.assistant.watson.cloud.ibm.com/docs.html?to=tutorials-launcher
+https://www.javascripttutorial.net/javascript-dom/javascript-queryselector/
+*/
+
+
 export default function Hero() {
     const [companionName, setCompanionName] = useState("PLEASE NAME ME")
     const [hasName, setHasName] = useState(false);
