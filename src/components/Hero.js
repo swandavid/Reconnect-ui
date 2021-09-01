@@ -78,13 +78,13 @@ export default function Hero() {
                         </div>
                     </div>
                 </div>
-                <div tw="flex items-end w-full">
+                <div tw="w-full h-full">
                     <div className="companion-container" tw="flex flex-col w-full items-center">
                         <img src={reconnectCompanion} tw="w-1/2" alt="companion-monkey" onClick={() => {setTaskCompleted(false)}}></img>
                             {hasName ? (
                                 <div tw="flex flex-row place-items-center h-10 w-1/2 my-5">
                                     <div tw="w-9/12 text-center">
-                                        <h1 tw="font-display w-full font-semibold text-base text-white">{companionName}</h1>
+                                        <h1 tw="font-display w-full font-semibold text-base text-green-800">{companionName}</h1>
                                     </div>
                                     <div tw="pl-4 w-3/12">
                                         <EditButton type="submit" onClick={() => setHasName(!hasName)}>
@@ -94,7 +94,7 @@ export default function Hero() {
                                 </div>
                             ) : (
                                 <div tw="flex flex-row h-10 w-1/2 my-5">
-                                    <input tw="w-9/12 h-full rounded-lg text-center text-gray-400 font-display font-semibold bg-transparent border-2 border-white placeholder-white text-base focus:outline-none focus:border-blue-600" 
+                                    <input tw="w-9/12 h-full rounded-lg text-center text-gray-800 font-display font-semibold bg-transparent border-2 border-white placeholder-white text-base focus:outline-none focus:border-blue-600" 
                                     value={companionName} onChange={(e) => setCompanionName(e.target.value)} placeholder="Enter name here"></input>
                                     <div tw="pl-4 w-3/12">
                                         <SubmitButton type="submit" onClick={() => setHasName(!hasName)}>
@@ -103,17 +103,18 @@ export default function Hero() {
                                     </div>
                                 </div>
                             )}
-                        <div tw="flex flex-col w-full px-5 h-40 text-black">
-                            <div tw="w-full flex flex-row h-1/2">
-                                <EmojiHappyIcon tw="h-3/4 self-center w-10"/>
-                                <EmojiSadIcon tw="invisible"/>
-                                <div tw="border-white border bg-white rounded-xl self-center w-full h-1/4 overflow-hidden">
+                        <div tw="flex flex-col items-center w-full px-5 h-1/2 text-black">
+                            <div tw="w-3/4 flex flex-row h-1/2 py-5">
+                                <div tw="w-1/3 h-1/2 grid place-items-center">
+                                    <EmojiHappyIcon tw="self-center w-1/3"/>
+                                </div>
+                                <div tw="border-white border rounded-xl self-center w-full h-5 overflow-hidden">
                                     <div tw="bg-gradient-to-r from-red-400 to-green-600 w-full h-full"/>
                                 </div>
                             </div>
-                            <div tw="w-full flex flex-row h-1/2 place-items-center">
+                            <div tw="w-3/4 flex flex-row h-1/2 place-items-center">
                                 <div tw="grid justify-items-center items-center h-full w-3/12 mr-2">
-                                    <h1 tw="font-display font-semibold text-lg">Level 1</h1>
+                                    <h1 tw="font-display font-semibold text-base lg:text-lg">Level 1</h1>
                                 </div>
                                 <div tw="border-white border rounded-xl h-1/4 w-9/12 justify-items-center items-center overflow-hidden">
                                     <div tw="bg-green-600 rounded-l-xl grid justify-items-center items-center h-full">
