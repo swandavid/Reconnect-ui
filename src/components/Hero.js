@@ -105,14 +105,16 @@ export default function Hero() {
                     <img tw="h-12 border-2 border-green-800" src={logo}/>
                     <h1 tw="font-display font-bold text-2xl ml-5">Reconnect</h1>
                 </div>
-                <LocationContainer>
-                    <LocationMarkerIcon tw="h-6 w-6 text-red-600"></LocationMarkerIcon>
-                    <Location>State College, PA</Location>
-                </LocationContainer>
             </TopContainer>
-            <WelcomeContainer>
-                <WelcomeText>Welcome Back!</WelcomeText>
-            </WelcomeContainer>
+            <div tw="flex flex-col mt-4">
+                <LocationContainer>
+                        <LocationMarkerIcon tw="h-6 w-6 text-red-600"></LocationMarkerIcon>
+                        <Location>State College, PA</Location>
+                    </LocationContainer>
+                <WelcomeContainer>
+                    <WelcomeText>Welcome Back!</WelcomeText>
+                </WelcomeContainer>
+            </div>
             <Content>
                 <HomeSideBar/>
                 <div tw="h-144 w-full bg-gradient-to-br from-blue-200 via-green-200 to-green-600 rounded-lg z-0 relative grid place-items-center">
