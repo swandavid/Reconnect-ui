@@ -54,27 +54,46 @@ export default function Hero() {
     const [companionName, setCompanionName] = useState("PLEASE NAME ME")
     const [hasName, setHasName] = useState(false);
     const [taskCompleted, setTaskCompleted] = useState(false);
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [showingChat, setShowingChat] = useState(false);
 
-    const element = document.querySelector('.chatElement');
-    window.watsonAssistantChatOptions = {
-        integrationID: "0bca7870-6bd7-4d80-8a56-6635dcf3b431",
-        region: "us-south",
-        serviceInstanceID: "ca70ca9a-7e6e-40bd-a663-c3bed2f8d8db",
+    async function chatbot(e) {
+        e.preventDefault()
+    
+        try {
+            setError("")
+            setLoading(true)
 
-        // Provide the custom element.
-        element: element,
-        // Hide the close button since we want it always open.
-        hideCloseButton: true,
-        // Hide the default launcher.
-        showLauncher: false,
-        // Make the window open by default.
-        openChatByDefault: false,
+            await document.getElementById('chatElement');
+            const element = document.getElementById('chatElement');
 
-        onLoad: function(instance) {
-        instance.render();
+            window.watsonAssistantChatOptions = {
+                integrationID: "0bca7870-6bd7-4d80-8a56-6635dcf3b431",
+                region: "us-south",
+                serviceInstanceID: "ca70ca9a-7e6e-40bd-a663-c3bed2f8d8db",
+        
+                // Provide the custom element.
+                element: element,
+                // Hide the close button since we want it always open.
+                hideCloseButton: true,
+                // Hide the default launcher.
+                showLauncher: false,
+                // Make the window open by default.
+                openChatByDefault: true,
+                    
+                onLoad: function(instance) {
+                    instance.render();
+                }
+            };
+            setShowingChat(true);
+            setTimeout(function(){const t=document.createElement('script');t.src='https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js'; document.head.appendChild(t);});
+        } catch {
+          setError("Failed to log in")
         }
-    };
-    setTimeout(function(){const t=document.createElement('script');t.src='https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js'; document.head.appendChild(t);});
+    
+        setLoading(false)
+      }
 
     return(
         <MainContainer>
@@ -96,17 +115,13 @@ export default function Hero() {
             </WelcomeContainer>
             <Content>
                 <HomeSideBar/>
-                <div tw="h-144 w-full bg-gradient-to-br from-blue-200 via-green-200 to-green-600 rounded-lg grid justify-items-center items-center">
-                    <button tw="bg-gray-300 hover:bg-gray-500 text-white font-display font-semibold rounded-xl px-4 py-2" onClick={() => {setTaskCompleted(true)}}>Show Activity Log</button>
-                    <div tw="h-128 w-3/4 md:w-1/2 sm:w-1/2 lg:w-full xl:w-2/3 bg-gray-400 rounded-lg flex flex-col justify-items-center">
-                        <div className="chatElement" tw="h-full w-full"/>
-                        <div tw="h-10/12 bg-transparent grid place-items-center">
-                            <Rating/>
-                        </div>
-                        <div tw="w-full border-t border-gray-600 h-1/12 bg-white grid items-center">
-                            <h1 tw="font-display pl-4 text-gray-400">Type something...</h1>
-                        </div>
-                    </div>
+                <div tw="h-144 w-full bg-gradient-to-br from-blue-200 via-green-200 to-green-600 rounded-lg z-0 relative grid place-items-center">
+                    {
+                        showingChat ? (
+                            null
+                        ) : (<button tw="m-2 bg-white font-bold text-green-800 hover:text-black hover:bg-gray-200 py-2 px-4 rounded-xl z-10" onClick={chatbot}>Get Activity</button>)
+                    }
+                    <div id="chatElement" tw="absolute h-full w-full lg:w-3/4"></div>
                 </div>
                 <div tw="w-full h-full">
                     <div className="companion-container" tw="flex flex-col w-full items-center">
