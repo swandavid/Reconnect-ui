@@ -119,7 +119,7 @@ export default function Hero() {
                     {
                         showingChat ? (
                             null
-                        ) : (<button tw="m-2 bg-white font-bold text-green-800 hover:text-black hover:bg-gray-200 py-2 px-4 rounded-xl z-10" onClick={chatbot}>Get Activity</button>)
+                        ) : (<button tw="m-2 bg-white font-bold text-green-800 hover:text-black hover:bg-gray-200 py-10 px-8 rounded-xl z-10" onClick={chatbot}>Talk with the Chatbot to get an activity</button>)
                     }
                     <div id="chatElement" tw="absolute h-full w-full lg:w-3/4"></div>
                 </div>
