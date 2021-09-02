@@ -121,7 +121,7 @@ export default function Hero() {
                             null
                         ) : (<button tw="m-2 bg-white font-bold text-green-800 hover:text-black hover:bg-gray-200 py-10 px-8 rounded-xl z-10" onClick={chatbot}>Talk with the Chatbot to get an activity</button>)
                     }
-                    <div id="chatElement" tw="absolute h-full w-full lg:w-3/4"></div>
+                    <div id="chatElement" tw="absolute h-3/4 w-full lg:w-3/4"></div>
                 </div>
                 <div tw="w-full h-full py-10">
                     <div className="companion-container" tw="flex flex-col w-full items-center">
