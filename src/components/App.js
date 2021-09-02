@@ -8,6 +8,7 @@ import PrivateRoute from "./PrivateRoute";
 /* Inner Pages */
 import Login from "./Login.js";
 import Signup from "./Signup.js";
+import SignupNew from "./SignupNew";
 import Hero from './Hero.js';
 import Landing from "./Landing.js";
 import Team from "./Team.js";
@@ -28,7 +29,7 @@ function App() {
           <PrivateRoute exact path="/rating" component={Rating}/>
           <Route path="/" component={Landing} exact/>
           <Route path="/about" component={Team}/>
-          <Route path="/signup" component={Signup} />
+          <Route path="/signup" component={SignupNew} />
           <Route path="/login" component={Login} />
           <Route path="/forgot-password" component={ForgotPassword} />
           <Route component={Error} />

@@ -118,7 +118,7 @@ export default function Signup () {
                                 </SubmitButton>
                             </Form>
                             <p tw="mt-8 text-sm text-gray-600 text-center">
-                            Dont have an account?{" "}
+                              Dont have an account?{" "}
                             <Link to="/login" tw="border-b border-gray-500 border-dotted cursor-pointer">
                                 Sign In
                             </Link>
