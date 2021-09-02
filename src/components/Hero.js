@@ -123,7 +123,7 @@ export default function Hero() {
                     }
                     <div id="chatElement" tw="absolute h-full w-full lg:w-3/4"></div>
                 </div>
-                <div tw="w-full h-full">
+                <div tw="w-full h-full py-10">
                     <div className="companion-container" tw="flex flex-col w-full items-center">
                         <img src={reconnectCompanion} tw="w-1/2" alt="companion-monkey" onClick={() => {setTaskCompleted(false)}}></img>
                             {hasName ? (
