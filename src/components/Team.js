@@ -27,7 +27,7 @@ export default function Team() {
                 <h1 tw="font-display font-bold text-2xl sm:text-2xl md:text-3xl text-green-800">Reconnect</h1>
                 </Link>
                 </div>
-                <div tw="select-none col-start-4 mr-10">
+                <div tw="col-start-4 mr-10">
                 <Link to="/home">
                 <button tw="m-2 bg-transparent font-bold text-green-800 hover:text-black hover:bg-gray-600 hover:bg-opacity-25 py-2 px-2 rounded-xl">
                     <HomeIcon tw="h-8 w-8"/>                

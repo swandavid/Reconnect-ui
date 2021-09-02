@@ -11,7 +11,7 @@ import HomeSideBar from "./HomeSideBar";
 import logo from "../images/reconnect-r-logo.jpg";
 
 // Need a container for the whole screen
-const MainContainer = tw.div`select-none min-h-screen bg-blue-200 text-green-800 flex flex-col justify-items-center items-center`;
+const MainContainer = tw.div`min-h-screen bg-blue-200 text-green-800 flex flex-col justify-items-center items-center`;
 
 const Content = tw.div`w-full mt-10 grid lg:grid-cols-3 justify-items-center`;
 // Need a container for the entire top bar
@@ -102,8 +102,8 @@ export default function Hero() {
             ) : (null)}
             <TopContainer>
                 <div tw="flex flex-row place-items-center ml-2">
-                    <img tw="select-none h-12 border-2 border-green-800" src={logo}/>
-                    <h1 tw="font-display font-bold text-2xl ml-5 select-none">Reconnect</h1>
+                    <img tw="h-12 border-2 border-green-800" src={logo}/>
+                    <h1 tw="font-display font-bold text-2xl ml-5">Reconnect</h1>
                 </div>
                 <LocationContainer>
                     <LocationMarkerIcon tw="h-6 w-6 text-red-600"></LocationMarkerIcon>
@@ -163,7 +163,7 @@ export default function Hero() {
                                 </div>
                                 <div tw="border-white border rounded-xl h-1/4 w-9/12 justify-items-center items-center overflow-hidden">
                                     <div tw="bg-green-600 rounded-l-xl grid justify-items-center items-center h-full">
-                                        <h1 tw="tracking-wide text-sm font-display font-semibold text-white select-none">0 / 500 XP</h1>
+                                        <h1 tw="tracking-wide text-sm font-display font-semibold text-white">0 / 500 XP</h1>
                                     </div>
                                 </div>
                             </div>

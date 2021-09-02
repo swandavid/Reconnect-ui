@@ -61,10 +61,10 @@ export default function Profile() {
       <div tw="max-w-screen-xl m-0 sm:mx-20 sm:my-16 bg-white text-gray-900 shadow sm:rounded-lg grid place-items-center flex-1">
         <div tw="w-1/2">
           <Link to="/home">
-            <img tw="select-none mx-auto w-1/4" src={logo} />
+            <img tw="mx-auto w-1/4" src={logo} />
           </Link>
           <div tw="grid place-items-center py-10 font-display font-semibold">
-            <h2 tw="mb-6 text-center select-none text-2xl xl:text-3xl font-extrabold font-display">Update Profile</h2>
+            <h2 tw="mb-6 text-center text-2xl xl:text-3xl font-extrabold font-display">Update Profile</h2>
             <form onSubmit={handleSubmit}>
               <Input type="email" placeholder="Email" ref={emailRef} defaultValue={currentUser.email} required/>
               <Input type="password" placeholder="Leave blank to keep the same" ref={passwordRef}/>
@@ -75,7 +75,7 @@ export default function Profile() {
               </SubmitButton>
             </form>
             <p tw="mt-6 text-base text-gray-600 text-center">
-              <Link to="/home" tw="select-none border-b border-gray-500 border-dotted">
+              <Link to="/home" tw="border-b border-gray-500 border-dotted">
                 Cancel
               </Link>
             </p>

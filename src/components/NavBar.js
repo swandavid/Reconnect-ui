@@ -26,8 +26,8 @@ export default function NavBar({ toggleOpen }) {
         <MainContainer>
             <Link to="/">
             <div tw="flex flex-row place-items-center ml-2">
-                <img tw="select-none h-12 border-2 border-white" src={logo} onClick={toggleHome}/>
-                <h1 tw="font-display font-bold text-2xl text-white ml-5 select-none" onClick={toggleHome}>Reconnect</h1>
+                <img tw="h-12 border-2 border-white" src={logo} onClick={toggleHome}/>
+                <h1 tw="font-display font-bold text-2xl text-white ml-5" onClick={toggleHome}>Reconnect</h1>
             </div>
             </Link>
             <div tw="col-start-2 grid grid-cols-4 place-items-center invisible lg:visible">

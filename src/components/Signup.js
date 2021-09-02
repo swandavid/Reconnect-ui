@@ -13,9 +13,9 @@ import { ReactComponent as LoginIcon } from "feather-icons/dist/icons/log-in.svg
 const Container = tw.div`relative min-h-screen bg-green-800 text-white font-medium flex justify-center`;
 const Content = tw.div`max-w-screen-xl m-0 sm:mx-20 sm:my-16 bg-white text-gray-900 shadow sm:rounded-lg flex justify-center flex-1`;
 const MainContainer = tw.div`lg:w-1/2 xl:w-5/12 p-6 sm:p-12`;
-const LogoImage = tw.img`select-none h-12 mx-auto`;
+const LogoImage = tw.img`h-12 mx-auto`;
 const MainContent = tw.div`mt-12 flex flex-col items-center`;
-const Heading = tw.h1`select-none text-2xl xl:text-3xl font-extrabold font-display`;
+const Heading = tw.h1`text-2xl xl:text-3xl font-extrabold font-display`;
 const FormContainer = tw.div`w-full flex-1 mt-8`;
 
 const SocialButtonsContainer = tw.div`flex flex-col items-center`;
@@ -25,25 +25,25 @@ const SocialButton = styled.a`
     ${tw`bg-white p-2 rounded-full`}
   }
   .icon {
-    ${tw`w-4 select-none`}
+    ${tw`w-4`}
   }
   .text {
-    ${tw`ml-4 select-none font-display`}
+    ${tw`ml-4 font-display`}
   }
 `;
 
 const DividerTextContainer = tw.div`my-12 border-b text-center relative`;
-const DividerText = tw.div`select-none leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform -translate-y-1/2 absolute inset-x-0 top-1/2 bg-transparent`;
+const DividerText = tw.div`leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform -translate-y-1/2 absolute inset-x-0 top-1/2 bg-transparent`;
 
 const Form = tw.form`mx-auto max-w-xs`;
-const Input = tw.input`select-none w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5 first:mt-0`;
+const Input = tw.input`w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5 first:mt-0`;
 const SubmitButton = styled.button`
   ${tw`mt-5 tracking-wide font-semibold bg-green-800 text-gray-100 w-full py-4 rounded-lg hover:bg-green-900 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none`}
   .icon {
     ${tw`w-6 h-6 -ml-2`}
   }
   .text {
-    ${tw`ml-3 select-none font-display`}
+    ${tw`ml-3 font-display`}
   }
 `;
 const IllustrationContainer = tw.div`sm:rounded-r-lg flex-1 bg-purple-100 text-center hidden lg:flex justify-center`;
@@ -151,9 +151,9 @@ export default function Signup () {
                                     <span className="text">{submitButtonTextSU}</span>
                                 </SubmitButton>
                             </Form>
-                            <p tw="mt-8 text-sm text-gray-600 text-center select-none">
+                            <p tw="mt-8 text-sm text-gray-600 text-center">
                             Dont have an account?{" "}
-                            <Link to="/login" tw="select-none border-b border-gray-500 border-dotted cursor-pointer">
+                            <Link to="/login" tw="border-b border-gray-500 border-dotted cursor-pointer">
                                 Sign In
                             </Link>
                             </p>
