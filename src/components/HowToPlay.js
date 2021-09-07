@@ -11,8 +11,8 @@ export default function HowToPlay() {
 
     return(
         <MainContainer>
-            <div tw="text-center h-20 w-full grid place-items-center bg-green-200">
-                <h1 tw="text-2xl font-display font-semibold text-green-900">Explore new possibilities to spark your interest and level up!</h1>
+            <div tw="text-center h-20 w-full grid place-items-center bg-green-900">
+                <h1 tw="text-2xl font-display font-semibold text-white">Explore new possibilities to spark your interest and level up!</h1>
             </div>
             <div tw="bg-white grid md:grid-cols-2 xl:grid-cols-4 place-items-center gap-10 py-10 h-11/12 w-11/12">
                 <div tw="w-full h-full flex flex-wrap place-content-center">

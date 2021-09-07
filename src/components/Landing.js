@@ -30,9 +30,6 @@ export default function Landing() {
             <Element name="how-to-play" tw="w-full">
                 <HowToPlay/>
             </Element>
-            <Element name="mission" tw="w-full">
-                <Mission/>
-            </Element>
             <Element name="team" tw="w-full">
                 <TeamLanding/>
             </Element>

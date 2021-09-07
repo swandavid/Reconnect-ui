@@ -14,14 +14,14 @@ import JuliaImg from "images/team-profile-pics/julia-dermody.jpg";
 import RachelImg from "images/team-profile-pics/rachel-li.jpg";
 import TaylorImg from "images/team-profile-pics/taylor-hutsell.jpg";
 
-const MainContainer = tw.div`h-full lg:h-screen my-5 w-full bg-white`;
+const MainContainer = tw.div`h-full lg:h-screen w-full bg-white`;
 
 export default function TeamLanding() {
 
     return(
         <MainContainer>
-            <div tw="h-2/12 w-full grid place-items-center">
-                <h1 tw="text-3xl font-display font-semibold">Our Team</h1>
+            <div tw="h-2/12 w-full grid place-items-center bg-green-900 mb-2">
+                <h1 tw="text-3xl font-display font-semibold text-white">Our Team</h1>
             </div>
             <div tw="place-self-start ml-10 w-full h-3/12">
                 <h1 tw="text-2xl font-display font-semibold">Founders</h1>

@@ -1,7 +1,7 @@
 import React from 'react';
 import tw from "twin.macro";
 
-const MainContainer = tw.div`h-screen w-full bg-green-700 grid items-center justify-items-center`;
+const MainContainer = tw.div`h-20 w-full bg-green-700 grid items-center justify-items-center`;
 
 export default function Mission() {
     return(

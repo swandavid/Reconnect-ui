@@ -2,7 +2,7 @@ import React from 'react';
 import tw from "twin.macro";
 import { animateScroll as scroll, Link as LinkScroll } from 'react-scroll';
 import styled from "styled-components";
-import logo from "../images/reconnect-r-logo.jpg";
+import logo from "../images/r-logo.svg";
 
 import { MenuIcon } from '@heroicons/react/outline'
 import { Link } from 'react-router-dom';
@@ -25,15 +25,13 @@ export default function NavBar({ toggleOpen }) {
     return(
         <MainContainer>
             <Link to="/">
-            <div tw="flex flex-row place-items-center ml-2">
-                <img tw="h-12 border-2 border-white" src={logo} onClick={toggleHome}/>
-                <h1 tw="font-display font-bold text-2xl text-white ml-5" onClick={toggleHome}>Reconnect</h1>
+            <div tw="flex place-items-center ml-2 h-20">
+                <img tw="h-20" src={logo} onClick={toggleHome}/>
             </div>
             </Link>
-            <div tw="col-start-2 grid grid-cols-4 place-items-center invisible lg:visible">
-                <NavLinks to="home" spy={true} smooth={true} duration={500} offset={-80} tw="cursor-pointer font-display font-semibold text-white">Home</NavLinks>
+            <div tw="col-start-2 grid grid-cols-3 place-items-center invisible lg:visible">
+                <NavLinks to="home" spy={true} smooth={true} duration={500} offset={-80} tw="cursor-pointer font-display font-semibold text-white">About Us</NavLinks>
                 <NavLinks to="how-to-play" spy={true} smooth={true} duration={500} offset={-80} tw="cursor-pointer font-display font-semibold text-white">How to Play</NavLinks>
-                <NavLinks to="mission" spy={true} smooth={true} duration={500} offset={-80} tw="cursor-pointer font-display font-semibold text-white">Our Mission</NavLinks>
                 <NavLinks to="team" spy={true} smooth={true} duration={500} offset={-80} tw="cursor-pointer font-display font-semibold text-white">Our Team</NavLinks>
             </div>
             <div tw="col-start-3 flex flex-row-reverse mr-5">
