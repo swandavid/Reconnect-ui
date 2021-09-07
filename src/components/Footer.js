@@ -21,9 +21,7 @@ export default function Footer() {
                             <img tw="" src={logo}/>
                         </div>
                     </Link>
-                    <h1 tw="font-display font-medium">315 S. Allen Street</h1>
-                    <h1 tw="font-display font-medium">Suit #321</h1>
-                    <h1 tw="font-display font-medium">State College, PA 16801</h1>
+                    <h1 tw="font-display font-medium my-4 font-bold">psureconnect@gmail.com</h1>
                 </div>
                 <div tw="p-4 ml-4 my-2 border-r border-gray-400">
                     <h1 tw="font-display font-bold text-green-800 mb-2">Company</h1>
