@@ -38,10 +38,10 @@ export default function Sidebar({ isOpen, toggleOpen }) {
                         Our Team
                     </NavLinks>
                 </div>
-                <button tw="w-1/2 h-16 hover:bg-green-500 font-display font-bold text-xl m-4">
+                <button tw="w-1/2 h-16 hover:bg-green-500 font-display font-bold text-lg m-4">
                     <Link to="/signup" tw="w-1/2">Sign Up</Link>
                 </button>
-                <button tw="w-1/2 h-16 hover:bg-green-500 font-display font-bold text-xl">
+                <button tw="w-1/2 h-16 hover:bg-green-500 font-display font-bold text-lg">
                     <Link to="/login">Login</Link>
                 </button>
             </div>
