@@ -8,7 +8,7 @@ import { LocationMarkerIcon, EmojiHappyIcon, EmojiSadIcon, UserCircleIcon, Penci
 import reconnectCompanion from "../images/reconnect-character.svg";
 import Rating from "./Rating";
 import HomeSideBar from "./HomeSideBar";
-import logo from "../images/reconnect-r-logo.jpg";
+import logo from "../images/r-logo.svg";
 
 // Need a container for the whole screen
 const MainContainer = tw.div`min-h-screen bg-blue-200 text-green-800 flex flex-col justify-items-center items-center`;
@@ -101,9 +101,8 @@ export default function Hero() {
                 <Confetti tw="w-full h-full" numberOfPieces="100" recycle="false" onConfettiComplete={() => {setTaskCompleted(false)}}/>
             ) : (null)}
             <TopContainer>
-                <div tw="flex flex-row place-items-center ml-2">
-                    <img tw="h-12 border-2 border-green-800" src={logo}/>
-                    <h1 tw="font-display font-bold text-2xl ml-5">Reconnect</h1>
+                <div tw="flex ml-2 h-20 w-64">
+                    <img tw="h-20 flex-1" src={logo}/>
                 </div>
             </TopContainer>
             <div tw="flex flex-col mt-4">
