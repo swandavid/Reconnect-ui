@@ -107,9 +107,9 @@ export default function Hero() {
             </TopContainer>
             <div tw="flex flex-col mt-4">
                 <LocationContainer>
-                        <LocationMarkerIcon tw="h-6 w-6 text-red-600"></LocationMarkerIcon>
-                        <Location>State College, PA</Location>
-                    </LocationContainer>
+                    <LocationMarkerIcon tw="h-6 w-6 text-red-600"></LocationMarkerIcon>
+                    <Location>State College, PA</Location>
+                </LocationContainer>
                 <WelcomeContainer>
                     <WelcomeText>Welcome Back!</WelcomeText>
                 </WelcomeContainer>
