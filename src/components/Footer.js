@@ -5,7 +5,7 @@ import { animateScroll as scroll } from 'react-scroll';
 import logo from "../images/r-logo.svg";
 import { LocationMarkerIcon } from '@heroicons/react/outline'
 
-const MainContainer = tw.div`h-full w-full grid place-items-center bg-gray-400`;
+const MainContainer = tw.div`h-full w-full grid place-items-center bg-gray-400 pb-10`;
 
 export default function Footer() {
 
