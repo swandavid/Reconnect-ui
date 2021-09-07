@@ -10,7 +10,7 @@ import TeamLanding from './TeamLanding';
 import Footer from './Footer';
 import Sidebar from './Sidebar';
 
-const MainContainer = tw.div`flex flex-col justify-items-center items-center`;
+const MainContainer = tw.div`flex flex-col justify-items-center items-center w-screen overflow-hidden`;
 
 export default function Landing() {
 

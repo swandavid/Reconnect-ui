@@ -11,7 +11,7 @@ import HomeSideBar from "./HomeSideBar";
 import logo from "../images/r-logo.svg";
 
 // Need a container for the whole screen
-const MainContainer = tw.div`min-h-screen bg-blue-200 text-green-800 flex flex-col justify-items-center items-center`;
+const MainContainer = tw.div`min-h-screen w-screen bg-blue-200 text-green-800 flex flex-col justify-items-center items-center`;
 
 const Content = tw.div`w-full mt-10 grid lg:grid-cols-3 justify-items-center`;
 // Need a container for the entire top bar
