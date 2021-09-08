@@ -20,23 +20,14 @@ export default function TeamLanding() {
 
     return(
         <MainContainer>
-            <div tw="h-2/12 w-full grid place-items-center bg-green-900 mb-2">
+            <div tw="h-20 w-full grid place-items-center bg-green-900 mb-8">
                 <h1 tw="text-3xl font-display font-semibold text-white">Our Team</h1>
             </div>
             <div tw="place-self-start ml-10 w-full h-3/12">
                 <h1 tw="text-2xl font-display font-semibold">Founders</h1>
                 <div tw="grid md:flex md:flex-row">
-                    <div className="Bailey" tw="flex flex-row items-center">
-                        <div tw="h-16 w-16 rounded-full overflow-hidden my-5">
-                            <img src={BaileyImg} tw="" alt=""/>
-                        </div>
-                        <div tw="ml-2">
-                            <h1 tw="font-display font-semibold text-lg">Bailey</h1>
-                            <h1 tw="font-display font-semibold text-lg text-green-600">Backend Dev</h1>
-                        </div>
-                    </div>
                     <div className="Elyse" tw="flex flex-row items-center">
-                        <div tw="h-16 w-16 rounded-full overflow-hidden my-5 md:ml-10">
+                        <div tw="h-16 w-16 rounded-full overflow-hidden my-5">
                             <img src={ElyseImg} tw="" alt=""/>
                         </div>
                         <div tw="ml-2">
@@ -44,27 +35,36 @@ export default function TeamLanding() {
                             <h1 tw="font-display font-semibold text-lg text-green-600">Team Lead</h1>
                         </div>
                     </div>
+                    <div className="Bailey" tw="flex flex-row items-center">
+                        <div tw="h-16 w-16 rounded-full overflow-hidden my-5 md:ml-10">
+                            <img src={BaileyImg} tw="" alt=""/>
+                        </div>
+                        <div tw="ml-2">
+                            <h1 tw="font-display font-semibold text-lg">Bailey</h1>
+                            <h1 tw="font-display font-semibold text-lg text-green-600">Backend Dev</h1>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div tw="place-self-start ml-10 w-full h-3/12">
                 <h1 tw="text-2xl font-display font-semibold">Technical Team</h1>
                 <div tw="grid md:grid-cols-2 lg:flex lg:flex-row">
-                    <div className="Cayla" tw="flex flex-row items-center">
-                        <div tw="h-16 w-16 rounded-full overflow-hidden my-5">
-                            <img src={CaylaImg} tw="" alt=""/>
-                        </div>
-                        <div tw="ml-2">
-                            <h1 tw="font-display font-semibold text-lg">Cayla</h1>
-                            <h1 tw="font-display font-semibold text-lg text-green-600">Backend Dev</h1>
-                        </div>
-                    </div>
                     <div className="Clarissa" tw="flex flex-row items-center">
-                        <div tw="h-16 w-16 rounded-full overflow-hidden my-5 md:ml-10">
+                        <div tw="h-16 w-16 rounded-full overflow-hidden my-5">
                             <img src={ClarissaImg} tw="" alt=""/>
                         </div>
                         <div tw="ml-2">
                             <h1 tw="font-display font-semibold text-lg">Clarissa</h1>
                             <h1 tw="font-display font-semibold text-lg text-green-600">Frontend Dev</h1>
+                        </div>
+                    </div>
+                    <div className="Cayla" tw="flex flex-row items-center">
+                        <div tw="h-16 w-16 rounded-full overflow-hidden my-5 md:ml-10">
+                            <img src={CaylaImg} tw="" alt=""/>
+                        </div>
+                        <div tw="ml-2">
+                            <h1 tw="font-display font-semibold text-lg">Cayla</h1>
+                            <h1 tw="font-display font-semibold text-lg text-green-600">Backend Dev</h1>
                         </div>
                     </div>
                     <div className="David" tw="flex flex-row items-center">
