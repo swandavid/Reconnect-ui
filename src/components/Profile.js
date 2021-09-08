@@ -67,8 +67,8 @@ export default function Profile() {
             <h2 tw="mb-6 text-center text-2xl xl:text-3xl font-extrabold font-display">Update Profile</h2>
             <form onSubmit={handleSubmit}>
               <Input type="email" placeholder="Email" ref={emailRef} defaultValue={currentUser.email} required/>
-              <Input type="password" placeholder="Leave blank to keep the same" ref={passwordRef}/>
-              <Input type="password" placeholder="Leave blank to keep the same" ref={passwordConfirmRef}/>
+              <Input type="password" placeholder="Leave blank to keep password same" ref={passwordRef}/>
+              <Input type="password" placeholder="Confirm password or leave blank" ref={passwordConfirmRef}/>
               <p tw="text-sm text-red-900 text-center font-display h-10 mt-4">{error}</p>
               <SubmitButton disabled={loading} type="submit">
                 <span className="text">Update</span>

@@ -61,6 +61,10 @@ export default function Hero() {
     
     const [isOpen, setIsOpen] = useState(false)
 
+    const toggleTask = () => {
+        setTaskCompleted(true)
+    }
+
     const toggleOpen = () => {
         setIsOpen(!isOpen)
     }
@@ -145,18 +149,18 @@ export default function Hero() {
             <div tw="grid place-items-center py-2">
                 <WelcomeText>Welcome Back!</WelcomeText>
             </div>
-            <div tw="w-full grid lg:grid-cols-2 place-items-center">
-                <div tw="w-10/12 h-10/12 bg-gradient-to-br from-blue-200 via-green-200 to-green-600 z-0 rounded-xl relative grid place-items-center">
+            <div tw="w-full h-full grid lg:grid-cols-2 place-items-center">
+                <div tw="lg:w-10/12 lg:h-10/12 h-128 w-full bg-gradient-to-br from-blue-200 via-green-200 to-green-600 z-0 rounded-xl relative grid place-items-center">
                     {
                         showingChat ? (
                             null
                         ) : (<img tw="w-1/2 h-3/4 z-10 cursor-pointer hover:opacity-75" src={ChatButton} onClick={chatbot}/>)
                     }
-                    <div id="chatElement" tw="absolute h-3/4 w-full lg:w-3/4"></div>
+                    <div id="chatElement" tw="absolute h-10/12 w-full md:w-10/12"></div>
                 </div>
                 <div tw="w-full h-full py-10">
                     <div className="companion-container" tw="flex flex-col w-full items-center">
-                        <img src={reconnectCompanion} tw="w-1/2" alt="companion-monkey" onClick={() => {setTaskCompleted(false)}}></img>
+                        <img src={reconnectCompanion} tw="w-1/2" alt="companion"></img>
                             {hasName ? (
                                 <div tw="flex flex-row place-items-center h-10 w-1/2 my-5">
                                     <div tw="w-9/12 text-center">
@@ -204,9 +208,9 @@ export default function Hero() {
                     </div>
                 </div>
             </div>
-            <div tw="w-full flex flex-col place-items-center">
+            <div tw="w-full grid place-items-center">
                 <div tw="w-full h-20 bg-green-900 grid place-items-center font-display font-semibold text-2xl text-white">Claim XP!</div>
-                <ActivityLog/>
+                <ActivityLog toggleTask={toggleTask}/>
             </div>
         </MainContainer>
         </Element>

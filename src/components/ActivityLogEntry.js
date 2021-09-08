@@ -1,7 +1,7 @@
 import React from 'react';
 import tw from "twin.macro";
 import Rating from './Rating';
-const MainContainer = tw.div`w-full h-20 bg-green-800 grid grid-cols-3`;
+const MainContainer = tw.div`w-full h-20 text-green-800 grid grid-cols-3`;
 
 export default function ActivityLogEntry() {
 
