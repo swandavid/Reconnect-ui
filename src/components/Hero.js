@@ -69,17 +69,16 @@ export default function Hero() {
         setIsOpen(!isOpen)
     }
 
-    function getUserInfo(){
+    function callserver(path){
         const request = new XMLHttpRequest();
         //add userid !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        request.open("GET", `http://127.0.0.1:5000/userinfo`);
+        request.open("GET", `http://127.0.0.1:5000/${path}`);
         request.onload = function () {
             let res = JSON.parse(JSON.stringify(this.response));
             console.log(request.status);
             if (request.status === 200) {
                 console.log(`response: ${res}`);
-                console.log(`level: ${res.userinfo}`);
-                return res.userinfo;
+                return res;
             }
         }
         request.send();
@@ -109,31 +108,43 @@ export default function Hero() {
                 openChatByDefault: true,
                     
                 onLoad: function(instance) {
-                    let activitycategory = "";
-                    let userlevel
+                    var activitycategory = "hi";
+                    var userlevel;
+                    var chosen = false;
                     function handler(event) {
                         console.log(event.type); // You can also manipulate context here.
                         console.log(event.data); // You can also manipulate input here. Maybe filter private data?
                         activitycategory = event.data.history.label;
                         if(activitycategory === "Recommended"){
-                            userlevel = getUserInfo();
+                            userlevel = callserver("/userinfo"); //change this to include userid
                             //if(userlevel > 3){
-                                //get the three recommended activities
-                                //if not then send the welcome message pt2
+                                //get the recommended activities
+                                //if level is less than 3 then send the welcome message
                           //  }
+                        }else if(activitycategory != null && activitycategory.length > 15){
+                            //call and store "activitycategory" in activity log with userid
+                            
                         }
                       }
                       function handler2(event) {
                         const generic = event.data.output.generic;
                         console.log(generic);
+                        if (chosen){
+                            //return text of activity information
+                        }
                         for (let i = 0; i < generic.length; i++) {
                           const item = generic[1]; //&& item.response_type === "options"
                           if (activitycategory === "Recommended" ) {
                             for(let i = 0; i < 3; i++){
                                 item.options[i].label = "go outside";
                             } 
+                            activitycategory = "hi";
+                            chosen = true;
                             // Save changes made to this message so it will be re-rendered the same way if session history is enabled.
                             event.updateHistory = true;
+                          }
+                          if (activitycategory === "Yes" || activitycategory === "No"){
+                              chosen = true;
                           }
                         }
                       }
