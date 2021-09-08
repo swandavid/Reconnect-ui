@@ -5,19 +5,18 @@ import styled from "styled-components";
 import Confetti from 'react-confetti'
 
 import { LocationMarkerIcon, EmojiHappyIcon, EmojiSadIcon, UserCircleIcon, PencilAltIcon, CheckCircleIcon, ClipboardCheckIcon, ClipboardListIcon, LogoutIcon, UserGroupIcon } from '@heroicons/react/outline'
-import reconnectCompanion from "../images/reconnect-character.svg";
+import reconnectCompanion from "../images/hero-companion.svg";
+import Pencil from "../images/pencil.png";
 import Rating from "./Rating";
 import HomeSideBar from "./HomeSideBar";
 import logo from "../images/r-logo.svg";
+import ChatButton from "../images/chat-button.svg";
 
 // Need a container for the whole screen
-const MainContainer = tw.div`min-h-screen w-screen bg-blue-200 text-green-800 flex flex-col justify-items-center items-center`;
+const MainContainer = tw.div`w-full overflow-hidden bg-blue-200 text-green-800 flex flex-col justify-items-center items-center`;
 
-const Content = tw.div`w-full mt-10 grid lg:grid-cols-3 justify-items-center`;
 // Need a container for the entire top bar
 const TopContainer = tw.div`w-full mt-5 grid grid-cols-2 md:grid-cols-3`;
-const LocationContainer = tw.div`flex flex-row place-self-center`;
-const Location = tw.text`font-display self-center font-semibold text-xs md:text-base pl-2 col-start-2`;
 
 // Editing name
 const EditButton = styled.button`
@@ -37,7 +36,7 @@ const SubmitButton = styled.button`
 
 // Welcome Back Greeting
 const WelcomeContainer = tw.div`pt-5`;
-const WelcomeText = tw.h2`font-display font-bold text-2xl`;
+const WelcomeText = tw.h2`font-display font-bold text-3xl`;
 
 // Important Links for Embedding Chatbot:
 /*
@@ -51,7 +50,7 @@ https://www.javascripttutorial.net/javascript-dom/javascript-queryselector/
 
 
 export default function Hero() {
-    const [companionName, setCompanionName] = useState("PLEASE NAME ME")
+    const [companionName, setCompanionName] = useState("Name Me!")
     const [hasName, setHasName] = useState(false);
     const [taskCompleted, setTaskCompleted] = useState(false);
     const [error, setError] = useState("");
@@ -133,26 +132,19 @@ export default function Hero() {
                 <Confetti tw="w-full h-full" numberOfPieces="100" recycle="false" onConfettiComplete={() => {setTaskCompleted(false)}}/>
             ) : (null)}
             <TopContainer>
-                <div tw="flex ml-2 h-20 w-64">
+                <div tw="flex ml-2 h-20 w-64 bg-green-800">
                     <img tw="h-20 flex-1" src={logo}/>
                 </div>
             </TopContainer>
-            <div tw="flex flex-col mt-4">
-                <LocationContainer>
-                    <LocationMarkerIcon tw="h-6 w-6 text-red-600"></LocationMarkerIcon>
-                    <Location>State College, PA</Location>
-                </LocationContainer>
-                <WelcomeContainer>
-                    <WelcomeText>Welcome Back!</WelcomeText>
-                </WelcomeContainer>
+            <div tw="grid place-items-center py-2">
+                <WelcomeText>Welcome Back!</WelcomeText>
             </div>
-            <Content>
-                <HomeSideBar/>
-                <div tw="h-144 w-full bg-gradient-to-br from-blue-200 via-green-200 to-green-600 rounded-lg z-0 relative grid place-items-center">
+            <div tw="w-full grid lg:grid-cols-2 place-items-center">
+                <div tw="w-10/12 h-10/12 bg-gradient-to-br from-blue-200 via-green-200 to-green-600 z-0 rounded-xl relative grid place-items-center">
                     {
                         showingChat ? (
                             null
-                        ) : (<button tw="m-2 bg-white font-bold text-green-800 hover:text-black hover:bg-gray-200 py-10 px-8 rounded-xl z-10" onClick={chatbot}>Talk with the Chatbot to get an activity</button>)
+                        ) : (<img tw="w-1/2 h-3/4 z-10 cursor-pointer hover:opacity-75" src={ChatButton} onClick={chatbot}/>)
                     }
                     <div id="chatElement" tw="absolute h-3/4 w-full lg:w-3/4"></div>
                 </div>
@@ -166,7 +158,7 @@ export default function Hero() {
                                     </div>
                                     <div tw="pl-4 w-3/12">
                                         <EditButton type="submit" onClick={() => setHasName(!hasName)}>
-                                            <PencilAltIcon className="icon" />
+                                            <img src={Pencil} tw="w-4"/>
                                         </EditButton>
                                     </div>
                                 </div>
@@ -203,7 +195,11 @@ export default function Hero() {
                         </div>
                     </div>
                 </div>
-            </Content>
+            </div>
+            <div tw="w-full">
+                <div tw="w-full h-20 bg-green-900 grid place-items-center font-display font-semibold text-2xl text-white">Claim XP!</div>
+                
+            </div>
         </MainContainer>
     );
 };
