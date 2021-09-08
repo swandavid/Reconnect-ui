@@ -25,24 +25,12 @@ export default function Sidebar({ isOpen, toggleOpen }) {
             </div>
             <div tw="grid place-items-center mt-20">
                 <div tw="grid place-items-center w-1/2 font-display font-semibold text-lg border-b-2 border-white">
-                    <NavLinks tw="h-16 cursor-pointer" to="home" spy={true} smooth={true} duration={500} offset={-80} onClick={toggleOpen}>
-                        Home
-                    </NavLinks>
-                    <NavLinks tw="h-16 cursor-pointer" to="how-to-play" spy={true} smooth={true} duration={500} offset={-80} onClick={toggleOpen}>
-                        How to Play
-                    </NavLinks>
-                    <NavLinks tw="h-16 cursor-pointer" to="mission" spy={true} smooth={true} duration={500} offset={-80} onClick={toggleOpen}>
-                        Our Mission
-                    </NavLinks>
-                    <NavLinks tw="h-16 cursor-pointer" to="team" spy={true} smooth={true} duration={500} offset={-80} onClick={toggleOpen}>
-                        Our Team
-                    </NavLinks>
+                    <NavLinks to="home" spy={true} smooth={true} duration={500} offset={-80} onClick={toggleOpen} tw="cursor-pointer h-16">About Us</NavLinks>
+                    <NavLinks to="how-to-play" spy={true} smooth={true} duration={500} offset={-80} onClick={toggleOpen} tw="cursor-pointer h-16">How to Play</NavLinks>
+                    <NavLinks to="team" spy={true} smooth={true} duration={500} offset={-80} onClick={toggleOpen} tw="cursor-pointer h-16">Our Team</NavLinks>
                 </div>
                 <button tw="w-1/2 h-16 hover:bg-green-500 font-display font-bold text-lg m-4">
-                    <Link to="/signup" tw="w-1/2">Sign Up</Link>
-                </button>
-                <button tw="w-1/2 h-16 hover:bg-green-500 font-display font-bold text-lg">
-                    <Link to="/login">Login</Link>
+                    <Link to="/home" tw="w-1/2">Home</Link>
                 </button>
             </div>
         </MainContainer>

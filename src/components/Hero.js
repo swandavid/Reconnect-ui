@@ -13,6 +13,7 @@ import HomeSideBar from "./HomeSideBar";
 import logo from "../images/r-logo.svg";
 import NavBarHero from "./NavBarHero";
 import ChatButton from "../images/chat-button.svg";
+import SidebarHero from "./SidebarHero";
 
 // Need a container for the whole screen
 const MainContainer = tw.div`w-full overflow-hidden bg-blue-200 text-green-800 flex flex-col justify-items-center items-center`;
@@ -58,6 +59,12 @@ export default function Hero() {
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
     const [showingChat, setShowingChat] = useState(false);
+    
+    const [isOpen, setIsOpen] = useState(false)
+
+    const toggleOpen = () => {
+        setIsOpen(!isOpen)
+    }
 
     async function chatbot(e) {
         e.preventDefault()
@@ -134,7 +141,8 @@ export default function Hero() {
             { taskCompleted ? (
                 <Confetti tw="w-full h-full" numberOfPieces="100" recycle="false" onConfettiComplete={() => {setTaskCompleted(false)}}/>
             ) : (null)}
-            <NavBarHero/>
+            <SidebarHero isOpen={isOpen} toggleOpen={toggleOpen}/>
+            <NavBarHero toggleOpen={toggleOpen}/>
             <div tw="grid place-items-center py-2">
                 <WelcomeText>Welcome Back!</WelcomeText>
             </div>

@@ -7,7 +7,7 @@ import MainLanding from './MainLanding';
 import HowToPlay from './HowToPlay';
 import TeamLanding from './TeamLanding';
 import Footer from './FooterPrivate';
-import Sidebar from './Sidebar';
+import Sidebar from './SidebarPrivate';
 
 const MainContainer = tw.div`flex flex-col justify-items-center items-center w-full overflow-hidden`;
 

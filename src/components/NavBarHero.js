@@ -49,7 +49,7 @@ export default function NavBar({ toggleOpen }) {
                 <Link to="/profile" tw="cursor-pointer font-display font-semibold text-white hover:text-black">Profile</Link>
             </div>
             <div tw="col-start-3 flex flex-row-reverse mr-5">
-                <div tw="grid place-items-center lg:hidden cursor-pointer" onClick={toggleOpen}>
+                <div tw="grid place-items-center lg:hidden cursor-pointer text-white" onClick={toggleOpen}>
                     <MenuIcon tw="w-8 h-8"/>
                 </div>
                 <div tw="invisible lg:visible">
