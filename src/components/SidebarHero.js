@@ -37,7 +37,7 @@ export default function Sidebar({ isOpen, toggleOpen }) {
         {isOpen ? 
         
         <MainContainer onClick={ toggleOpen }>
-            <div tw="flex flex-row-reverse h-10 cursor-pointer" onClick={ toggleOpen }>
+            <div tw="flex flex-row-reverse h-10 cursor-pointer text-black" onClick={ toggleOpen }>
                 <XIcon tw="w-10 h-10 m-4"/>
             </div>
             <div tw="grid place-items-center mt-20">

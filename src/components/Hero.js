@@ -5,14 +5,13 @@ import styled from "styled-components";
 import Confetti from 'react-confetti'
 import { Element } from 'react-scroll';
 
-import { LocationMarkerIcon, EmojiHappyIcon, EmojiSadIcon, UserCircleIcon, PencilAltIcon, CheckCircleIcon, ClipboardCheckIcon, ClipboardListIcon, LogoutIcon, UserGroupIcon } from '@heroicons/react/outline'
+import { EmojiHappyIcon, EmojiSadIcon, CheckCircleIcon } from '@heroicons/react/outline'
 import reconnectCompanion from "../images/hero-companion.svg";
 import Pencil from "../images/pencil.png";
-import Rating from "./Rating";
-import HomeSideBar from "./HomeSideBar";
-import logo from "../images/r-logo.svg";
+import ActivityLog from "./ActivityLog";
 import NavBarHero from "./NavBarHero";
 import ChatButton from "../images/chat-button.svg";
+import EmojiStraightIcon from "../images/emoji-straight-face.svg";
 import SidebarHero from "./SidebarHero";
 
 // Need a container for the whole screen
@@ -184,6 +183,8 @@ export default function Hero() {
                             <div tw="w-3/4 flex flex-row h-1/2 py-5">
                                 <div tw="w-1/3 h-1/2 grid place-items-center">
                                     <EmojiHappyIcon tw="self-center w-1/3"/>
+                                    <img src={EmojiStraightIcon} tw="self-center w-1/3 hidden"/>
+                                    <EmojiSadIcon tw="self-center w-1/3 hidden"/>
                                 </div>
                                 <div tw="border-white border rounded-xl self-center w-full h-5 overflow-hidden">
                                     <div tw="bg-gradient-to-r from-red-400 to-green-600 w-full h-full"/>
@@ -203,9 +204,9 @@ export default function Hero() {
                     </div>
                 </div>
             </div>
-            <div tw="w-full">
+            <div tw="w-full flex flex-col place-items-center">
                 <div tw="w-full h-20 bg-green-900 grid place-items-center font-display font-semibold text-2xl text-white">Claim XP!</div>
-
+                <ActivityLog/>
             </div>
         </MainContainer>
         </Element>
