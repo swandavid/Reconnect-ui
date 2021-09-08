@@ -69,17 +69,13 @@ function getToken(){
 }
 
 function callAPI(path, param){
-    //add param into parameters
-    //replace todo -> param
-    let todo = {
-        userId: "hi"
-    };
     fetch(`https://6e2cdc0b.us-south.apigw.appdomain.cloud/reconnectapi/${path}`, {
         method: 'POST',
         body: JSON.stringify(param),
         headers: { 'Content-Type': 'application/json' }
     }).then(res => res.json())
     .then(json => console.log(json));
+    return json;
 }
 
 app.listen(5000, () => {
@@ -109,7 +105,7 @@ app.get("/getactivities", async (req, res) => {
 });
 app.post("/addfeedback", async (req, res) => {
     var param = {
-        userId: 123,
+        userid: "072nh36e8ey3zepsy2ky3qtdgrpkg2",
         activityId: 234,
         sessionId: 456,
         rating: 5,
@@ -119,7 +115,26 @@ app.post("/addfeedback", async (req, res) => {
 });
 app.get("/gethistory", async (req, res) => {
     var param = {
-        userId: 123
+        userid: "072nh36e8ey3zepsy2ky3qtdgrpkg2"
     };
-    callAPI('gethistory');
+    callAPI('gethistory', param);
+});
+app.get("/userinfo", async (req, res) => {
+    //req.status(200);
+    var param = {
+        userid: "072nh36e8ey3zepsy2ky3qtdgrpkg2"
+    };
+    let info;
+    try{
+        info = await callAPI('userinfo', param);
+    }catch(err){
+        console.error();
+    }res.send(info);
+});
+app.get("/findactivities", async (req, res) => {
+    var param = {
+        userid: "072nh36e8ey3zepsy2ky3qtdgrpkg2",
+        activitycategory: "recommended"
+    };
+    callAPI('/findactivities', param);
 });
