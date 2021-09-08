@@ -69,6 +69,22 @@ export default function Hero() {
         setIsOpen(!isOpen)
     }
 
+    function getUserInfo(){
+        const request = new XMLHttpRequest();
+        //add userid !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        request.open("GET", `http://127.0.0.1:5000/userinfo`);
+        request.onload = function () {
+            let res = JSON.parse(JSON.stringify(this.response));
+            console.log(request.status);
+            if (request.status === 200) {
+                console.log(`response: ${res}`);
+                console.log(`level: ${res.userinfo}`);
+                return res.userinfo;
+            }
+        }
+        request.send();
+    }
+
     async function chatbot(e) {
         e.preventDefault()
     
@@ -94,12 +110,17 @@ export default function Hero() {
                     
                 onLoad: function(instance) {
                     let activitycategory = "";
+                    let userlevel
                     function handler(event) {
                         console.log(event.type); // You can also manipulate context here.
                         console.log(event.data); // You can also manipulate input here. Maybe filter private data?
                         activitycategory = event.data.history.label;
                         if(activitycategory === "Recommended"){
-                            //call a function to get recommended
+                            userlevel = getUserInfo();
+                            //if(userlevel > 3){
+                                //get the three recommended activities
+                                //if not then send the welcome message pt2
+                          //  }
                         }
                       }
                       function handler2(event) {
