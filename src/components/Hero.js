@@ -64,12 +64,11 @@ export default function Hero() {
         try {
             setError("")
             setLoading(true)
-
+            // old integration id "0bca7870-6bd7-4d80-8a56-6635dcf3b431"
             await document.getElementById('chatElement');
             const element = document.getElementById('chatElement');
-
             window.watsonAssistantChatOptions = {
-                integrationID: "0bca7870-6bd7-4d80-8a56-6635dcf3b431",
+                integrationID: "11347dad-3d44-419d-926b-40aeb23fb2b2",
                 region: "us-south",
                 serviceInstanceID: "ca70ca9a-7e6e-40bd-a663-c3bed2f8d8db",
         
@@ -83,6 +82,39 @@ export default function Hero() {
                 openChatByDefault: true,
                     
                 onLoad: function(instance) {
+                    let activitycategory = "";
+                    function handler(event) {
+                        console.log(event.type); // You can also manipulate context here.
+                        console.log(event.data); // You can also manipulate input here. Maybe filter private data?
+                        activitycategory = event.data.history.label;
+                        if(activitycategory === "Recommended"){
+                            //call a function to get recommended
+                        }
+                      }
+                      function handler2(event) {
+                        const generic = event.data.output.generic;
+                        console.log(generic);
+                        for (let i = 0; i < generic.length; i++) {
+                          const item = generic[1]; //&& item.response_type === "options"
+                          if (activitycategory === "Recommended" ) {
+                            for(let i = 0; i < 3; i++){
+                                item.options[i].label = "go outside";
+                            } 
+                            // Save changes made to this message so it will be re-rendered the same way if session history is enabled.
+                            event.updateHistory = true;
+                          }
+                        }
+                      }
+                      instance.on({ type: "pre:receive", handler: handler2 });
+                    instance.on({ type: "send", handler: handler });
+                
+                    // 30 seconds later, unsubscribe from listening to "send" events
+                    setTimeout(function(){
+                    instance.off({ type: "send", handler: handler});
+                    instance.destroySession();
+                    }, 30000);
+                
+                    // Actually render the web chat.
                     instance.render();
                 }
             };
