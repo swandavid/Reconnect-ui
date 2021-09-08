@@ -76,7 +76,7 @@ export default function Rating() {
     }
 
     return (
-            <div tw="grid grid-cols-5 w-5/12 place-items-center">
+            <div tw="grid grid-cols-5 w-10/12 md:w-5/12 place-items-center">
                 {ratingDiv}
             </div>
     );
