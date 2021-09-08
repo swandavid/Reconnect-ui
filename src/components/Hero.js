@@ -3,6 +3,7 @@ import tw from "twin.macro";
 import { Link } from "react-router-dom"
 import styled from "styled-components";
 import Confetti from 'react-confetti'
+import { Element } from 'react-scroll';
 
 import { LocationMarkerIcon, EmojiHappyIcon, EmojiSadIcon, UserCircleIcon, PencilAltIcon, CheckCircleIcon, ClipboardCheckIcon, ClipboardListIcon, LogoutIcon, UserGroupIcon } from '@heroicons/react/outline'
 import reconnectCompanion from "../images/hero-companion.svg";
@@ -10,6 +11,7 @@ import Pencil from "../images/pencil.png";
 import Rating from "./Rating";
 import HomeSideBar from "./HomeSideBar";
 import logo from "../images/r-logo.svg";
+import NavBarHero from "./NavBarHero";
 import ChatButton from "../images/chat-button.svg";
 
 // Need a container for the whole screen
@@ -127,15 +129,12 @@ export default function Hero() {
       }
 
     return(
+        <Element name="home" tw="w-full">
         <MainContainer>
             { taskCompleted ? (
                 <Confetti tw="w-full h-full" numberOfPieces="100" recycle="false" onConfettiComplete={() => {setTaskCompleted(false)}}/>
             ) : (null)}
-            <TopContainer>
-                <div tw="flex ml-2 h-20 w-64 bg-green-800">
-                    <img tw="h-20 flex-1" src={logo}/>
-                </div>
-            </TopContainer>
+            <NavBarHero/>
             <div tw="grid place-items-center py-2">
                 <WelcomeText>Welcome Back!</WelcomeText>
             </div>
@@ -198,8 +197,9 @@ export default function Hero() {
             </div>
             <div tw="w-full">
                 <div tw="w-full h-20 bg-green-900 grid place-items-center font-display font-semibold text-2xl text-white">Claim XP!</div>
-                
+
             </div>
         </MainContainer>
+        </Element>
     );
 };

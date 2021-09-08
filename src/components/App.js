@@ -17,6 +17,7 @@ import Error from "./Error";
 import Profile from "./Profile";
 import ActivityLog from "./ActivityLog";
 import Rating from "./Rating";
+import LandingPrivate from "./LandingPrivate";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <PrivateRoute exact path="/profile" component={Profile}/>
           <PrivateRoute exact path="/activity-log" component={ActivityLog}/>
           <PrivateRoute exact path="/rating" component={Rating}/>
+          <PrivateRoute exact path="/landing-private" component={LandingPrivate}/>
           <Route path="/" component={Landing} exact/>
           <Route path="/about" component={Team}/>
           <Route path="/signup" component={SignupNew} />

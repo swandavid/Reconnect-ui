@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import tw from "twin.macro";
 import { Element } from 'react-scroll';
 
-import NavBar from './NavBar';
+import NavBar from './NavBarPrivate';
 import MainLanding from './MainLanding';
 import HowToPlay from './HowToPlay';
 import TeamLanding from './TeamLanding';
-import Footer from './Footer';
+import Footer from './FooterPrivate';
 import Sidebar from './Sidebar';
 
 const MainContainer = tw.div`flex flex-col justify-items-center items-center w-full overflow-hidden`;
