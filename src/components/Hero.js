@@ -37,7 +37,6 @@ const SubmitButton = styled.button`
 `;
 
 // Welcome Back Greeting
-const WelcomeContainer = tw.div`pt-5`;
 const WelcomeText = tw.h2`font-display font-bold text-3xl`;
 
 // Important Links for Embedding Chatbot:
@@ -178,7 +177,7 @@ export default function Hero() {
             ) : (null)}
             <SidebarHero isOpen={isOpen} toggleOpen={toggleOpen}/>
             <NavBarHero toggleOpen={toggleOpen}/>
-            <div tw="grid place-items-center py-2">
+            <div tw="mt-20 grid place-items-center py-2">
                 <WelcomeText>Welcome Back!</WelcomeText>
             </div>
             <div tw="w-full h-full grid lg:grid-cols-2 place-items-center" onClick={()=>{setTaskCompleted(false)}}>
