@@ -2,7 +2,7 @@ import React from 'react';
 import tw from "twin.macro";
 import SpaceShip from "../images/landing-spaceship.svg";
 
-const MainContainer = tw.div`h-full my-10 w-full bg-blue-200 flex flex-col md:grid md:grid-cols-2 md:place-items-center items-center`;
+const MainContainer = tw.div`h-full my-12 w-full bg-blue-200 flex flex-col md:grid md:grid-cols-2 md:place-items-center items-center`;
 
 export default function MainLanding() {
     return(
