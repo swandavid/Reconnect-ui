@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { StarIcon } from '@heroicons/react/outline'
 import tw from "twin.macro";
 
-export default function Rating({ toggleTask }) {
+export default function Rating({ toggleTask, increaseXP }) {
 
     const [rating, setRating] = useState(0);
     const [hasRating, setHasRating] = useState(false);
@@ -11,6 +11,7 @@ export default function Rating({ toggleTask }) {
     const ratingFunction = () => {
         if (rating != 0) {
             toggleTask();
+            increaseXP();
             setHasRating(true);
         }
     }

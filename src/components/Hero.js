@@ -60,6 +60,22 @@ export default function Hero() {
     const {currentUser} = useAuth()
     const [isOpen, setIsOpen] = useState(false)
 
+    // Leveling system
+    let activityXP = 100;
+    const [currentLevel, setCurrentLevel] = useState(1);
+    const [currentXP, setCurrentXP] = useState(0);
+    const [levelXP, setLevelXP] = useState(500);
+
+    const increaseXP = () => {
+        setCurrentXP(currentXP+activityXP);
+        // Level Up
+        if (currentXP > (levelXP-1)){
+            setCurrentLevel(currentLevel+1);
+            setLevelXP(levelXP+(5*activityXP));
+            setCurrentXP(0);
+        }
+    }
+
     const toggleTask = () => {
         setTaskCompleted(true);
     }
@@ -218,20 +234,34 @@ export default function Hero() {
                             <div tw="w-3/4 flex flex-row h-1/2 py-5">
                                 <div tw="w-1/3 h-1/2 grid place-items-center">
                                     <EmojiHappyIcon tw="self-center w-1/3"/>
-                                    <img src={EmojiStraightIcon} tw="self-center w-1/3 hidden"/>
-                                    <EmojiSadIcon tw="self-center w-1/3 hidden"/>
                                 </div>
                                 <div tw="border-white border rounded-xl self-center w-full h-5 overflow-hidden">
                                     <div tw="bg-gradient-to-r from-red-400 to-green-600 w-full h-full"/>
                                 </div>
                             </div>
+                            <div tw="w-3/4 flex flex-row h-1/2 py-5 hidden">
+                                <div tw="w-1/3 h-1/2 grid place-items-center">
+                                    <img src={EmojiStraightIcon} tw="self-center w-1/3"/>
+                                </div>
+                                <div tw="border-white border rounded-xl self-center w-full h-5 overflow-hidden">
+                                    <div tw="bg-gradient-to-r from-red-400 to-green-600 w-1/2 h-full"/>
+                                </div>
+                            </div>
+                            <div tw="w-3/4 flex flex-row h-1/2 py-5 hidden">
+                                <div tw="w-1/3 h-1/2 grid place-items-center">
+                                    <EmojiSadIcon tw="self-center w-1/3"/>
+                                </div>
+                                <div tw="border-white border rounded-xl self-center w-full h-5 overflow-hidden">
+                                    <div tw="bg-gradient-to-r from-red-400 to-green-600 w-1/6 h-full"/>
+                                </div>
+                            </div>
                             <div tw="w-3/4 flex flex-row h-1/2 place-items-center">
                                 <div tw="grid justify-items-center items-center h-full w-3/12 mr-2">
-                                    <h1 tw="font-display font-semibold text-base lg:text-lg">Level 1</h1>
+                                    <h1 tw="font-display font-semibold text-base lg:text-lg">Level {currentLevel}</h1>
                                 </div>
                                 <div tw="border-white border rounded-xl h-1/4 w-9/12 justify-items-center items-center overflow-hidden">
                                     <div tw="bg-green-600 rounded-l-xl grid justify-items-center items-center h-full">
-                                        <h1 tw="tracking-wide text-sm font-display font-semibold text-white">0 / 500 XP</h1>
+                                        <h1 tw="tracking-wide text-sm font-display font-semibold text-white">{currentXP} / {levelXP} XP</h1>
                                     </div>
                                 </div>
                             </div>
@@ -241,7 +271,7 @@ export default function Hero() {
             </div>
             <div tw="w-full grid place-items-center">
                 <div tw="w-full h-20 bg-green-900 grid place-items-center font-display font-semibold text-2xl text-white">Claim XP!</div>
-                <ActivityLog toggleTask={toggleTask}/>
+                <ActivityLog toggleTask={toggleTask} increaseXP={increaseXP}/>
             </div>
         </MainContainer>
         </Element>
