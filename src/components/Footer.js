@@ -30,7 +30,7 @@ export default function Footer() {
                 </div>
                 <div tw="p-4 ml-4 my-2 border-r border-gray-400">
                     <h1 tw="font-display font-bold text-green-800 mb-2">Company</h1>
-                    <Link tw="font-display font-medium" to="/about">About Us</Link>
+                    <Link tw="font-display font-medium" to="/about" onClick={toggleHome}>About Us</Link>
                 </div>
                 <div tw="p-4 ml-4 my-2 border-r border-gray-400">
                     <h1 tw="font-display font-bold text-green-800 mb-2">Further Information</h1>
