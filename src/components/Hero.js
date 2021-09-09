@@ -174,14 +174,14 @@ export default function Hero() {
         <Element name="home" tw="w-full">
         <MainContainer>
             { taskCompleted ? (
-                <Confetti tw="w-full h-full" numberOfPieces="100" recycle="false" onConfettiComplete={() => {setTaskCompleted(false)}}/>
+                <Confetti tw="w-full h-full" numberOfPieces="50" recycle="false"/>
             ) : (null)}
             <SidebarHero isOpen={isOpen} toggleOpen={toggleOpen}/>
             <NavBarHero toggleOpen={toggleOpen}/>
             <div tw="grid place-items-center py-2">
                 <WelcomeText>Welcome Back!</WelcomeText>
             </div>
-            <div tw="w-full h-full grid lg:grid-cols-2 place-items-center">
+            <div tw="w-full h-full grid lg:grid-cols-2 place-items-center" onClick={()=>{setTaskCompleted(false)}}>
                 <div tw="lg:w-10/12 lg:h-10/12 h-128 w-full bg-gradient-to-br from-blue-200 via-green-200 to-green-600 z-0 rounded-xl relative grid place-items-center">
                     {
                         showingChat ? (
