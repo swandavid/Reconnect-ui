@@ -103,26 +103,25 @@ app.get("/getactivities", async (req, res) => {
     res.send(msg);
     console.log(`server response: ${msg}`);
 });
-app.post("/addfeedback", async (req, res) => {
+app.post("/addfeedback/:userid/:activityid", async (req, res) => {
     var param = {
-        userid: "072nh36e8ey3zepsy2ky3qtdgrpkg2",
-        activityId: 234,
-        sessionId: 456,
-        rating: 5,
-        completing: 1
+        userid: req.params.userid,
+        activityid: req.params.activityid,
+        sessionid: 0,
     };
     callAPI('addfeedback', param);
 });
-app.get("/gethistory", async (req, res) => {
+app.get("/gethistory/:userid", async (req, res) => {
+    //user activity history
     var param = {
-        userid: "072nh36e8ey3zepsy2ky3qtdgrpkg2"
+        userid: req.params.userid
     };
     callAPI('gethistory', param);
 });
-app.get("/userinfo", async (req, res) => {
-    //req.status(200);
+app.get("/userinfo/:userid", async (req, res) => {
+    //from the user table
     var param = {
-        userid: "072nh36e8ey3zepsy2ky3qtdgrpkg2"
+        userid: req.params.userid
     };
     let info;
     try{
@@ -136,5 +135,14 @@ app.get("/findactivities", async (req, res) => {
         userid: "072nh36e8ey3zepsy2ky3qtdgrpkg2",
         activitycategory: "recommended"
     };
-    callAPI('/findactivities', param);
+    callAPI('findactivities', param);
+});
+app.get("/addrating/:userid/:date/:activityname/:rating", async (req, res) => {
+    var param = {
+        userid: req.params.userid,
+        date: req.params.date,
+        activityname: req.params.activityname,
+        rating: req.params.rating
+    };
+    callAPI('addrating', param);
 });

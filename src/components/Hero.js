@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import styled from "styled-components";
 import Confetti from 'react-confetti'
 import { Element } from 'react-scroll';
-
+import { useAuth } from "../contexts/AuthContext"
 import { EmojiHappyIcon, EmojiSadIcon, CheckCircleIcon } from '@heroicons/react/outline'
 import reconnectCompanion from "../images/hero-companion.svg";
 import Pencil from "../images/pencil.png";
@@ -57,7 +57,7 @@ export default function Hero() {
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
     const [showingChat, setShowingChat] = useState(false);
-
+    const {currentUser} = useAuth()
     const [isOpen, setIsOpen] = useState(false)
 
     const toggleTask = () => {
@@ -115,48 +115,48 @@ export default function Hero() {
                         console.log(event.data); // You can also manipulate input here. Maybe filter private data?
                         activitycategory = event.data.history.label;
                         if(activitycategory === "Recommended"){
-                            userlevel = callserver("/userinfo"); //change this to include userid
+                            userlevel = callserver(`/userinfo/${currentUser.uid}`); //change this to include userid
                             //if(userlevel > 3){
                                 //get the recommended activities
                                 //if level is less than 3 then send the welcome message
-                          //  }
+                        //  }
                         }else if(activitycategory != null && activitycategory.length > 15){
                             //call and store "activitycategory" in activity log with userid
                             
                         }
-                      }
-                      function handler2(event) {
+                    }
+                    function handler2(event) {
                         const generic = event.data.output.generic;
                         console.log(generic);
                         if (chosen){
                             //return text of activity information
                         }
                         for (let i = 0; i < generic.length; i++) {
-                          const item = generic[1]; //&& item.response_type === "options"
-                          if (activitycategory === "Recommended" ) {
-                            for(let i = 0; i < 3; i++){
+                        const item = generic[1]; 
+                        if (activitycategory === "Recommended" ) {
+                            // CHANGING OPTION VALUES
+                        /*   for(let i = 0; i < 3; i++){
                                 item.options[i].label = "go outside";
-                            } 
+                            } */
                             activitycategory = "hi";
                             chosen = true;
                             // Save changes made to this message so it will be re-rendered the same way if session history is enabled.
                             event.updateHistory = true;
-                          }
-                          if (activitycategory === "Yes" || activitycategory === "No"){
-                              chosen = true;
-                          }
                         }
-                      }
-                      instance.on({ type: "pre:receive", handler: handler2 });
+                        if (activitycategory === "Yes" || activitycategory === "No"){
+                            chosen = true;
+                        }
+                        }
+                    }
+                    instance.on({ type: "pre:receive", handler: handler2 });
                     instance.on({ type: "send", handler: handler });
-                
+
                     // 30 seconds later, unsubscribe from listening to "send" events
                     setTimeout(function(){
                     instance.off({ type: "send", handler: handler});
                     instance.destroySession();
                     }, 30000);
-                
-                    // Actually render the web chat.
+
                     instance.render();
                 }
             };
