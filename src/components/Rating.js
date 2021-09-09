@@ -83,7 +83,7 @@ export default function Rating({ toggleTask }) {
     }
 
     return (
-        <div tw="grid place-items-center md:flex md:flex-row">
+        <div tw="grid place-items-center md:flex md:flex-row h-20">
             <div tw="grid grid-cols-5 w-10/12 md:w-5/12 place-items-center">
                 {ratingDiv}
             </div>

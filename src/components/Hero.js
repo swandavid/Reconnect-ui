@@ -37,7 +37,7 @@ const SubmitButton = styled.button`
 `;
 
 // Welcome Back Greeting
-const WelcomeText = tw.h2`font-display font-bold text-3xl`;
+const WelcomeText = tw.h2`font-yeseva font-bold text-3xl`;
 
 // Important Links for Embedding Chatbot:
 /*
@@ -57,7 +57,7 @@ export default function Hero() {
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
     const [showingChat, setShowingChat] = useState(false);
-    
+
     const [isOpen, setIsOpen] = useState(false)
 
     const toggleTask = () => {
