@@ -1,9 +1,9 @@
 import React from 'react';
 import tw from "twin.macro";
-import FirstDisplay from "../images/htp1.jpeg";
-import SecondDisplay from "../images/htp2.jpeg";
-import ThirdDisplay from "../images/htp3.jpeg";
-import FourthDisplay from "../images/htp4.jpeg";
+import FirstDisplay from "../images/htp1.png";
+import SecondDisplay from "../images/htp2.png";
+import ThirdDisplay from "../images/htp3.png";
+import FourthDisplay from "../images/htp4.png";
 
 const MainContainer = tw.div`w-full xl:h-screen bg-yellow-100 flex flex-col place-items-center`;
 
