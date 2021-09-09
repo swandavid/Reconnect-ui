@@ -8,6 +8,11 @@ export default function Rating({ toggleTask }) {
     const [hasRating, setHasRating] = useState(false);
     let ratingDiv;
 
+    const ratingFunction = () => {
+        toggleTask();
+        setHasRating(true);
+    }
+
     if (rating === 0) {
         ratingDiv = 
             <>
@@ -82,7 +87,7 @@ export default function Rating({ toggleTask }) {
             </div>
             { hasRating ? (
                 null
-            ) : (<button tw="font-display font-semibold p-2 bg-white text-xs lg:text-base text-green-800 hover:bg-gray-200 m-2 rounded-lg" onClick={()=>{ toggleTask() }}>Submit</button>)
+            ) : (<button tw="font-display font-semibold p-2 bg-white text-xs lg:text-base text-green-800 hover:bg-gray-200 m-2 rounded-lg" onClick={()=>{ ratingFunction() }}>Submit</button>)
             }
         </div>
     );
