@@ -62,7 +62,7 @@ export default function Hero() {
     const [isOpen, setIsOpen] = useState(false)
 
     const toggleTask = () => {
-        setTaskCompleted(true)
+        setTaskCompleted(true);
     }
 
     const toggleOpen = () => {

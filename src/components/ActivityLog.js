@@ -4,7 +4,7 @@ import ActivityLogEntry from './ActivityLogEntry';
 
 const Content = tw.div`w-full mb-20 grid place-items-center`;
 
-export default function ActivityLog() {
+export default function ActivityLog({ toggleTask }) {
     return (
         <Content>
                     <div tw="lg:w-3/4 w-full h-20 text-green-800 grid grid-cols-3">
@@ -19,13 +19,13 @@ export default function ActivityLog() {
                         </div>
                     </div>
                     <div tw="lg:w-3/4 w-full">
-                        <ActivityLogEntry/>
-                        <ActivityLogEntry/>
-                        <ActivityLogEntry/>
-                        <ActivityLogEntry/>
-                        <ActivityLogEntry/>
-                        <ActivityLogEntry/>
-                        <ActivityLogEntry/>
+                        <ActivityLogEntry toggleTask={toggleTask}/>
+                        <ActivityLogEntry toggleTask={toggleTask}/>
+                        <ActivityLogEntry toggleTask={toggleTask}/>
+                        <ActivityLogEntry toggleTask={toggleTask}/>
+                        <ActivityLogEntry toggleTask={toggleTask}/>
+                        <ActivityLogEntry toggleTask={toggleTask}/>
+                        <ActivityLogEntry toggleTask={toggleTask}/>
                     </div>
         </Content>
     )

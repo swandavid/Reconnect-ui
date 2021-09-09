@@ -3,7 +3,7 @@ import tw from "twin.macro";
 import Rating from './Rating';
 const MainContainer = tw.div`w-full h-20 text-green-800 grid grid-cols-3`;
 
-export default function ActivityLogEntry() {
+export default function ActivityLogEntry({toggleTask}) {
 
     var activity = "Activity goes here";
     var dateOfActivity = "Date goes here";
@@ -16,7 +16,7 @@ export default function ActivityLogEntry() {
             <div tw="grid place-items-center w-full">
                 <h1 tw="font-display font-semibold text-xs lg:text-base">{activity}</h1>
             </div>
-            <Rating/>
+            <Rating toggleTask={toggleTask}/>
         </MainContainer>
     )
 }
