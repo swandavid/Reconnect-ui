@@ -11,73 +11,73 @@ export default function Rating({ toggleTask }) {
     if (rating === 0) {
         ratingDiv = 
             <>
-                <StarIcon tw="z-0 stroke-current text-black" onClick={()=>(setRating(1))}/>
-                <StarIcon tw="z-0 stroke-current text-black" onClick={()=>(setRating(2))}/>
-                <StarIcon tw="z-0 stroke-current text-black" onClick={()=>(setRating(3))}/>
-                <StarIcon tw="z-0 stroke-current text-black" onClick={()=>(setRating(4))}/>
-                <StarIcon tw="z-0 stroke-current text-black" onClick={()=>(setRating(5))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-black" onClick={()=>(setRating(1))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-black" onClick={()=>(setRating(2))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-black" onClick={()=>(setRating(3))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-black" onClick={()=>(setRating(4))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-black" onClick={()=>(setRating(5))}/>
             </>
         ;
     }
     if (rating === 1) {
         ratingDiv = 
             <>
-                <StarIcon tw="z-0 stroke-current text-yellow-500" onClick={()=>(setRating(1))}/>
-                <StarIcon tw="z-0 stroke-current text-black" onClick={()=>(setRating(2))}/>
-                <StarIcon tw="z-0 stroke-current text-black" onClick={()=>(setRating(3))}/>
-                <StarIcon tw="z-0 stroke-current text-black" onClick={()=>(setRating(4))}/>
-                <StarIcon tw="z-0 stroke-current text-black" onClick={()=>(setRating(5))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-yellow-500" onClick={()=>(setRating(1))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-black" onClick={()=>(setRating(2))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-black" onClick={()=>(setRating(3))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-black" onClick={()=>(setRating(4))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-black" onClick={()=>(setRating(5))}/>
             </>
         ;
       } 
     if (rating === 2) {
         ratingDiv = 
             <>
-                <StarIcon tw="z-0 stroke-current text-yellow-500" onClick={()=>(setRating(1))}/>
-                <StarIcon tw="z-0 stroke-current text-yellow-500" onClick={()=>(setRating(2))}/>
-                <StarIcon tw="z-0 stroke-current text-black" onClick={()=>(setRating(3))}/>
-                <StarIcon tw="z-0 stroke-current text-black" onClick={()=>(setRating(4))}/>
-                <StarIcon tw="z-0 stroke-current text-black" onClick={()=>(setRating(5))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-yellow-500" onClick={()=>(setRating(1))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-yellow-500" onClick={()=>(setRating(2))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-black" onClick={()=>(setRating(3))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-black" onClick={()=>(setRating(4))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-black" onClick={()=>(setRating(5))}/>
             </>
         ;
     } 
     if (rating === 3) {
         ratingDiv =             
             <>
-                <StarIcon tw="z-0 stroke-current text-yellow-500" onClick={()=>(setRating(1))}/>
-                <StarIcon tw="z-0 stroke-current text-yellow-500" onClick={()=>(setRating(2))}/>
-                <StarIcon tw="z-0 stroke-current text-yellow-500" onClick={()=>(setRating(3))}/>
-                <StarIcon tw="z-0 stroke-current text-black" onClick={()=>(setRating(4))}/>
-                <StarIcon tw="z-0 stroke-current text-black" onClick={()=>(setRating(5))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-yellow-500" onClick={()=>(setRating(1))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-yellow-500" onClick={()=>(setRating(2))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-yellow-500" onClick={()=>(setRating(3))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-black" onClick={()=>(setRating(4))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-black" onClick={()=>(setRating(5))}/>
             </>
         ;
     }
     if (rating === 4) {
         ratingDiv =             
             <>
-                <StarIcon tw="z-0 stroke-current text-yellow-500" onClick={()=>(setRating(1))}/>
-                <StarIcon tw="z-0 stroke-current text-yellow-500" onClick={()=>(setRating(2))}/>
-                <StarIcon tw="z-0 stroke-current text-yellow-500" onClick={()=>(setRating(3))}/>
-                <StarIcon tw="z-0 stroke-current text-yellow-500" onClick={()=>(setRating(4))}/>
-                <StarIcon tw="z-0 stroke-current text-black"   onClick={()=>(setRating(5))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-yellow-500" onClick={()=>(setRating(1))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-yellow-500" onClick={()=>(setRating(2))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-yellow-500" onClick={()=>(setRating(3))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-yellow-500" onClick={()=>(setRating(4))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-black"   onClick={()=>(setRating(5))}/>
             </>
         ;
     }
     if (rating === 5) {
         ratingDiv =   
             <>          
-                <StarIcon tw="z-0 stroke-current text-yellow-500" onClick={()=>(setRating(1))}/>
-                <StarIcon tw="z-0 stroke-current text-yellow-500" onClick={()=>(setRating(2))}/>
-                <StarIcon tw="z-0 stroke-current text-yellow-500" onClick={()=>(setRating(3))}/>
-                <StarIcon tw="z-0 stroke-current text-yellow-500" onClick={()=>(setRating(4))}/>
-                <StarIcon tw="z-0 stroke-current text-yellow-500" onClick={()=>(setRating(5))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-yellow-500" onClick={()=>(setRating(1))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-yellow-500" onClick={()=>(setRating(2))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-yellow-500" onClick={()=>(setRating(3))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-yellow-500" onClick={()=>(setRating(4))}/>
+                <StarIcon tw="h-4 lg:h-8 stroke-current text-yellow-500" onClick={()=>(setRating(5))}/>
             </>
         ;
     }
 
     return (
         <div tw="grid place-items-center md:flex md:flex-row" onClick={ toggleTask }>
-            <div tw="grid grid-cols-5 w-10/12 h-10 md:w-5/12 place-items-center">
+            <div tw="grid grid-cols-5 w-10/12 md:w-5/12 place-items-center">
                 {ratingDiv}
             </div>
             { hasRating ? (
