@@ -9,8 +9,10 @@ export default function Rating({ toggleTask }) {
     let ratingDiv;
 
     const ratingFunction = () => {
-        toggleTask();
-        setHasRating(true);
+        if (rating != 0) {
+            toggleTask();
+            setHasRating(true);
+        }
     }
 
     if (rating === 0) {
