@@ -9,16 +9,16 @@ export default function ActivityLog() {
         <Content>
                     <div tw="lg:w-3/4 w-full h-20 text-green-800 grid grid-cols-3">
                         <div tw="grid place-items-center">
-                            <h1 tw="font-display font-semibold text-xl">Date</h1>
+                            <h1 tw="font-display font-semibold text-sm lg:text-xl">Date</h1>
                         </div>
                         <div tw="grid place-items-center">
-                            <h1 tw="font-display font-semibold text-xl">Activity</h1>
+                            <h1 tw="font-display font-semibold text-sm lg:text-xl">Activity</h1>
                         </div>
                         <div tw="flex items-center">
-                            <h1 tw="font-display font-semibold text-xl">Rating</h1>
+                            <h1 tw="font-display font-semibold text-sm lg:text-xl">Rating</h1>
                         </div>
                     </div>
-                    <div tw="lg:w-3/4 w-full text-white">
+                    <div tw="lg:w-3/4 w-full">
                         <ActivityLogEntry/>
                         <ActivityLogEntry/>
                         <ActivityLogEntry/>

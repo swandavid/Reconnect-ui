@@ -11,10 +11,10 @@ export default function ActivityLogEntry() {
     return (
         <MainContainer>
             <div tw="grid place-items-center w-full">
-                <h1 tw="font-display font-semibold">{dateOfActivity}</h1>
+                <h1 tw="font-display font-semibold text-xs lg:text-base">{dateOfActivity}</h1>
             </div>
             <div tw="grid place-items-center w-full">
-                <h1 tw="font-display font-semibold">{activity}</h1>
+                <h1 tw="font-display font-semibold text-xs lg:text-base">{activity}</h1>
             </div>
             <Rating/>
         </MainContainer>
