@@ -20,6 +20,7 @@ const apiURL = "https://api.us-south.assistant.watson.cloud.ibm.com/instances/fd
 const assistantID = "1897f7da-d777-49d0-ad51-aa686641bfb9";
 const AssistantV2 = require('ibm-watson/assistant/v2');
 const { IamAuthenticator } = require('ibm-watson/auth');
+const { json } = require("express");
 
 // connecting to the assistant
 const assistant = new AssistantV2({
@@ -36,8 +37,6 @@ const params = {
 //IAM tokens only last an hour
 getToken();
 function getToken(){
-    console.log("uhh");
-
     let options = {
         "method": "POST",
         "hostname": "bpe61bfd0365e9u4psdglite.db2.cloud.ibm.com",
@@ -50,7 +49,6 @@ function getToken(){
         
     let req = http.request(options, function (res) {
         let chunks = [];
-        console.log("hi");
         res.on("data", function (chunk) {
             chunks.push(chunk);
         });
@@ -58,8 +56,6 @@ function getToken(){
         res.on("end", function () {
             let body = Buffer.concat(chunks);
             dbToken = JSON.parse(body).token;
-            console.log(body.toString()); 
-           // collectData1();
         });
     });
 
@@ -67,15 +63,28 @@ function getToken(){
     //req.write(JSON.stringify({ command: 'select' }));
     req.end(); 
 }
-
 function callAPI(path, param){
-    fetch(`https://6e2cdc0b.us-south.apigw.appdomain.cloud/reconnectapi/${path}`, {
-        method: 'POST',
-        body: JSON.stringify(param),
-        headers: { 'Content-Type': 'application/json' }
-    }).then(res => res.json())
-    .then(json => console.log(json));
-    return json;
+    (async () => {
+        const res = await  fetch(`https://6e2cdc0b.us-south.apigw.appdomain.cloud/reconnectapi/${path}`, {
+            method: 'POST',
+            body: JSON.stringify(param),
+            headers: { 'Content-Type': 'application/json' }
+        })
+        const json = await res.json();
+        var rows = json.message[0].rows
+        console.log(rows);
+      })();
+    // fetch(`https://6e2cdc0b.us-south.apigw.appdomain.cloud/reconnectapi/${path}`, {
+    //     method: 'POST',
+    //     body: JSON.stringify(param),
+    //     headers: { 'Content-Type': 'application/json' }
+    // }).then(res => res.json())
+    // .then(json => console.log(json));
+
+    // while(json === null){
+    //     setTimeout(() => console.log("wait!"), 1000); // try again in 300 milliseconds
+    // }
+    return rows;
 }
 
 app.listen(5000, () => {
@@ -187,7 +196,8 @@ app.get("/gethistory/:userid", async (req, res) => {
     var param = {
         userid: req.params.userid
     };
-    callAPI('gethistory', param);
+    var info = callAPI('gethistory', param); 
+    res.send(info);
 });
 app.get("/addrating/:userid/:date/:activityname/:rating", async (req, res) => {
     var param = {
