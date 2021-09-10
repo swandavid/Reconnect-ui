@@ -103,6 +103,77 @@ app.get("/getactivities", async (req, res) => {
     res.send(msg);
     console.log(`server response: ${msg}`);
 });
+app.get("/userinfo/:userid", async (req, res) => {
+    //from the user table
+    var param = {
+        userid: req.params.userid
+    };
+    let info;
+    try{
+        info = await callAPI('userinfo', param);
+    }catch(err){
+        console.error();
+    }res.send(info);
+});
+app.get("/edituser/:userid/:companionname", async (req, res) => {
+    //from the user table
+    var param = {
+        userid: req.params.userid,
+        companionname: req.params.companionname
+    };
+    let info;
+    try{
+        info = await callAPI('edituser', param);
+    }catch(err){
+        console.error();
+    }res.send(info);
+});
+app.get("/edituser/:userid/:xp", async (req, res) => {
+    //from the user table
+    var param = {
+        userid: req.params.userid,
+        xp: req.params.xp
+    };
+    let info;
+    try{
+        info = await callAPI('edituser', param);
+    }catch(err){
+        console.error();
+    }res.send(info);
+});
+app.get("/edituser/:userid/:health", async (req, res) => {
+    //from the user table
+    var param = {
+        userid: req.params.userid,
+        health: req.params.health
+    };
+    let info;
+    try{
+        info = await callAPI('edituser', param);
+    }catch(err){
+        console.error();
+    }res.send(info);
+});
+app.get("/edituser/:userid/:level", async (req, res) => {
+    //from the user table
+    var param = {
+        userid: req.params.userid,
+        level: req.params.level
+    };
+    let info;
+    try{
+        info = await callAPI('edituser', param);
+    }catch(err){
+        console.error();
+    }res.send(info);
+});
+app.get("/findactivities", async (req, res) => {
+    var param = {
+        userid: "072nh36e8ey3zepsy2ky3qtdgrpkg2",
+        activitycategory: "recommended"
+    };
+    callAPI('findactivities', param);
+});
 app.post("/addfeedback/:userid/:activityid", async (req, res) => {
     var param = {
         userid: req.params.userid,
@@ -117,25 +188,6 @@ app.get("/gethistory/:userid", async (req, res) => {
         userid: req.params.userid
     };
     callAPI('gethistory', param);
-});
-app.get("/userinfo/:userid", async (req, res) => {
-    //from the user table
-    var param = {
-        userid: req.params.userid
-    };
-    let info;
-    try{
-        info = await callAPI('userinfo', param);
-    }catch(err){
-        console.error();
-    }res.send(info);
-});
-app.get("/findactivities", async (req, res) => {
-    var param = {
-        userid: "072nh36e8ey3zepsy2ky3qtdgrpkg2",
-        activitycategory: "recommended"
-    };
-    callAPI('findactivities', param);
 });
 app.get("/addrating/:userid/:date/:activityname/:rating", async (req, res) => {
     var param = {

@@ -1,8 +1,32 @@
 import React from 'react'
 import tw from "twin.macro";
 import ActivityLogEntry from './ActivityLogEntry';
+import { useAuth } from "../contexts/AuthContext";
 
 const Content = tw.div`w-full mb-20 grid place-items-center`;
+
+
+
+function callserver(path){
+    const request = new XMLHttpRequest();
+    //add userid !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    request.open("GET", `http://127.0.0.1:5000/${path}`);
+    request.onload = function () {
+        let res = JSON.parse(JSON.stringify(this.response));
+        console.log(request.status);
+        if (request.status === 200) {
+            console.log(`response: ${res}`);
+            return res;
+        }
+    }
+    request.send();
+}
+//function getactivities(){
+ //   const {currentUser} = useAuth()
+
+ //   let activityhistory = callserver(`/gethistory/${currentUser.uid}`);
+    
+//}
 
 export default function ActivityLog({ toggleTask, increaseXP }) {
 
@@ -28,7 +52,7 @@ export default function ActivityLog({ toggleTask, increaseXP }) {
                         <ActivityLogEntry toggleTask={toggleTask} increaseXP={increaseXP} activity={"Head to a Spikes game with a family member"} dateOfActivity={"7/5/21"}/>
                         <ActivityLogEntry toggleTask={toggleTask} increaseXP={increaseXP} activity={"Play a game of minigolf with your friends in Happy Valley"} dateOfActivity={"7/4/21"}/>
                         <ActivityLogEntry toggleTask={toggleTask} increaseXP={increaseXP} activity={"Take a snowboarding lesson at Tussey Mountain with a friend!"} dateOfActivity={"1/2/21"}/>
-                    </div>
+                     </div>
         </Content>
     )
 }

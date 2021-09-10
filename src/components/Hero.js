@@ -74,7 +74,7 @@ export default function Hero() {
             setLevelXP(levelXP+(5*activityXP));
             setCurrentXP(0);
         }
-    }
+    }    
 
     const toggleTask = () => {
         setTaskCompleted(true);
@@ -97,6 +97,19 @@ export default function Hero() {
             }
         }
         request.send();
+    }
+
+    async function companionname(name){
+       callserver(`/edituser/${currentUser.uid}/${name}`)
+    }
+    async function userxp(xp){
+        callserver(`/edituser/${currentUser.uid}/${currentXP}`)
+    }
+    async function userhealth(health){
+        callserver(`/edituser/${currentUser.uid}/${health}`)
+    }
+    async function userlevel(level){
+        callserver(`/edituser/${currentUser.uid}/${currentLevel}`)
     }
 
     async function chatbot(e) {
@@ -126,42 +139,49 @@ export default function Hero() {
                     var activitycategory = "hi";
                     var userlevel;
                     var chosen = false;
+                    var activity ="";
                     function handler(event) {
                         console.log(event.type); // You can also manipulate context here.
                         console.log(event.data); // You can also manipulate input here. Maybe filter private data?
                         activitycategory = event.data.history.label;
-                        if(activitycategory === "Recommended"){
-                            userlevel = callserver(`/userinfo/${currentUser.uid}`); //change this to include userid
+                        activity = event.data.input;
+                        // if(activitycategory === "Recommended"){
+                        //     userlevel = callserver(`/userinfo/${currentUser.uid}`); //change this to include userid
                             //if(userlevel > 3){
                                 //get the recommended activities
                                 //if level is less than 3 then send the welcome message
                         //  }
-                        }else if(activitycategory != null && activitycategory.length > 15){
+                        //}
+                         if(activitycategory != null && activitycategory.length > 20){
                             //call and store "activitycategory" in activity log with userid
-                            
-                        }
+                            var activityid = activity.text[0];
+                            //console.log("activityid: " + activityid)
+                            callserver(`addfeedback/${currentUser.uid}/${activityid}`)
+                         }
                     }
                     function handler2(event) {
                         const generic = event.data.output.generic;
                         console.log(generic);
-                        if (chosen){
-                            //return text of activity information
+                        if (chosen && generic[1].response_type === 'text'){
+                            //return text of activity information into the chatbot
+                            var activitydetails = activity[2];
+
                         }
-                        for (let i = 0; i < generic.length; i++) {
-                        const item = generic[1]; 
-                        if (activitycategory === "Recommended" ) {
-                            // CHANGING OPTION VALUES
-                        /*   for(let i = 0; i < 3; i++){
-                                item.options[i].label = "go outside";
-                            } */
-                            activitycategory = "hi";
+                        // for (let i = 0; i < generic.length; i++) {
+                        // const item = generic[1]; 
+                        // if (activitycategory === "Recommended" ) {
+                        //     // CHANGING OPTION VALUES
+                        // /*   for(let i = 0; i < 3; i++){
+                        //         item.options[i].label = "go outside";
+                        //     } */
+                        //     activitycategory = "hi";
+                        //     chosen = true;
+                        //     // Save changes made to this message so it will be re-rendered the same way if session history is enabled.
+                        //     event.updateHistory = true;
+                        // }
+                        // }
+                        if (activitycategory === "Yes" || activitycategory === "No" || activitycategory === "Surprise" || activitycategory === "Recommended"){
                             chosen = true;
-                            // Save changes made to this message so it will be re-rendered the same way if session history is enabled.
-                            event.updateHistory = true;
-                        }
-                        if (activitycategory === "Yes" || activitycategory === "No"){
-                            chosen = true;
-                        }
                         }
                     }
                     instance.on({ type: "pre:receive", handler: handler2 });
@@ -257,11 +277,11 @@ export default function Hero() {
                             </div>
                             <div tw="w-3/4 flex flex-row h-1/2 place-items-center">
                                 <div tw="grid justify-items-center items-center h-full w-3/12 mr-2">
-                                    <h1 tw="font-display font-semibold text-base lg:text-lg">Level {currentLevel}</h1>
+                                <h1 tw="font-display font-semibold text-base lg:text-lg">Level {currentLevel}</h1>
                                 </div>
                                 <div tw="border-white border rounded-xl h-1/4 w-9/12 justify-items-center items-center overflow-hidden">
                                     <div tw="bg-green-600 rounded-l-xl grid justify-items-center items-center h-full">
-                                        <h1 tw="tracking-wide text-sm font-display font-semibold text-white">{currentXP} / {levelXP} XP</h1>
+                                    <h1 tw="tracking-wide text-sm font-display font-semibold text-white">{currentXP} / {levelXP} XP</h1>
                                     </div>
                                 </div>
                             </div>
